@@ -9,15 +9,12 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit (e: React.FormEvent) {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", { username, password });
   };
 
-  const handleSocialLogin = (provider: string) => {
-    // Handle social login logic here
-    console.log("Social login with:", provider);
+  function handleSocialLogin (provider: string) {
+
   };
 
   return (
