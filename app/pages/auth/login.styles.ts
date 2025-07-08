@@ -69,7 +69,7 @@ export const S = {
     display: flex;
     gap: 40px;
     width: 100%;
-  `;
+  `,
 
   InputContainer: styled.div`
     display: flex;
