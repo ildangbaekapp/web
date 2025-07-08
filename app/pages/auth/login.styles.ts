@@ -65,6 +65,12 @@ export const S = {
     }
   `,
 
+  Form: styled.form`
+    display: flex;
+    gap: 40px;
+    width: 100%;
+  `;
+
   InputContainer: styled.div`
     display: flex;
     width: 100%;
