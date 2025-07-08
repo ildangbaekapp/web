@@ -1,12 +1,9 @@
 import { useState } from "react";
+
 import logoSrc from "~/assets/logo.png";
+import { KakaoIcon, GoogleIcon, NaverIcon, AppleIcon } from "~/components/icons";
+
 import { S } from "./login.styles";
-import {
-  KakaoIcon,
-  GoogleIcon,
-  NaverIcon,
-  AppleIcon,
-} from "~/components/icons";
 
 export default function Login() {
   const [username, setUsername] = useState("");
