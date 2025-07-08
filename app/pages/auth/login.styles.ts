@@ -13,6 +13,7 @@ export const S = {
       ${({ theme }) => theme.colors.primaryBg} 90%
     );
     padding: 20px;
+    gap: 40px;
     box-sizing: border-box;
   `,
 
