@@ -25,7 +25,7 @@ export default function Login() {
 
   return (
     <S.Container>
-      <S.LoginForm>
+      <S.Wrapper>
         <S.TopSection>
           <S.Logo src={logoSrc} alt="로고" />
           <form onSubmit={handleSubmit} style={{ width: "100%" }}>
