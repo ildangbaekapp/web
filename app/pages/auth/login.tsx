@@ -97,7 +97,7 @@ export default function Login() {
             </S.SocialButton>
           </S.SocialButtonContainer>
         </S.SocialSection>
-      </S.LoginForm>
+      </S.Wrapper>
     </S.Container>
   );
 }
