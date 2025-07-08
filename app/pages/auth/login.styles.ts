@@ -221,14 +221,16 @@ export const S = {
     flex-wrap: wrap;
   `,
 
-  SocialButton: styled.button<{ $bgColor: string }>`
+  SocialButton: styled.button<{
+    $provider: "kakao" | "google" | "naver" | "apple";
+  }>`
     display: flex;
     width: 56px;
     height: 56px;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: ${({ $bgColor }) => $bgColor};
+    background: ${({ theme, $provider }) => theme.colors[$provider]};
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
