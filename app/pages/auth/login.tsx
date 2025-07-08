@@ -65,81 +65,83 @@ export default function Login() {
   };
 
   return (
-    <Container>
-      <LoginForm>
-        <TopSection>
-          <Logo
+    <S.Container>
+      <S.LoginForm>
+        <S.TopSection>
+          <S.Logo
             src="https://cdn.builder.io/api/v1/image/assets%2Fb4b5201a40304baebe6870d80039c404%2Ff86d1c1f1d2c491a959fbf23514d34ed?format=webp&width=800"
             alt="로고"
           />
           <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-            <InputContainer>
-              <InputField
+            <S.InputContainer>
+              <S.InputField
                 type="text"
                 placeholder="아이디"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
-              <InputField
+              <S.InputField
                 type="password"
                 placeholder="비밀번호"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-            </InputContainer>
-            <ActionContainer>
-              <LoginButton type="submit">로그인</LoginButton>
-              <LinkContainer>
-                <LinkText href="/auth/find-id">아이디 찾기</LinkText>
-                <Divider />
-                <LinkText href="/auth/find-password">비밀번호 찾기</LinkText>
-                <Divider />
-                <LinkText href="/auth/register">회원가입</LinkText>
-              </LinkContainer>
-            </ActionContainer>
+            </S.InputContainer>
+            <S.ActionContainer>
+              <S.LoginButton type="submit">로그인</S.LoginButton>
+              <S.LinkContainer>
+                <S.LinkText href="/auth/find-id">아이디 찾기</S.LinkText>
+                <S.Divider />
+                <S.LinkText href="/auth/find-password">
+                  비밀번호 찾기
+                </S.LinkText>
+                <S.Divider />
+                <S.LinkText href="/auth/register">회원가입</S.LinkText>
+              </S.LinkContainer>
+            </S.ActionContainer>
           </form>
-        </TopSection>
+        </S.TopSection>
 
-        <SocialSection>
-          <SocialTitle>
-            <SocialLine />
-            <SocialTitleText>SNS 계정으로 로그인</SocialTitleText>
-            <SocialLine />
-          </SocialTitle>
-          <SocialButtonContainer>
-            <SocialButton
+        <S.SocialSection>
+          <S.SocialTitle>
+            <S.SocialLine />
+            <S.SocialTitleText>SNS 계정으로 로그인</S.SocialTitleText>
+            <S.SocialLine />
+          </S.SocialTitle>
+          <S.SocialButtonContainer>
+            <S.SocialButton
               $bgColor="#FEE600"
               onClick={() => handleSocialLogin("kakao")}
               aria-label="카카오 로그인"
             >
               <KakaoIcon />
-            </SocialButton>
-            <SocialButton
+            </S.SocialButton>
+            <S.SocialButton
               $bgColor="#4286F5"
               onClick={() => handleSocialLogin("google")}
               aria-label="구글 로그인"
             >
               <GoogleIcon />
-            </SocialButton>
-            <SocialButton
+            </S.SocialButton>
+            <S.SocialButton
               $bgColor="#21C607"
               onClick={() => handleSocialLogin("naver")}
               aria-label="네이버 로그인"
             >
               <NaverIcon />
-            </SocialButton>
-            <SocialButton
+            </S.SocialButton>
+            <S.SocialButton
               $bgColor="#000000"
               onClick={() => handleSocialLogin("apple")}
               aria-label="애플 로그인"
             >
               <AppleIcon />
-            </SocialButton>
-          </SocialButtonContainer>
-        </SocialSection>
-      </LoginForm>
-    </Container>
+            </S.SocialButton>
+          </S.SocialButtonContainer>
+        </S.SocialSection>
+      </S.LoginForm>
+    </S.Container>
   );
 }
