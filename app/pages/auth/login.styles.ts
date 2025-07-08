@@ -13,7 +13,6 @@ export const S = {
       ${({ theme }) => theme.colors.primaryBg} 90%
     );
     padding: 20px;
-    gap: 40px;
     box-sizing: border-box;
   `,
 
@@ -26,6 +25,7 @@ export const S = {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
     border-radius: 20px;
     background: ${({ theme }) => theme.colors.white};
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
