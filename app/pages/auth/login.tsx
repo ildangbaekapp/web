@@ -70,7 +70,7 @@ export default function Login() {
       <S.LoginForm>
         <S.TopSection>
           <S.Logo
-            src="https://cdn.builder.io/api/v1/image/assets%2Fb4b5201a40304baebe6870d80039c404%2Ff86d1c1f1d2c491a959fbf23514d34ed?format=webp&width=800"
+            src={logoSrc}
             alt="로고"
           />
           <form onSubmit={handleSubmit} style={{ width: "100%" }}>
