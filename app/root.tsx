@@ -1,13 +1,10 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { ThemeProvider } from "styled-components";
+
+import theme from "~/styles/theme";
+import "~/styles/app.css";
 
 import type { Route } from "./+types/root";
-import "./app.css";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://cdn.jsdelivr.net" },
@@ -32,7 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
