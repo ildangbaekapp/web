@@ -28,7 +28,7 @@ export default function Login() {
       <S.Wrapper>
         <S.TopSection>
           <S.Logo src={logoSrc} alt="로고" />
-          <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+          <S.Form onSubmit={handleSubmit} style={{ width: "100%" }}>
             <S.InputContainer>
               <S.InputField
                 type="text"
@@ -57,7 +57,7 @@ export default function Login() {
                 <S.LinkText href="/auth/register">회원가입</S.LinkText>
               </S.LinkContainer>
             </S.ActionContainer>
-          </form>
+          </S.Form>
         </S.TopSection>
 
         <S.SocialSection>
