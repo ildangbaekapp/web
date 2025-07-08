@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logoSrc from "~/assets/logo.png"
 import { S } from "./login.styles";
 
 const KakaoIcon = () => (
