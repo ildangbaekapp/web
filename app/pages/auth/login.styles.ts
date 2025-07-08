@@ -9,8 +9,8 @@ export const S = {
     align-items: center;
     background: linear-gradient(
       125deg,
-      #fff 8.44%,
-      ${({ theme }) => theme.colors.primaryBg} 91.56%
+      #fff 10%,
+      ${({ theme }) => theme.colors.primaryBg} 90%
     );
     padding: 20px;
     box-sizing: border-box;
