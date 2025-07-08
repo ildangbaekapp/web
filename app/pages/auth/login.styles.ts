@@ -17,7 +17,7 @@ export const S = {
     box-sizing: border-box;
   `,
 
-  LoginForm: styled.div`
+  Wrapper: styled.div`
     display: flex;
     width: 100%;
     max-width: 500px;
