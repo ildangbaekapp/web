@@ -125,15 +125,6 @@ export const S = {
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background: #005d8a;
-    }
-
-    &:active {
-      background: #004a6e;
-    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       font-size: 14px;
@@ -157,11 +148,6 @@ export const S = {
     font-weight: 500;
     text-decoration: underline;
     cursor: pointer;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary};
-    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       font-size: 12px;
@@ -233,15 +219,6 @@ export const S = {
     background: ${({ theme, $provider }) => theme.colors[$provider]};
     border: none;
     cursor: pointer;
-    transition: transform 0.2s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       width: 48px;
