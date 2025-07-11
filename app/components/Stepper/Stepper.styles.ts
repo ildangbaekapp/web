@@ -5,7 +5,7 @@ export const StepperContainer = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
+  overflow-y: auto;
   border-radius: 20px;
   flex-direction: column;
   justify-content: flex-start;
@@ -17,7 +17,6 @@ export const StepperContainer = styled.div`
 export const StepsWrapper = styled.div`
   align-self: stretch;
   padding: 10px;
-  overflow: hidden;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
