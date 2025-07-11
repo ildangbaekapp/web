@@ -5,6 +5,7 @@ import Checkbox from "~/components/Checkbox";
 import Button from "~/components/Button";
 import TermItem from "~/components/TermItem";
 import * as S from "./term.styles";
+import { MdArrowForward } from "react-icons/md";
 
 const terms = [
   {
@@ -125,12 +126,13 @@ export default function TermPage() {
         </S.TermsList>
       </S.TermsContainer>
       <S.ButtonContainer>
-        <Button variant="secondary" onClick={() => navigate("/")}>
+        <Button variant="secondary" onClick={() => navigate(-1)}>
           취소
         </Button>
         <Button
-          onClick={() => navigate("/register/role")}
+          onClick={() => navigate("../role")}
           disabled={isNextButtonDisabled}
+          icon={<MdArrowForward size={24} />}
         >
           다음
         </Button>
