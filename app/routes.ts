@@ -12,7 +12,7 @@ export default [
       route("term", "./pages/auth/register/term/term.tsx"),
       route("role", "./pages/auth/register/role/role.tsx"),
       route("verify", "./pages/auth/register/verify/verify.tsx"),
-      route("info", "./pages/auth/register/info.tsx"),
+      route("info", "./pages/auth/register/info/info.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;
