@@ -9,6 +9,7 @@ export const Layout = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -20,7 +21,7 @@ export const StepperWrapper = styled.div`
   position: sticky;
   top: 0;
   flex-shrink: 0;
-  width: 300px;
+  flex-basis: 300px;
   height: 100%;
   left: calc(50vw - 300px - min(300px, 50vw) - 20px);
 
@@ -30,8 +31,8 @@ export const StepperWrapper = styled.div`
 `;
 
 export const Content = styled.main`
+  display: flex;
   flex-grow: 1;
   max-width: 600px;
   height: 100%;
-  box-sizing: border-box;
 `;

@@ -14,6 +14,8 @@ export const InputWrapper = styled.div`
 
 export const StyledInput = styled.input`
   flex-grow: 1;
+  flex-shrink: 0;
+  min-width: 0;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.grey};

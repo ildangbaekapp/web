@@ -5,6 +5,7 @@ import Input, { InputGroup } from "~/components/Input";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import Modal from "~/components/Modal";
 import { useRegisterStore } from "~/store/registerStore";
+import SimpleModalContent from "~/components/SimpleModalContent";
 
 export default function InfoPage() {
   const navigate = useNavigate();
@@ -99,7 +100,18 @@ export default function InfoPage() {
       <Modal
         isOpen={showCompletionModal}
         onClose={() => setShowCompletionModal(false)}
-      ></Modal>
+      >
+        <SimpleModalContent
+          title="회원 가입이 완료되었습니다!"
+          description={
+            "회원 가입이 완료되었습니다.\n다양한 기능을 사용할 수 있습니다."
+          }
+          onConfirm={() => {
+            setShowCompletionModal(false);
+            navigate("/auth/login");
+          }}
+        />
+      </Modal>
     </RegisterPageLayout>
   );
 }
