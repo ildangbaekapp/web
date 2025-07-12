@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { MdArrowForward, MdKeyboardArrowDown } from "react-icons/md";
-import RegisterStepTop from "~/components/RegisterStepTop";
 import Button from "~/components/Button";
+import FormField from "~/components/FormField";
+import Input, { InputGroup, InputWrapper } from "~/components/Input";
+import RegisterPageLayout from "~/components/RegisterPageLayout";
+import Select from "~/components/Select";
 import * as S from "./verify.styles";
 
 const telecomOptions = [
@@ -41,132 +43,89 @@ export default function VerifyPage() {
   const isNextDisabled = !isVerified;
 
   return (
-    <S.PageContainer>
-      <RegisterStepTop
-        title="휴대폰 인증"
-        description="회원 가입을 위해 휴대폰 인증이 필요합니다."
-      />
-      <S.Form>
-        <S.FormRow>
-          <S.LabelContainer>
-            <S.RequiredChip>필수</S.RequiredChip>
-            <S.Label>이름</S.Label>
-          </S.LabelContainer>
-          <S.Input
-            placeholder="휴대폰 명의자"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+    <RegisterPageLayout
+      title="휴대폰 인증"
+      description="회원 가입을 위해 휴대폰 인증이 필요합니다."
+      onNext={() => navigate("../info")}
+      onPrev={() => navigate(-1)}
+      isNextDisabled={isNextDisabled}
+    >
+      <FormField label="이름" required>
+        <Input
+          placeholder="휴대폰 명의자"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </FormField>
+
+      <FormField label="생년월일 및 성별" required>
+        <InputGroup>
+          <Input
+            placeholder="YYMMDD"
+            maxLength={6}
+            value={birthDate}
+            onChange={(e) => setBirthDate(e.target.value)}
           />
-        </S.FormRow>
+          <Select value={gender} onChange={(e) => setGender(e.target.value)}>
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+          </Select>
+        </InputGroup>
+      </FormField>
 
-        <S.FormRow>
-          <S.LabelContainer>
-            <S.RequiredChip>필수</S.RequiredChip>
-            <S.Label>생년월일 및 성별</S.Label>
-          </S.LabelContainer>
-          <S.InputGroup>
-            <S.Input
-              placeholder="YYMMDD"
-              maxLength={6}
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
-            />
-            <S.SelectWrapper>
-              <S.Select
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              >
-                <option value="male">남성</option>
-                <option value="female">여성</option>
-              </S.Select>
-              <S.SelectIcon>
-                <MdKeyboardArrowDown />
-              </S.SelectIcon>
-            </S.SelectWrapper>
-          </S.InputGroup>
-        </S.FormRow>
+      <FormField label="통신사" required>
+        <Select value={telecom} onChange={(e) => setTelecom(e.target.value)}>
+          {telecomOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </Select>
+      </FormField>
 
-        <S.FormRow>
-          <S.LabelContainer>
-            <S.RequiredChip>필수</S.RequiredChip>
-            <S.Label>통신사</S.Label>
-          </S.LabelContainer>
-          <S.SelectWrapper>
-            <S.Select
-              value={telecom}
-              onChange={(e) => setTelecom(e.target.value)}
-            >
-              {telecomOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </S.Select>
-            <S.SelectIcon>
-              <MdKeyboardArrowDown />
-            </S.SelectIcon>
-          </S.SelectWrapper>
-        </S.FormRow>
+      <FormField label="휴대폰 번호" required>
+        <InputGroup>
+          <Input
+            placeholder="'-'를 제외하고 입력"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <Button
+            variant="secondary"
+            onClick={handleSendCode}
+            disabled={isCodeSent}
+          >
+            인증 번호 전송
+          </Button>
+        </InputGroup>
+      </FormField>
 
-        <S.FormRow>
-          <S.LabelContainer>
-            <S.RequiredChip>필수</S.RequiredChip>
-            <S.Label>휴대폰 번호</S.Label>
-          </S.LabelContainer>
-          <S.InputGroup>
-            <S.Input
-              placeholder="'-'를 제외하고 입력"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <Button
-              variant="secondary"
-              onClick={handleSendCode}
-              disabled={isCodeSent}
-            >
-              인증 번호 전송
-            </Button>
-          </S.InputGroup>
-        </S.FormRow>
-
-        {isCodeSent && (
-          <S.FormRow>
-            <S.InputGroup>
-              <S.InputWrapper>
-                <S.Input
-                  placeholder="인증 번호"
-                  value={verificationCode}
-                  onChange={(e) => setVerificationCode(e.target.value)}
-                  disabled={isVerified}
-                />
-                {!isVerified && <S.Timer>03:00</S.Timer>}
-              </S.InputWrapper>
-              <Button
-                variant="primary"
-                onClick={handleVerifyCode}
-                disabled={isVerified}
-              >
-                {isVerified ? "인증 완료" : "인증 확인"}
-              </Button>
-            </S.InputGroup>
-            {timerExpired && (
-              <S.ErrorMessage>인증 시간이 초과되었습니다.</S.ErrorMessage>
-            )}
-          </S.FormRow>
-        )}
-      </S.Form>
-      <S.ButtonContainer>
-        <Button variant="secondary" onClick={() => navigate(-1)}>
-          이전
-        </Button>
-        <Button
-          onClick={() => navigate("../info")}
-          disabled={isNextDisabled}
-          icon={<MdArrowForward size={24} />}
+      {isCodeSent && (
+        <FormField
+          errorMessage={
+            timerExpired ? "인증 시간이 초과되었습니다." : undefined
+          }
         >
-          다음
-        </Button>
-      </S.ButtonContainer>
-    </S.PageContainer>
+          <InputGroup>
+            <InputWrapper>
+              <Input
+                placeholder="인증 번호"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value)}
+                disabled={isVerified}
+              />
+              {!isVerified && <S.Timer>03:00</S.Timer>}
+            </InputWrapper>
+            <Button
+              variant="primary"
+              onClick={handleVerifyCode}
+              disabled={isVerified}
+            >
+              {isVerified ? "인증 완료" : "인증 확인"}
+            </Button>
+          </InputGroup>
+        </FormField>
+      )}
+    </RegisterPageLayout>
   );
 }

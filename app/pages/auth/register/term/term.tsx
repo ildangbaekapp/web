@@ -1,11 +1,9 @@
-import { useState, useEffect, Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import RegisterStepTop from "~/components/RegisterStepTop";
 import Checkbox from "~/components/Checkbox";
-import Button from "~/components/Button";
+import RegisterPageLayout from "~/components/RegisterPageLayout";
 import TermItem from "~/components/TermItem";
 import * as S from "./term.styles";
-import { MdArrowForward } from "react-icons/md";
 
 const terms = [
   {
@@ -91,52 +89,40 @@ export default function TermPage() {
   );
 
   return (
-    <S.PageContainer>
-      <RegisterStepTop
-        title="이용 약관 동의"
-        description="필수 항목 및 선택 항목 약관에 동의해주시길 바랍니다."
-      />
-      <S.TermsContainer>
-        <S.AllAgreeContainer>
-          <Checkbox
-            checked={allAgreed}
-            onChange={handleAllAgreeChange}
-            label="필수 및 선택 항목 전체 동의"
-            size="large"
-            isAllAgree
-          />
-        </S.AllAgreeContainer>
-        <S.TermsList>
-          {terms.map((term, index) => (
-            <Fragment key={term.key}>
-              <TermItem
-                key={term.key}
-                term={term}
-                checked={agreements[term.key as keyof typeof agreements]}
-                onChange={handleAgreementChange(
-                  term.key as keyof typeof agreements
-                )}
-                onDetailClick={() =>
-                  alert(`'${term.label}' 상세 페이지로 이동합니다.`)
-                }
-              />
-              {index < terms.length - 1 && <S.Divider />}
-            </Fragment>
-          ))}
-        </S.TermsList>
-      </S.TermsContainer>
-      <S.ButtonContainer>
-        <Button variant="secondary" onClick={() => navigate(-1)}>
-          취소
-        </Button>
-        <Button
-          onClick={() => navigate("../role")}
-          disabled={isNextButtonDisabled}
-          icon={<MdArrowForward size={24} />}
-        >
-          다음
-        </Button>
-      </S.ButtonContainer>
-    </S.PageContainer>
+    <RegisterPageLayout
+      title="이용 약관 동의"
+      description="필수 항목 및 선택 항목 약관에 동의해주시길 바랍니다."
+      onNext={() => navigate("../role")}
+      onCancel={() => navigate(-1)}
+      isNextDisabled={isNextButtonDisabled}
+    >
+      <S.AllAgreeContainer>
+        <Checkbox
+          checked={allAgreed}
+          onChange={handleAllAgreeChange}
+          label="필수 및 선택 항목 전체 동의"
+          size="large"
+          isAllAgree
+        />
+      </S.AllAgreeContainer>
+      <S.TermsList>
+        {terms.map((term, index) => (
+          <Fragment key={term.key}>
+            <TermItem
+              key={term.key}
+              term={term}
+              checked={agreements[term.key as keyof typeof agreements]}
+              onChange={handleAgreementChange(
+                term.key as keyof typeof agreements
+              )}
+              onDetailClick={() =>
+                alert(`'${term.label}' 상세 페이지로 이동합니다.`)
+              }
+            />
+            {index < terms.length - 1 && <S.Divider />}
+          </Fragment>
+        ))}
+      </S.TermsList>
+    </RegisterPageLayout>
   );
 }
