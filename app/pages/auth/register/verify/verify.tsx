@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup, InputWrapper } from "~/components/Input";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import Select from "~/components/Select";
+import { useRegisterStore } from "~/store/registerStore";
 import * as S from "./verify.styles";
 
 const telecomOptions = [
@@ -18,15 +18,26 @@ const telecomOptions = [
 
 export default function VerifyPage() {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [gender, setGender] = useState("male");
-  const [telecom, setTelecom] = useState(telecomOptions[0]);
-  const [phone, setPhone] = useState("");
-  const [verificationCode, setVerificationCode] = useState("");
-  const [isCodeSent, setIsCodeSent] = useState(false);
-  const [isVerified, setIsVerified] = useState(false);
-  const [timerExpired, setTimerExpired] = useState(false);
+  const {
+    name,
+    setName,
+    birthDate,
+    setBirthDate,
+    gender,
+    setGender,
+    telecom,
+    setTelecom,
+    phone,
+    setPhone,
+    verificationCode,
+    setVerificationCode,
+    isCodeSent,
+    setIsCodeSent,
+    isVerified,
+    setIsVerified,
+    timerExpired,
+    setTimerExpired,
+  } = useRegisterStore();
 
   const handleSendCode = () => {
     // TODO: Implement sending verification code

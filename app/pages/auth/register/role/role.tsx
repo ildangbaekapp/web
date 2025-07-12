@@ -1,15 +1,15 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
 import { MdCheck } from "react-icons/md";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import RoleRadioButton from "~/components/RoleRadioButton";
 import * as S from "./role.styles";
+import { useRegisterStore } from "~/store/registerStore";
 
 type Role = "jobSeeker" | "employer";
 
 export default function RolePage() {
   const navigate = useNavigate();
-  const [selectedRole, setSelectedRole] = useState<Role | null>(null);
+  const { selectedRole, setSelectedRole } = useRegisterStore();
 
   return (
     <RegisterPageLayout

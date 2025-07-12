@@ -1,18 +1,25 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup } from "~/components/Input";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
+import { useRegisterStore } from "~/store/registerStore";
 
 export default function InfoPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [businessNumber, setBusinessNumber] = useState("");
-
-  const [isEmailChecked, setIsEmailChecked] = useState(false);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    passwordConfirm,
+    setPasswordConfirm,
+    businessNumber,
+    setBusinessNumber,
+    isEmailChecked,
+    setIsEmailChecked,
+    selectedRole, // Add selectedRole from the store
+  } = useRegisterStore();
 
   const handleCheckEmail = () => {
     // TODO: Implement email duplication check
@@ -22,19 +29,22 @@ export default function InfoPage() {
   const isPasswordInvalid =
     password && passwordConfirm && password !== passwordConfirm;
 
+  // Business number is required only if the selected role is 'employer'
+  const isBusinessNumberRequired = selectedRole === "employer";
+
   const isNextDisabled =
     !isEmailChecked ||
     !password ||
     !passwordConfirm ||
     isPasswordInvalid ||
-    !businessNumber;
+    (isBusinessNumberRequired && !businessNumber); // Conditionally require businessNumber
 
   return (
     <RegisterPageLayout
       title="회원 정보 입력"
       description="이용하실 회원 정보를 입력해주세요."
       onNext={() => navigate("/auth/login")}
-      onCancel={() => navigate("/")}
+      onPrev={() => navigate(-1)}
       isNextDisabled={isNextDisabled}
     >
       <FormField label="아이디 (이메일)" required htmlFor="email">
@@ -72,14 +82,16 @@ export default function InfoPage() {
         />
       </FormField>
 
-      <FormField label="사업자등록번호" required htmlFor="businessNumber">
-        <Input
-          id="businessNumber"
-          placeholder="‘-’를 제외하고 입력"
-          value={businessNumber}
-          onChange={(e) => setBusinessNumber(e.target.value)}
-        />
-      </FormField>
+      {selectedRole === "employer" && (
+        <FormField label="사업자등록번호" required htmlFor="businessNumber">
+          <Input
+            id="businessNumber"
+            placeholder="‘-’를 제외하고 입력"
+            value={businessNumber}
+            onChange={(e) => setBusinessNumber(e.target.value)}
+          />
+        </FormField>
+      )}
     </RegisterPageLayout>
   );
 }

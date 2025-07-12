@@ -1,9 +1,10 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Checkbox from "~/components/Checkbox";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import TermItem from "~/components/TermItem";
 import * as S from "./term.styles";
+import { useRegisterStore } from "~/store/registerStore";
 
 const terms = [
   {
@@ -47,42 +48,21 @@ const requiredAgreements = ["age", "service", "privacy", "thirdParty"];
 
 export default function TermPage() {
   const navigate = useNavigate();
-  const [agreements, setAgreements] = useState({
-    age: false,
-    service: false,
-    privacy: false,
-    thirdParty: false,
-    marketing: false,
-  });
-  const [allAgreed, setAllAgreed] = useState(false);
+  const { agreements, setAgreements, setAllAgreed } = useRegisterStore();
 
   const handleAgreementChange =
     (key: keyof typeof agreements) => (checked: boolean) => {
-      setAgreements((prev) => ({ ...prev, [key]: checked }));
+      setAgreements({ ...agreements, [key]: checked });
     };
 
   const handleAllAgreeChange = (checked: boolean) => {
     setAllAgreed(checked);
-    setAgreements({
-      age: checked,
-      service: checked,
-      privacy: checked,
-      thirdParty: checked,
-      marketing: checked,
-    });
   };
 
-  useEffect(() => {
-    const allRequiredAgreed = requiredAgreements.every(
+  const allAgreed =
+    requiredAgreements.every(
       (key) => agreements[key as keyof typeof agreements]
-    );
-    const allOptionalAgreed = agreements.marketing;
-    if (allRequiredAgreed && allOptionalAgreed) {
-      setAllAgreed(true);
-    } else {
-      setAllAgreed(false);
-    }
-  }, [agreements]);
+    ) && agreements.marketing;
 
   const isNextButtonDisabled = !requiredAgreements.every(
     (key) => agreements[key as keyof typeof agreements]
