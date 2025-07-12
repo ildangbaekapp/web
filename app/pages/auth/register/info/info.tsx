@@ -3,6 +3,7 @@ import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup } from "~/components/Input";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
+import Modal from "~/components/Modal";
 import { useRegisterStore } from "~/store/registerStore";
 
 export default function InfoPage() {
@@ -18,7 +19,9 @@ export default function InfoPage() {
     setBusinessNumber,
     isEmailChecked,
     setIsEmailChecked,
-    selectedRole, // Add selectedRole from the store
+    selectedRole,
+    showCompletionModal,
+    setShowCompletionModal,
   } = useRegisterStore();
 
   const handleCheckEmail = () => {
@@ -43,7 +46,7 @@ export default function InfoPage() {
     <RegisterPageLayout
       title="회원 정보 입력"
       description="이용하실 회원 정보를 입력해주세요."
-      onNext={() => navigate("/auth/login")}
+      onNext={() => setShowCompletionModal(true)}
       onPrev={() => navigate(-1)}
       isNextDisabled={isNextDisabled}
     >
@@ -92,6 +95,11 @@ export default function InfoPage() {
           />
         </FormField>
       )}
+
+      <Modal
+        isOpen={showCompletionModal}
+        onClose={() => setShowCompletionModal(false)}
+      ></Modal>
     </RegisterPageLayout>
   );
 }

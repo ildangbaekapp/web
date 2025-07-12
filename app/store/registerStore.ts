@@ -30,6 +30,7 @@ interface RegisterState {
   isCodeSent: boolean;
   isVerified: boolean;
   timerExpired: boolean;
+  showCompletionModal: boolean;
 
   // Actions for InfoPage
   setEmail: (email: string) => void;
@@ -61,6 +62,7 @@ interface RegisterState {
   setIsCodeSent: (sent: boolean) => void;
   setIsVerified: (verified: boolean) => void;
   setTimerExpired: (expired: boolean) => void;
+  setShowCompletionModal: (show: boolean) => void;
 }
 
 export const useRegisterStore = create<RegisterState>((set) => ({
@@ -93,6 +95,7 @@ export const useRegisterStore = create<RegisterState>((set) => ({
   isCodeSent: false,
   isVerified: false,
   timerExpired: false,
+  showCompletionModal: false,
 
   // Actions for InfoPage
   setEmail: (email) => set({ email }),
@@ -127,4 +130,5 @@ export const useRegisterStore = create<RegisterState>((set) => ({
   setIsCodeSent: (isCodeSent) => set({ isCodeSent }),
   setIsVerified: (isVerified) => set({ isVerified }),
   setTimerExpired: (timerExpired) => set({ timerExpired }),
+  setShowCompletionModal: (showCompletionModal) => set({ showCompletionModal }),
 }));
