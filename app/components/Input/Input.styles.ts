@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const InputGroup = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const InputWrapper = styled.div`
   flex-grow: 1;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{ variant?: "login" }>`
   flex-grow: 1;
   flex-shrink: 0;
   min-width: 0;
@@ -25,4 +25,22 @@ export const StyledInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.colors.grey};
   }
+
+  ${({ variant }) =>
+    variant === "login" &&
+    css`
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      font-size: 16px;
+
+      &::placeholder {
+        color: ${({ theme }) => theme.colors.grey};
+        font-size: 16px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    `}
 `;

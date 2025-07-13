@@ -7,7 +7,7 @@ import {
 
 export default [
   ...prefix("auth", [
-    route("login", "./pages/auth/login.tsx"),
+    route("login", "./pages/auth/login/login.tsx"),
     route("register", "./components/Layout/RegisterLayout.tsx", [
       route("term", "./pages/auth/register/term/term.tsx"),
       route("role", "./pages/auth/register/role/role.tsx"),
