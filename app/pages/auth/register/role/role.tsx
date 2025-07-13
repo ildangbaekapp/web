@@ -1,4 +1,4 @@
-import { MdCheck } from "react-icons/md";
+import { MdBusiness, MdPerson } from "react-icons/md";
 import { useNavigate } from "react-router";
 
 import RegisterPageLayout from "~/components/RegisterPageLayout";
@@ -21,13 +21,13 @@ export default function RolePage() {
     >
       <S.RoleSelectionContainer>
         <RoleRadioButton
-          icon={<MdCheck size={32} />}
+          icon={<MdPerson size={48} />}
           label="구직자"
           selected={selectedRole === "jobSeeker"}
           onClick={() => setSelectedRole("jobSeeker")}
         />
         <RoleRadioButton
-          icon={<MdCheck size={32} />}
+          icon={<MdBusiness size={48} />}
           label="구인자"
           selected={selectedRole === "employer"}
           onClick={() => setSelectedRole("employer")}

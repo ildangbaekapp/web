@@ -1,16 +1,8 @@
-import { FaUserCircle } from "react-icons/fa"; // For profile icon
-import {
-  MdArrowDropDown,
-  MdManageAccounts,
-  MdNotifications,
-  MdWork,
-  MdSend,
-  MdBookmark,
-  MdRecommend,
-  MdAutorenew,
-} from "react-icons/md";
+import { MdArrowDropDown, MdAutorenew, MdRecommend } from "react-icons/md";
 
 import JobCard from "~/components/JobCard";
+import MySection from "~/components/MySection";
+import Section from "~/components/Section";
 
 import * as S from "./home.styles";
 
@@ -32,67 +24,9 @@ export default function Home() {
               <S.CountText>1 / 7</S.CountText>
             </S.Count>
           </S.Ad>
-          <S.MySection>
-            <S.Header>
-              <S.Button>
-                <S.ProfileIcon>
-                  <FaUserCircle />
-                </S.ProfileIcon>
-                <S.UserName>홍길동님</S.UserName>
-              </S.Button>
-              <S.Divider />
-              <S.Button>
-                <S.ManageAccountsIcon>
-                  <MdManageAccounts />
-                </S.ManageAccountsIcon>
-                <S.MyPageText>마이페이지</S.MyPageText>
-              </S.Button>
-            </S.Header>
-            <S.StatusContainer>
-              <S.Status>
-                <S.Title>
-                  <S.NotificationsIcon>
-                    <MdNotifications />
-                  </S.NotificationsIcon>
-                  <S.NewNotificationText>새 알림</S.NewNotificationText>
-                </S.Title>
-                <S.NotificationCount>2건</S.NotificationCount>
-              </S.Status>
-            </S.StatusContainer>
-            <S.ButtonContainer>
-              <S.ActionButton>
-                <S.WorkIcon>
-                  <MdWork />
-                </S.WorkIcon>
-                <S.ResumeText>이력서</S.ResumeText>
-              </S.ActionButton>
-              <S.VerticalDivider />
-              <S.ActionButton>
-                <S.SendIcon>
-                  <MdSend />
-                  <S.Badge>
-                    <S.BadgeText>2</S.BadgeText>
-                  </S.Badge>
-                </S.SendIcon>
-                <S.JobApplicationText>지원 공고</S.JobApplicationText>
-              </S.ActionButton>
-              <S.VerticalDivider />
-              <S.ActionButton>
-                <S.BookmarkIcon>
-                  <MdBookmark />
-                </S.BookmarkIcon>
-                <S.BookmarkText>북마크</S.BookmarkText>
-              </S.ActionButton>
-            </S.ButtonContainer>
-          </S.MySection>
+          <MySection name={"홍길동"} />
         </S.RowSection>
-        <S.Section>
-          <S.Header>
-            <S.IconWrapper>
-              <MdRecommend />
-            </S.IconWrapper>
-            <S.MyPageText>추천 공고</S.MyPageText>
-          </S.Header>
+        <Section title="추천 공고" icon={<MdRecommend />}>
           <S.JobContainer>
             {/* Job 1 */}
             <JobCard
@@ -122,14 +56,8 @@ export default function Home() {
               category="상하차"
             />
           </S.JobContainer>
-        </S.Section>
-        <S.Section>
-          <S.Header>
-            <S.IconWrapper>
-              <MdAutorenew />
-            </S.IconWrapper>
-            <S.MyPageText>실시간 공고</S.MyPageText>
-          </S.Header>
+        </Section>
+        <Section title="실시간 공고" icon={<MdAutorenew />}>
           <S.RealtimeJobContainer>
             {/* Realtime Job 1 */}
             <JobCard
@@ -198,7 +126,7 @@ export default function Home() {
               isBookmarked={true}
             />
           </S.RealtimeJobContainer>
-        </S.Section>
+        </Section>
       </S.SectionContainer>
     </S.MainContainer>
   );

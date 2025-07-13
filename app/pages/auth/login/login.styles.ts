@@ -10,12 +10,10 @@ export const Container = styled.div`
     white 0%,
     ${({ theme }) => theme.colors.primaryBg} 100%
   );
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
 `;
@@ -23,14 +21,12 @@ export const Container = styled.div`
 export const LoginBox = styled.div`
   width: 100%;
   max-width: 500px;
-  height: 80%;
   min-height: 700px;
   padding: 80px 40px;
   box-sizing: border-box;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,9 +34,8 @@ export const LoginBox = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     max-width: 100%;
-    padding: 80px 10vw;
-    width: 100%;
     height: 100%;
+    padding: 80px 10vw;
     border-radius: 0;
     box-shadow: none;
   }
@@ -48,7 +43,6 @@ export const LoginBox = styled.div`
 
 export const TopSection = styled.div`
   align-self: stretch;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -63,35 +57,22 @@ export const Logo = styled.img`
 
 export const InputFields = styled.div`
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   gap: 10px;
 `;
 
 export const InputWrapper = styled.div`
   align-self: stretch;
   padding: 15px;
-  overflow: hidden;
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
-  display: inline-flex;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
 `;
 
-export const InputLabel = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
-  font-size: 16px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 400;
-  word-wrap: break-word;
-`;
-
 export const AuthButtons = styled.div`
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,31 +85,24 @@ export const LoginButton = styled(Button)`
 `;
 
 export const AuthLinks = styled.div`
-  overflow: hidden;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 `;
 
 export const AuthLink = styled.a`
-  text-align: center;
   color: ${({ theme }) => theme.colors.darkGrey};
   font-size: 14px;
-  font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 500;
   text-decoration: underline;
-  word-wrap: break-word;
   cursor: pointer;
 `;
 
 export const Divider = styled.div`
-  width: 10px;
-  height: 0px;
-  transform: rotate(90deg);
-  transform-origin: top left;
-  outline: 1px solid ${({ theme }) => theme.colors.grey};
-  outline-offset: -0.5px;
+  width: 1px;
+  height: 12px;
+  background-color: ${({ theme }) => theme.colors.grey};
 `;
 
 export const BottomSection = styled.div`
@@ -142,7 +116,7 @@ export const BottomSection = styled.div`
 
 export const SnsLoginText = styled.div`
   align-self: stretch;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -150,41 +124,19 @@ export const SnsLoginText = styled.div`
 
 export const SnsLoginDivider = styled.div`
   flex: 1 1 0;
-  height: 0px;
-  outline: 1px solid ${({ theme }) => theme.colors.lightGrey};
-  outline-offset: -0.5px;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
 `;
 
 export const SnsLoginLabel = styled.div`
-  text-align: center;
   color: ${({ theme }) => theme.colors.darkGrey};
   font-size: 12px;
-  font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 500;
-  line-height: 16.8px;
-  word-wrap: break-word;
 `;
 
 export const SnsButtons = styled.div`
-  display: inline-flex;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-`;
-
-export const SnsButton = styled.div<{ $background: string }>`
-  width: 56px;
-  height: 56px;
-  background: ${({ $background }) => $background};
-  border-radius: 31.5px;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  img {
-    width: 24.27px;
-    height: 24.27px;
-  }
 `;

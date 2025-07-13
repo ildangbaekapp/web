@@ -16,11 +16,9 @@ export const TermsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`;
 
-export const Divider = styled.div`
-  align-self: stretch;
-  height: 1px;
-  background-color: ${({ theme }) => theme.colors.grey};
-  margin: 0 20px;
+  & > *:not(:last-child) {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+    padding-bottom: 10px;
+  }
 `;

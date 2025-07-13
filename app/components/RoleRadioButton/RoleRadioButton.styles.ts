@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface RoleButtonWrapperProps {
-  selected: boolean;
+  $selected: boolean;
 }
 
 export const RoleButtonWrapper = styled.div<RoleButtonWrapperProps>`
@@ -11,12 +11,13 @@ export const RoleButtonWrapper = styled.div<RoleButtonWrapperProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   display: inline-flex;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  ${({ selected, theme }) =>
-    selected &&
+  ${({ $selected, theme }) =>
+    $selected &&
     css`
       outline-color: ${theme.colors.primary};
     `}
@@ -35,8 +36,8 @@ export const IconWrapper = styled.div<RoleButtonWrapperProps>`
   color: ${({ theme }) => theme.colors.darkGrey};
   transition: all 0.2s ease-in-out;
 
-  ${({ selected, theme }) =>
-    selected &&
+  ${({ $selected, theme }) =>
+    $selected &&
     css`
       background-color: ${theme.colors.primary};
       color: ${theme.colors.white};

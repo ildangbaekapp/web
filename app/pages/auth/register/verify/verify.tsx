@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router";
 
-
 import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup, InputWrapper } from "~/components/Input";
@@ -39,19 +38,16 @@ export default function VerifyPage() {
     isVerified,
     setIsVerified,
     timerExpired,
-    setTimerExpired,
   } = useRegisterStore();
 
   const handleSendCode = () => {
     // TODO: Implement sending verification code
     setIsCodeSent(true);
-    setTimerExpired(false);
   };
 
   const handleVerifyCode = () => {
     // TODO: Implement code verification
     setIsVerified(true);
-    setTimerExpired(false);
   };
 
   const isNextDisabled = !isVerified;
@@ -64,8 +60,10 @@ export default function VerifyPage() {
       onPrev={() => navigate(-1)}
       isNextDisabled={isNextDisabled}
     >
-      <FormField label="이름" required>
+      <FormField label="이름" required htmlFor="name">
         <Input
+          id="name"
+          name="name"
           placeholder="휴대폰 명의자"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -75,20 +73,30 @@ export default function VerifyPage() {
       <FormField label="생년월일 및 성별" required>
         <InputGroup>
           <Input
+            name="birthDate"
             placeholder="YYMMDD"
             maxLength={6}
             value={birthDate}
             onChange={(e) => setBirthDate(e.target.value)}
           />
-          <Select value={gender} onChange={(e) => setGender(e.target.value)}>
+          <Select
+            name="gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
             <option value="male">남성</option>
             <option value="female">여성</option>
           </Select>
         </InputGroup>
       </FormField>
 
-      <FormField label="통신사" required>
-        <Select value={telecom} onChange={(e) => setTelecom(e.target.value)}>
+      <FormField label="통신사" required htmlFor="telecom">
+        <Select
+          id="telecom"
+          name="telecom"
+          value={telecom}
+          onChange={(e) => setTelecom(e.target.value)}
+        >
           {telecomOptions.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
@@ -97,9 +105,11 @@ export default function VerifyPage() {
         </Select>
       </FormField>
 
-      <FormField label="휴대폰 번호" required>
+      <FormField label="휴대폰 번호" required htmlFor="phone">
         <InputGroup>
           <Input
+            id="phone"
+            name="phone"
             placeholder="'-'를 제외하고 입력"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -116,6 +126,9 @@ export default function VerifyPage() {
 
       {isCodeSent && (
         <FormField
+          label="인증 번호"
+          required
+          htmlFor="verificationCode"
           errorMessage={
             timerExpired ? "인증 시간이 초과되었습니다." : undefined
           }
@@ -123,12 +136,14 @@ export default function VerifyPage() {
           <InputGroup>
             <InputWrapper>
               <Input
+                id="verificationCode"
+                name="verificationCode"
                 placeholder="인증 번호"
                 value={verificationCode}
                 onChange={(e) => setVerificationCode(e.target.value)}
                 disabled={isVerified}
               />
-              {!isVerified && <S.Timer>03:00</S.Timer>}
+              {!isVerified && !timerExpired && <S.Timer>03:00</S.Timer>}
             </InputWrapper>
             <Button
               variant="primary"

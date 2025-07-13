@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { useTheme } from "styled-components";
 
 import AppleIcon from "~/assets/apple.svg";
 import GoogleIcon from "~/assets/google.svg";
@@ -8,13 +7,13 @@ import KakaoIcon from "~/assets/kakao.svg";
 import LogoSrc from "~/assets/logo.png";
 import NaverIcon from "~/assets/naver.svg";
 import Input from "~/components/Input";
+import SnsButton from "~/components/SnsButton";
 import { useUserStore } from "~/store/userStore";
 
 import * as S from "./login.styles";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const theme = useTheme();
   const { setId, setEmail, setName, setRole } = useUserStore();
 
   const [email, setEmailInput] = useState("");
@@ -83,18 +82,10 @@ export default function LoginPage() {
             <S.SnsLoginDivider />
           </S.SnsLoginText>
           <S.SnsButtons>
-            <S.SnsButton $background={theme.colors.kakao}>
-              <img src={KakaoIcon} alt="kakao" />
-            </S.SnsButton>
-            <S.SnsButton $background={theme.colors.google}>
-              <img src={GoogleIcon} alt="google" />
-            </S.SnsButton>
-            <S.SnsButton $background={theme.colors.naver}>
-              <img src={NaverIcon} alt="naver" />
-            </S.SnsButton>
-            <S.SnsButton $background={theme.colors.apple}>
-              <img src={AppleIcon} alt="apple" />
-            </S.SnsButton>
+            <SnsButton provider="kakao" icon={KakaoIcon} alt="kakao" />
+            <SnsButton provider="google" icon={GoogleIcon} alt="google" />
+            <SnsButton provider="naver" icon={NaverIcon} alt="naver" />
+            <SnsButton provider="apple" icon={AppleIcon} alt="apple" />
           </S.SnsButtons>
         </S.BottomSection>
       </S.LoginBox>

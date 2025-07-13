@@ -31,18 +31,18 @@ export default function InfoPage() {
     setIsEmailChecked(true);
   };
 
-  const isPasswordInvalid =
-    password && passwordConfirm && password !== passwordConfirm;
-
-  // Business number is required only if the selected role is 'employer'
+  const isPasswordInvalid = password !== passwordConfirm;
   const isBusinessNumberRequired = selectedRole === "employer";
 
-  const isNextDisabled =
-    !isEmailChecked ||
-    !password ||
-    !passwordConfirm ||
-    isPasswordInvalid ||
-    (isBusinessNumberRequired && !businessNumber); // Conditionally require businessNumber
+  const getIsNextDisabled = () => {
+    if (!isEmailChecked || !password || !passwordConfirm || isPasswordInvalid) {
+      return true;
+    }
+    if (isBusinessNumberRequired && !businessNumber) {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <RegisterPageLayout
@@ -50,12 +50,13 @@ export default function InfoPage() {
       description="이용하실 회원 정보를 입력해주세요."
       onNext={() => setShowCompletionModal(true)}
       onPrev={() => navigate(-1)}
-      isNextDisabled={isNextDisabled}
+      isNextDisabled={getIsNextDisabled()}
     >
       <FormField label="아이디 (이메일)" required htmlFor="email">
         <InputGroup>
           <Input
             id="email"
+            name="email"
             placeholder="example@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -70,27 +71,32 @@ export default function InfoPage() {
         label="비밀번호"
         required
         errorMessage={
-          isPasswordInvalid ? "비밀번호 확인이 일치하지 않습니다." : undefined
+          isPasswordInvalid && passwordConfirm
+            ? "비밀번호 확인이 일치하지 않습니다."
+            : undefined
         }
       >
         <Input
           type="password"
+          name="password"
           placeholder="영문 + 숫자 + 특수문자 조합 8~20자 입력"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Input
           type="password"
+          name="passwordConfirm"
           placeholder="비밀번호 확인"
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}
         />
       </FormField>
 
-      {selectedRole === "employer" && (
+      {isBusinessNumberRequired && (
         <FormField label="사업자등록번호" required htmlFor="businessNumber">
           <Input
             id="businessNumber"
+            name="businessNumber"
             placeholder="‘-’를 제외하고 입력"
             value={businessNumber}
             onChange={(e) => setBusinessNumber(e.target.value)}

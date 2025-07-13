@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useNavigate } from "react-router";
 
 import Checkbox from "~/components/Checkbox";
@@ -40,35 +39,30 @@ const terms = [
   {
     key: "marketing",
     label: "마케팅 정보 제공 동의",
-    description: "마케팅 정보 제공에 동의합니다.",
+    description: "마케팅 정보 제공에 동의���니다.",
     required: false,
     hasDetailPage: false,
   },
 ];
 
-const requiredAgreements = ["age", "service", "privacy", "thirdParty"];
+const requiredKeys = terms.filter((term) => term.required).map((term) => term.key);
 
 export default function TermPage() {
   const navigate = useNavigate();
   const { agreements, setAgreements, setAllAgreed } = useRegisterStore();
 
-  const handleAgreementChange =
-    (key: keyof typeof agreements) => (checked: boolean) => {
-      setAgreements({ ...agreements, [key]: checked });
-    };
+  const handleAgreementChange = (key: keyof typeof agreements) => (checked: boolean) => {
+    setAgreements({ ...agreements, [key]: checked });
+  };
 
   const handleAllAgreeChange = (checked: boolean) => {
     setAllAgreed(checked);
   };
 
-  const allAgreed =
-    requiredAgreements.every(
-      (key) => agreements[key as keyof typeof agreements]
-    ) && agreements.marketing;
+  const allRequiredAgreed = requiredKeys.every((key) => agreements[key as keyof typeof agreements]);
+  const allAgreed = allRequiredAgreed && agreements.marketing;
 
-  const isNextButtonDisabled = !requiredAgreements.every(
-    (key) => agreements[key as keyof typeof agreements]
-  );
+  const isNextButtonDisabled = !allRequiredAgreed;
 
   return (
     <RegisterPageLayout
@@ -88,23 +82,17 @@ export default function TermPage() {
         />
       </S.AllAgreeContainer>
       <S.TermsList>
-        {terms.map((term, index) => (
-          <Fragment key={term.key}>
-            <TermItem
-              key={term.key}
-              term={term}
-              checked={agreements[term.key as keyof typeof agreements]}
-              onChange={handleAgreementChange(
-                term.key as keyof typeof agreements
-              )}
-              onDetailClick={() =>
-                alert(`'${term.label}' 상세 페이지로 이동합니다.`)
-              }
-            />
-            {index < terms.length - 1 && <S.Divider />}
-          </Fragment>
+        {terms.map((term) => (
+          <TermItem
+            key={term.key}
+            term={term}
+            checked={agreements[term.key as keyof typeof agreements]}
+            onChange={handleAgreementChange(term.key as keyof typeof agreements)}
+            onDetailClick={() => alert(`'${term.label}' 상세 페이지로 이동합니다.`)}
+          />
         ))}
       </S.TermsList>
     </RegisterPageLayout>
   );
 }
+
