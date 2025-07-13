@@ -1,9 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router";
 import { MdArrowForward } from "react-icons/md";
+import { useNavigate } from "react-router";
+
+
 import Button from "~/components/Button";
 import RegisterStepTop from "~/components/RegisterStepTop";
+
 import * as S from "./RegisterPageLayout.styles";
+
 
 interface RegisterPageLayoutProps {
   title: string;

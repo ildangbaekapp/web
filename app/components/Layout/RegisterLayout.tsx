@@ -1,5 +1,7 @@
 import { Outlet, useLocation } from "react-router";
+
 import Stepper from "../Stepper";
+
 import * as S from "./RegisterLayout.styles";
 
 const steps = [

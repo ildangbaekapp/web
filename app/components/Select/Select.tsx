@@ -1,5 +1,6 @@
 import React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+
 import * as S from "./Select.styles";
 
 type SelectProps = React.ComponentPropsWithoutRef<"select">;

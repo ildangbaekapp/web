@@ -1,6 +1,9 @@
 import { MdChevronRight } from "react-icons/md";
+
 import Checkbox from "~/components/Checkbox";
+
 import * as S from "./TermItem.styles";
+
 
 export default function TermItem({
   term,

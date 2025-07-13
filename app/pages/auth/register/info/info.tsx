@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router";
+
 import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup } from "~/components/Input";
-import RegisterPageLayout from "~/components/RegisterPageLayout";
 import Modal from "~/components/Modal";
-import { useRegisterStore } from "~/store/registerStore";
+import RegisterPageLayout from "~/components/RegisterPageLayout";
 import SimpleModalContent from "~/components/SimpleModalContent";
+import { useRegisterStore } from "~/store/registerStore";
 
 export default function InfoPage() {
   const navigate = useNavigate();

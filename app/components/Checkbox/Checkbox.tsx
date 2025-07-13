@@ -1,4 +1,5 @@
 import { FaCheck } from "react-icons/fa";
+
 import * as S from "./Checkbox.styles";
 
 interface CheckboxProps {

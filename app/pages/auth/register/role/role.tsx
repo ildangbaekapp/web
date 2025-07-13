@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router";
 import { MdCheck } from "react-icons/md";
+import { useNavigate } from "react-router";
+
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import RoleRadioButton from "~/components/RoleRadioButton";
-import * as S from "./role.styles";
 import { useRegisterStore } from "~/store/registerStore";
 
-type Role = "jobSeeker" | "employer";
+import * as S from "./role.styles";
 
 export default function RolePage() {
   const navigate = useNavigate();

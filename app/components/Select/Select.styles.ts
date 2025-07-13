@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { StyledInput } from "~/components/Input/Input.styles";
 
 export const SelectWrapper = styled.div`

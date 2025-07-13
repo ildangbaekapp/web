@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import type { DefaultTheme } from "styled-components/dist/types";
 
 type ButtonVariant = "primary" | "secondary";
 
@@ -6,7 +7,7 @@ interface ButtonProps {
   $variant?: ButtonVariant;
 }
 
-const getVariantStyles = (variant: ButtonVariant, theme: any) => {
+const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
   switch (variant) {
     case "primary":
       return css`

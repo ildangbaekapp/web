@@ -1,6 +1,7 @@
+import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence } from "framer-motion";
+
 import { ModalOverlay, ModalContent } from "./Modal.styles";
 
 interface ModalProps {

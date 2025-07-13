@@ -1,10 +1,12 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { useNavigate } from "react-router";
+
 import Checkbox from "~/components/Checkbox";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import TermItem from "~/components/TermItem";
-import * as S from "./term.styles";
 import { useRegisterStore } from "~/store/registerStore";
+
+import * as S from "./term.styles";
 
 const terms = [
   {

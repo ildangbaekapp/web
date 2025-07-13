@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router";
+
+
 import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup, InputWrapper } from "~/components/Input";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import Select from "~/components/Select";
 import { useRegisterStore } from "~/store/registerStore";
+
 import * as S from "./verify.styles";
 
 const telecomOptions = [

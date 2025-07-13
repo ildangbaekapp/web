@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router";
-import Button from "~/components/Button";
-import * as S from "./login.styles";
-import LogoSrc from "~/assets/logo.png";
-import KakaoIcon from "~/assets/kakao.svg";
-import GoogleIcon from "~/assets/google.svg";
-import NaverIcon from "~/assets/naver.svg";
-import AppleIcon from "~/assets/apple.svg";
-import Input from "~/components/Input";
 import { useTheme } from "styled-components";
+
+import AppleIcon from "~/assets/apple.svg";
+import GoogleIcon from "~/assets/google.svg";
+import KakaoIcon from "~/assets/kakao.svg";
+import LogoSrc from "~/assets/logo.png";
+import NaverIcon from "~/assets/naver.svg";
+import Input from "~/components/Input";
+
+import * as S from "./login.styles";
 
 export default function LoginPage() {
   const navigate = useNavigate();
