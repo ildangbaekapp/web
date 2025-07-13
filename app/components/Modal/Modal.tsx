@@ -46,7 +46,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
             initial={{ y: "100vh" }}
             animate={{ y: "0" }}
             exit={{ y: "100vh" }}
-            transition={{ type: "tween", ease: "circInOut", duration: 0.3 }}
+            transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
             onClick={(e: React.MouseEvent) => e.stopPropagation()} // Prevent closing when clicking inside modal
           >
             {children}
