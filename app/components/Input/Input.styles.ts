@@ -12,7 +12,7 @@ export const InputWrapper = styled.div`
   flex-grow: 1;
 `;
 
-export const StyledInput = styled.input<{ variant?: "login" }>`
+export const StyledInput = styled.input<{ $variant?: "login" }>`
   flex-grow: 1;
   flex-shrink: 0;
   min-width: 0;
@@ -26,8 +26,8 @@ export const StyledInput = styled.input<{ variant?: "login" }>`
     color: ${({ theme }) => theme.colors.grey};
   }
 
-  ${({ variant }) =>
-    variant === "login" &&
+  ${({ $variant }) =>
+    $variant === "login" &&
     css`
       padding: 0;
       border: none;

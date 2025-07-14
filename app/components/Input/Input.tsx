@@ -8,7 +8,7 @@ type InputProps = React.ComponentPropsWithoutRef<"input"> & {
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ variant, ...props }, ref) => {
-    return <S.StyledInput ref={ref} variant={variant} {...props} />;
+    return <S.StyledInput ref={ref} $variant={variant} {...props} />;
   }
 );
 
