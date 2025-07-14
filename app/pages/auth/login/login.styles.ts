@@ -93,6 +93,7 @@ export const AuthLinks = styled.div`
 
 export const AuthLink = styled.a`
   color: ${({ theme }) => theme.colors.darkGrey};
+  font-family: ${({ theme }) => theme.fontFamily};
   font-size: 14px;
   font-weight: 500;
   text-decoration: underline;
@@ -130,6 +131,7 @@ export const SnsLoginDivider = styled.div`
 
 export const SnsLoginLabel = styled.div`
   color: ${({ theme }) => theme.colors.darkGrey};
+  font-family: ${({ theme }) => theme.fontFamily};
   font-size: 12px;
   font-weight: 500;
 `;
