@@ -46,6 +46,7 @@ export const SearchBox = styled.div`
   background: ${({ theme }) => theme.colors.white};
   border-radius: 30px;
   outline: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  cursor: pointer;
 `;
 
 export const SearchBoxText = styled.div`

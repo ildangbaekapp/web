@@ -7,7 +7,11 @@ import theme from "~/styles/theme";
 
 import * as S from "./AppBar.styles";
 
-export default function AppBar() {
+interface AppBarProps {
+  onSearchBoxClick: () => void;
+}
+
+export default function AppBar({ onSearchBoxClick }: AppBarProps) {
   const navigate = useNavigate();
 
   const query = useSearchStore((state) => state.query);
@@ -20,7 +24,7 @@ export default function AppBar() {
     <S.AppBar>
       <S.Left>
         <S.Logo src={logo} alt="logo" onClick={handleLogoClick} />
-        <S.SearchBox>
+        <S.SearchBox onClick={onSearchBoxClick}>
           <S.SearchBoxText>{query || "검색어를 입력하세요."}</S.SearchBoxText>
           <MdSearch size={24} color={theme.colors.grey} />
         </S.SearchBox>

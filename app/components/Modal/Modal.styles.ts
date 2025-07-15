@@ -16,9 +16,10 @@ export const ModalOverlay = styled(motion.div)`
 
 export const ModalContent = styled(motion.div)`
   width: 100%;
-  max-width: 400px; /* Adjust as needed */
+  max-width: 600px; /* Adjust as needed */
   padding: 20px;
   background: ${({ theme }) => theme.colors.white};
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border-radius: 30px;
   flex-direction: column;
