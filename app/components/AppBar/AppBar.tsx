@@ -2,12 +2,15 @@ import { MdSearch, MdPersonOutline } from "react-icons/md";
 import { useNavigate } from "react-router";
 
 import logo from "~/assets/logo.png";
+import { useSearchStore } from "~/store/searchStore";
 import theme from "~/styles/theme";
 
 import * as S from "./AppBar.styles";
 
 export default function AppBar() {
   const navigate = useNavigate();
+
+  const query = useSearchStore((state) => state.query);
 
   const handleLogoClick = () => {
     navigate("/");
@@ -18,7 +21,7 @@ export default function AppBar() {
       <S.Left>
         <S.Logo src={logo} alt="logo" onClick={handleLogoClick} />
         <S.SearchBox>
-          <S.SearchBoxText>검색어를 입력하세요.</S.SearchBoxText>
+          <S.SearchBoxText>{query || "검색어를 입력하세요."}</S.SearchBoxText>
           <MdSearch size={24} color={theme.colors.grey} />
         </S.SearchBox>
       </S.Left>
