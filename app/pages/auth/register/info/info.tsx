@@ -5,8 +5,9 @@ import FormField from "~/components/FormField";
 import Input, { InputGroup } from "~/components/Input";
 import Modal from "~/components/Modal";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
-import SimpleModalContent from "~/components/SimpleModalContent";
 import { useRegisterStore } from "~/store/registerStore";
+
+import SimpleModalContent from "./SimpleModalContent";
 
 export default function InfoPage() {
   const navigate = useNavigate();

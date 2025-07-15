@@ -2,10 +2,10 @@ import { useNavigate } from "react-router";
 
 import Checkbox from "~/components/Checkbox";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
-import TermItem from "~/components/TermItem";
 import { useRegisterStore } from "~/store/registerStore";
 
 import * as S from "./term.styles";
+import TermItem from "./TermItem";
 
 const terms = [
   {

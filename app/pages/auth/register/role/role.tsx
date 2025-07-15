@@ -2,10 +2,10 @@ import { MdBusiness, MdPerson } from "react-icons/md";
 import { useNavigate } from "react-router";
 
 import RegisterPageLayout from "~/components/RegisterPageLayout";
-import RoleRadioButton from "~/components/RoleRadioButton";
 import { useRegisterStore } from "~/store/registerStore";
 
 import * as S from "./role.styles";
+import RoleRadioButton from "./RoleRadioButton";
 
 export default function RolePage() {
   const navigate = useNavigate();

@@ -1,7 +1,6 @@
 import { Outlet } from "react-router";
 
-import AppBar from "~/components/AppBar";
-
+import AppBar from "./AppBar";
 import * as S from "./MainLayout.styles";
 
 export default function MainLayout() {

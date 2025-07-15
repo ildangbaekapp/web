@@ -1,8 +1,8 @@
 import { Outlet, useLocation } from "react-router";
 
-import Stepper from "../Stepper";
-
 import * as S from "./RegisterLayout.styles";
+import Stepper from "./Stepper";
+
 
 const steps = [
   "이용 약관 동의",

@@ -4,9 +4,10 @@ import { useNavigate } from "react-router";
 
 
 import Button from "~/components/Button";
-import RegisterStepTop from "~/components/RegisterStepTop";
 
 import * as S from "./RegisterPageLayout.styles";
+import RegisterStepTop from "./RegisterStepTop";
+
 
 
 interface RegisterPageLayoutProps {

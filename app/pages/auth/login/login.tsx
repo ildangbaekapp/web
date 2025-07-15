@@ -7,10 +7,10 @@ import KakaoIcon from "~/assets/kakao.svg";
 import LogoSrc from "~/assets/logo.png";
 import NaverIcon from "~/assets/naver.svg";
 import Input from "~/components/Input";
-import SnsButton from "~/components/SnsButton";
 import { useUserStore } from "~/store/userStore";
 
 import * as S from "./login.styles";
+import SnsButton from "./SnsButton";
 
 export default function LoginPage() {
   const navigate = useNavigate();
