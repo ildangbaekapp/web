@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding: 80px 10vw 100px 10vw;
+  padding: 0 10vw 100px 10vw;
   position: relative;
   background: ${({ theme }) => theme.colors.white};
   overflow: hidden;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   display: inline-flex;
 

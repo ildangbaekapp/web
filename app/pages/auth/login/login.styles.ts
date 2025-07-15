@@ -16,6 +16,10 @@ export const Container = styled.div`
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 0;
+  }
 `;
 
 export const LoginBox = styled.div`
