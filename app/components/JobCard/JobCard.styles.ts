@@ -204,18 +204,10 @@ export const RealtimeTagText = styled.div`
   word-wrap: break-word;
 `;
 
-export const RealtimeBookmarkIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  left: 116px;
-  top: 10px;
+export const BookmarkIconButtonWrapper = styled.div`
   position: absolute;
-  overflow: hidden;
-  & > svg {
-    width: 100%;
-    height: 100%;
-    color: ${({ theme }) => theme.colors.primary};
-  }
+  top: 10px;
+  right: 10px;
 `;
 
 export const RealtimeInfo = styled.div`

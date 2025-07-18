@@ -4,7 +4,7 @@ export const TermItemWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10px;
+  padding: 25px 10px;
 `;
 
 export const TermContent = styled.div`
@@ -35,12 +35,4 @@ export const TermLabel = styled.span`
   color: ${({ theme }) => theme.colors.black};
   font-size: 18px;
   font-weight: 600;
-`;
-
-export const ChevronIcon = styled.div`
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.darkGrey};
-  font-size: 30px;
-  display: flex;
-  align-items: center;
 `;

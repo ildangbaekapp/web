@@ -1,4 +1,7 @@
-import { MdLocationOn, MdCategory, MdBookmark } from "react-icons/md";
+import { MdBookmark, MdCategory, MdLocationOn } from "react-icons/md";
+import { useTheme } from "styled-components";
+
+import IconButton from "~/components/IconButton";
 
 import * as S from "./JobCard.styles";
 
@@ -23,6 +26,8 @@ export default function JobCard({
   isRealtime = false,
   isBookmarked = false,
 }: JobCardProps) {
+  const theme = useTheme();
+
   if (isRealtime) {
     return (
       <S.RealtimeJob className="Job">
@@ -30,11 +35,13 @@ export default function JobCard({
           <S.RealtimeTag className="Tag">
             <S.RealtimeTagText>{category}</S.RealtimeTagText>
           </S.RealtimeTag>
-          <S.RealtimeBookmarkIcon
-            className={isBookmarked ? "Bookmark" : "Frame"}
-          >
-            <MdBookmark />
-          </S.RealtimeBookmarkIcon>
+          <S.BookmarkIconButtonWrapper>
+            <IconButton
+              icon={<MdBookmark size={24} />}
+              size={32}
+              color={isBookmarked ? theme.colors.primary : theme.colors.grey}
+            />
+          </S.BookmarkIconButtonWrapper>
         </S.RealtimeThumbnail>
         <S.RealtimeInfo className="Info">
           <S.RealtimeCompanyText>{companyName}</S.RealtimeCompanyText>

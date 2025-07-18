@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface StyledIconButtonProps {
   $size: number;
+  $color?: string;
 }
 
 export const StyledIconButton = styled(motion.button)<StyledIconButtonProps>`
@@ -16,7 +17,7 @@ export const StyledIconButton = styled(motion.button)<StyledIconButtonProps>`
   border-radius: 50%;
   width: ${({ $size }) => $size}px;
   height: ${({ $size }) => $size}px;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ $color, theme }) => $color || theme.colors.darkGrey};
   transition: background-color 0.2s ease-in-out;
 
   &:hover,

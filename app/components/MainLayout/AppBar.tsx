@@ -1,9 +1,10 @@
-import { MdSearch, MdPersonOutline } from "react-icons/md";
+import { MdPersonOutline, MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router";
+import { useTheme } from "styled-components";
 
 import logo from "~/assets/logo.png";
+import IconButton from "~/components/IconButton";
 import { useSearchStore } from "~/store/searchStore";
-import theme from "~/styles/theme";
 
 import * as S from "./AppBar.styles";
 
@@ -13,11 +14,16 @@ interface AppBarProps {
 
 export default function AppBar({ onSearchBoxClick }: AppBarProps) {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const query = useSearchStore((state) => state.query);
 
   const handleLogoClick = () => {
     navigate("/");
+  };
+
+  const handleProfileClick = () => {
+    navigate("/auth/login");
   };
 
   return (
@@ -30,7 +36,12 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
         </S.SearchBox>
       </S.Left>
       <S.Right>
-        <MdPersonOutline size={32} color={theme.colors.darkGrey} />
+        <IconButton
+          icon={<MdPersonOutline size={32} />}
+          onClick={handleProfileClick}
+          color={theme.colors.darkGrey}
+          size={36}
+        />
       </S.Right>
     </S.AppBar>
   );

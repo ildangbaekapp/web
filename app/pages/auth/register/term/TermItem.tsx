@@ -1,9 +1,9 @@
 import { MdChevronRight } from "react-icons/md";
 
 import Checkbox from "~/components/Checkbox";
+import IconButton from "~/components/IconButton";
 
 import * as S from "./TermItem.styles";
-
 
 export default function TermItem({
   term,
@@ -39,9 +39,11 @@ export default function TermItem({
         />
       </S.TermContent>
       {term.hasDetailPage && (
-        <S.ChevronIcon onClick={onDetailClick}>
-          <MdChevronRight />
-        </S.ChevronIcon>
+        <IconButton
+          icon={<MdChevronRight size={30} />}
+          size={30}
+          onClick={onDetailClick}
+        />
       )}
     </S.TermItemWrapper>
   );

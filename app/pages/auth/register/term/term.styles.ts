@@ -15,10 +15,8 @@ export const TermsList = styled.div`
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 
   & > *:not(:last-child) {
     border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
-    padding-bottom: 10px;
   }
 `;
