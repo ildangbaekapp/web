@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled, { css } from "styled-components";
 import type { DefaultTheme } from "styled-components/dist/types";
 
@@ -29,7 +30,7 @@ const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
   }
 };
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled(motion.button)<ButtonProps>`
   height: 48px;
   padding: 15px 20px;
   border-radius: 5px;
