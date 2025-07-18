@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { styled } from "styled-components";
 
 export const AppBar = styled.div`
@@ -33,9 +34,13 @@ export const Logo = styled.img`
   width: 50px;
   height: 50px;
   cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
-export const SearchBox = styled.div`
+export const SearchBox = styled(motion.button)`
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -45,8 +50,13 @@ export const SearchBox = styled.div`
   padding: 10px 20px;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 30px;
-  outline: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  border: 1px solid ${({ theme }) => theme.colors.lightGrey};
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.lightGrey};
+  }
 `;
 
 export const SearchBoxText = styled.div`
@@ -58,8 +68,27 @@ export const SearchBoxText = styled.div`
   white-space: nowrap;
 `;
 
+export const ShortcutWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  padding: 5px 10px;
+  background: ${({ theme }) => theme.colors.lightGrey};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
+`;
+
+export const ShortcutText = styled.div`
+  color: ${({ theme }) => theme.colors.grey};
+  font-family: ${({ theme }) => theme.fontFamily};
+  font-size: 12px;
+`;
+
 export const Right = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 5px;
 `;

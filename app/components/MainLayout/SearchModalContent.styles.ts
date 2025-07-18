@@ -116,7 +116,7 @@ export const HistoryContainer = styled.div`
   display: flex;
 `;
 
-export const HistoryItem = styled.div`
+export const HistoryItem = styled.button`
   align-self: stretch;
   padding: 15px 20px;
   overflow: hidden;
@@ -126,6 +126,8 @@ export const HistoryItem = styled.div`
   gap: 10px;
   display: inline-flex;
   cursor: pointer;
+  background: transparent;
+  border: none;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -140,6 +142,7 @@ export const HistoryIcon = styled.div`
 
 export const HistoryText = styled.div`
   color: ${({ theme }) => theme.colors.darkGrey};
+  font-family: ${({ theme }) => theme.fontFamily};
   font-size: 20px;
   font-weight: 500;
 `;

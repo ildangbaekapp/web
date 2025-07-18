@@ -13,7 +13,7 @@ export const MainContainer = styled.div`
   display: inline-flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 80px 10px 100px 10px;
+    padding: 0 10px 100px 10px;
   }
 `;
 

@@ -33,6 +33,7 @@ export default function SearchModalContent() {
     <S.Wrapper>
       <S.SearchBox>
         <S.SearchInput
+          autoFocus
           placeholder="검색어를 입력하세요."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
