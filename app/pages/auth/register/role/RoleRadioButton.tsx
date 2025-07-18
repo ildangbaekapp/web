@@ -16,7 +16,7 @@ export default function RoleRadioButton({
   return (
     <S.RoleButtonWrapper $selected={selected} onClick={onClick}>
       <S.IconWrapper $selected={selected}>{icon}</S.IconWrapper>
-      <S.Label>{label}</S.Label>
+      <S.Label $selected={selected}>{label}</S.Label>
     </S.RoleButtonWrapper>
   );
 }

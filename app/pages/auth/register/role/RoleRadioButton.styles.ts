@@ -4,22 +4,22 @@ interface RoleButtonWrapperProps {
   $selected: boolean;
 }
 
-export const RoleButtonWrapper = styled.div<RoleButtonWrapperProps>`
+export const RoleButtonWrapper = styled.button<RoleButtonWrapperProps>`
   padding: 30px;
   border-radius: 10px;
-  outline: 1px solid ${({ theme }) => theme.colors.darkGrey};
+  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
   display: inline-flex;
   cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.white};
   transition: all 0.2s ease-in-out;
-
   ${({ $selected, theme }) =>
     $selected &&
     css`
-      outline-color: ${theme.colors.primary};
+      border-color: ${theme.colors.primary};
     `}
 `;
 
@@ -44,9 +44,16 @@ export const IconWrapper = styled.div<RoleButtonWrapperProps>`
     `}
 `;
 
-export const Label = styled.div`
+export const Label = styled.div<RoleButtonWrapperProps>`
   text-align: center;
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.32px;
+  font-family: ${({ theme }) => theme.fontFamily};
+  color: ${({ theme }) => theme.colors.darkGrey};
+
+  ${({ $selected, theme }) =>
+    $selected &&
+    css`
+      color: ${theme.colors.primary};
+    `}
 `;

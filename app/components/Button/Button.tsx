@@ -18,8 +18,8 @@ export default function Button({
   return (
     <S.StyledButton
       $variant={variant}
-      whileHover={{ scale: 1.03, filter: "brightness(1.1)" }}
-      whileTap={{ scale: 0.98, filter: "brightness(0.9)" }}
+      whileHover={{ filter: "brightness(1.1)" }}
+      whileTap={{ scale: 0.95, filter: "brightness(0.9)" }}
       whileFocus={{ filter: "brightness(1.1)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       {...props}
