@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router";
 
-import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup } from "~/components/Input";
 import Modal from "~/components/Modal";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
 import { useRegisterStore } from "~/store/registerStore";
 
+import * as S from "./info.styles";
 import SimpleModalContent from "./SimpleModalContent";
 
 export default function InfoPage() {
@@ -62,9 +62,9 @@ export default function InfoPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Button variant="secondary" onClick={handleCheckEmail}>
+          <S.StyledButton variant="secondary" onClick={handleCheckEmail}>
             중복 확인
-          </Button>
+          </S.StyledButton>
         </InputGroup>
       </FormField>
 

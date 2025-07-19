@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Button from "~/components/Button";
+import Card from "~/components/Card";
 
 export const Container = styled.div`
   width: 100vw;
@@ -22,15 +23,12 @@ export const Container = styled.div`
   }
 `;
 
-export const LoginBox = styled.div`
+export const LoginBox = styled(Card)`
   width: 100%;
   max-width: 500px;
   min-height: 700px;
   padding: 80px 40px;
   box-sizing: border-box;
-  background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,15 +62,6 @@ export const InputFields = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`;
-
-export const InputWrapper = styled.div`
-  align-self: stretch;
-  padding: 15px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 `;
 
 export const AuthButtons = styled.div`

@@ -2,16 +2,12 @@ import React from "react";
 
 import * as S from "./Input.styles";
 
-type InputProps = React.ComponentPropsWithoutRef<"input"> & {
-  variant?: "login";
-};
+export type InputVariant = "outline" | "underline";
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, ...props }, ref) => {
-    return <S.StyledInput ref={ref} $variant={variant} {...props} />;
-  }
-);
+interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
+  variant?: InputVariant;
+}
 
-Input.displayName = "Input";
-
-export default Input;
+export default function Input({ variant = "outline", ...props }: InputProps) {
+  return <S.StyledInput $variant={variant} {...props} />;
+}

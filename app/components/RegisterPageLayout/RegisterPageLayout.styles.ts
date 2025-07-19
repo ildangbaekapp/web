@@ -27,7 +27,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.white};
   box-sizing: border-box;

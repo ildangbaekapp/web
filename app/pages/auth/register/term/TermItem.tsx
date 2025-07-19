@@ -41,7 +41,7 @@ export default function TermItem({
       {term.hasDetailPage && (
         <IconButton
           icon={<MdChevronRight size={30} />}
-          size={30}
+          size={42}
           onClick={onDetailClick}
         />
       )}

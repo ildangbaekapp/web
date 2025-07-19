@@ -1,4 +1,31 @@
-import styled, { css } from "styled-components";
+import styled, { css, type DefaultTheme } from "styled-components";
+
+import type { InputVariant } from "./Input";
+
+const getVariantStyles = (variant: InputVariant, theme: DefaultTheme) => {
+  switch (variant) {
+    case "outline":
+      return css`
+        border-radius: 5px;
+        border: 1px solid ${theme.colors.grey};
+        &:focus {
+          border-color: ${theme.colors.primary};
+          outline: none;
+        }
+      `;
+    case "underline":
+      return css`
+        border: none;
+        border-bottom: 1px solid ${theme.colors.grey};
+        &:focus {
+          border-color: ${theme.colors.primary};
+          outline: none;
+        }
+      `;
+    default:
+      return css``;
+  }
+};
 
 export const InputGroup = styled.div`
   display: flex;
@@ -12,12 +39,11 @@ export const InputWrapper = styled.div`
   flex-grow: 1;
 `;
 
-export const StyledInput = styled.input<{ $variant?: "login" }>`
+export const StyledInput = styled.input<{ $variant?: InputVariant }>`
   flex-grow: 1;
   flex-shrink: 0;
   min-width: 0;
   padding: 15px;
-  border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.grey};
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily};
@@ -26,21 +52,5 @@ export const StyledInput = styled.input<{ $variant?: "login" }>`
     color: ${({ theme }) => theme.colors.grey};
   }
 
-  ${({ $variant }) =>
-    $variant === "login" &&
-    css`
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      font-size: 16px;
-
-      &::placeholder {
-        color: ${({ theme }) => theme.colors.grey};
-        font-size: 16px;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    `}
+  ${({ $variant = "outline", theme }) => getVariantStyles($variant, theme)}
 `;

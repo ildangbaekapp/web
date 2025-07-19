@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const MySection = styled.div`
+import Card from "~/components/Card";
+
+export const Wrapper = styled(Card)`
   align-self: stretch;
   min-width: 300px;
   padding: 20px;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -33,8 +33,8 @@ export const Button = styled.div`
 `;
 
 export const ProfileIcon = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   position: relative;
   overflow: hidden;
   border-radius: 20px;
@@ -48,7 +48,7 @@ export const ProfileIcon = styled.div`
 
 export const UserName = styled.div`
   color: ${({ theme }) => theme.colors.black};
-  font-size: 20px;
+  font-size: 18px;
   font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 700;
   word-wrap: break-word;

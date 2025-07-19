@@ -40,24 +40,20 @@ export default function LoginPage() {
         <S.TopSection>
           <S.Logo src={LogoSrc} />
           <S.InputFields>
-            <S.InputWrapper>
-              <Input
-                variant="login"
-                type="email"
-                placeholder="이메일"
-                value={email}
-                onChange={(e) => setEmailInput(e.target.value)}
-              />
-            </S.InputWrapper>
-            <S.InputWrapper>
-              <Input
-                variant="login"
-                type="password"
-                placeholder="비밀번호"
-                value={password}
-                onChange={(e) => setPasswordInput(e.target.value)}
-              />
-            </S.InputWrapper>
+            <Input
+              variant="underline"
+              type="email"
+              placeholder="이메일"
+              value={email}
+              onChange={(e) => setEmailInput(e.target.value)}
+            />
+            <Input
+              variant="underline"
+              type="password"
+              placeholder="비밀번호"
+              value={password}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
           </S.InputFields>
           <S.AuthButtons>
             <S.LoginButton

@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 
 import * as S from "./Button.styles";
 
+export type ButtonVariant = "primary" | "secondary";
+
 interface ButtonProps extends React.ComponentProps<typeof motion.button> {
   children: ReactNode;
   variant?: "primary" | "secondary";

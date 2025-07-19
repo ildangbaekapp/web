@@ -15,7 +15,7 @@ interface MySectionProps {
 
 export default function MySection({ name }: MySectionProps) {
   return (
-    <S.MySection>
+    <S.Wrapper>
       <S.Header>
         <S.Button>
           <S.ProfileIcon>
@@ -67,6 +67,6 @@ export default function MySection({ name }: MySectionProps) {
           <S.BookmarkText>북마크</S.BookmarkText>
         </S.ActionButton>
       </S.ButtonContainer>
-    </S.MySection>
+    </S.Wrapper>
   );
 }

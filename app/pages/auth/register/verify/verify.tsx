@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router";
 
-import Button from "~/components/Button";
 import FormField from "~/components/FormField";
 import Input, { InputGroup, InputWrapper } from "~/components/Input";
 import RegisterPageLayout from "~/components/RegisterPageLayout";
@@ -114,13 +113,13 @@ export default function VerifyPage() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <Button
+          <S.StyledButton
             variant="secondary"
             onClick={handleSendCode}
             disabled={isCodeSent}
           >
             인증 번호 전송
-          </Button>
+          </S.StyledButton>
         </InputGroup>
       </FormField>
 
@@ -145,13 +144,13 @@ export default function VerifyPage() {
               />
               {!isVerified && !timerExpired && <S.Timer>03:00</S.Timer>}
             </InputWrapper>
-            <Button
+            <S.StyledButton
               variant="primary"
               onClick={handleVerifyCode}
               disabled={isVerified}
             >
               {isVerified ? "인증 완료" : "인증 확인"}
-            </Button>
+            </S.StyledButton>
           </InputGroup>
         </FormField>
       )}
