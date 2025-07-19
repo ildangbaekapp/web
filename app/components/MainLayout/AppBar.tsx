@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { MdPersonOutline, MdSearch } from "react-icons/md";
+import { MdPerson, MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { useTheme } from "styled-components";
 
@@ -51,13 +51,13 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
             <S.ShortcutWrapper>
               <S.ShortcutText>Ctrl + K</S.ShortcutText>
             </S.ShortcutWrapper>
-            <MdSearch size={24} color={theme.colors.grey} />
+            <MdSearch size={24} color={theme.colors.darkGrey} />
           </S.Right>
         </S.SearchBox>
       </S.Left>
       <S.Right>
         <IconButton
-          icon={<MdPersonOutline size={32} />}
+          icon={<MdPerson size={32} />}
           onClick={handleProfileClick}
           color={theme.colors.darkGrey}
           size={36}

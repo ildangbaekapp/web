@@ -12,7 +12,9 @@ export const Wrapper = styled.div`
 
 export const SearchBox = styled.div`
   align-self: stretch;
-  padding: 10px 20px;
+  height: 60px;
+  padding: 0 15px;
+  gap: 15px;
   background: ${({ theme }) => theme.colors.white};
   overflow: hidden;
   border-radius: 30px;
@@ -22,15 +24,23 @@ export const SearchBox = styled.div`
   display: inline-flex;
 `;
 
+export const Left = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 0;
+  min-width: 0;
+`;
+
 export const SearchInput = styled.input`
   flex-grow: 1;
   color: ${({ theme }) => theme.colors.darkGrey};
   font-size: 24px;
   font-weight: 500;
-  line-height: 33.6px;
   border: none;
   background: transparent;
   font-family: ${({ theme }) => theme.fontFamily};
+  min-width: 0;
 
   &:focus {
     outline: none;
@@ -44,7 +54,7 @@ export const SearchInput = styled.input`
 export const SearchIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.darkGrey};
   cursor: pointer;
 `;
 
@@ -59,51 +69,27 @@ export const Body = styled.div`
 `;
 
 export const Filter = styled.div`
-  align-self: stretch;
-  padding: 15px;
-  background: ${({ theme }) => theme.colors.lightGrey};
-  overflow: hidden;
-  border-radius: 15px;
-  justify-content: space-between;
-  align-items: center;
-  display: inline-flex;
-  cursor: pointer;
-`;
-
-export const FilterLeft = styled.div`
-  overflow: hidden;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
+  flex-shrink: 0;
   display: flex;
-`;
-
-export const FilterTitle = styled.div`
-  overflow: hidden;
-  justify-content: flex-start;
+  height: 30px;
+  padding: 5px 10px;
+  justify-content: center;
   align-items: center;
   gap: 5px;
-  display: flex;
-  color: ${({ theme }) => theme.colors.darkGrey};
-`;
-
-export const FilterText = styled.div`
-  font-size: 16px;
-  font-weight: 500;
+  border-radius: 9999px;
+  background: ${({ theme }) => theme.colors.primary};
 `;
 
 export const FilterCount = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: 16px;
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 export const FilterIcon = styled.div`
   width: 20px;
   height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const HistoryContainer = styled.div`

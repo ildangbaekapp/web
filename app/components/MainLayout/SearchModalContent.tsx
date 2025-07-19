@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MdChevronRight, MdHistory, MdSearch, MdTune } from "react-icons/md";
+import { MdHistory, MdSearch, MdTune } from "react-icons/md";
 
 import { useSearchStore } from "~/store/searchStore";
 
@@ -32,30 +32,30 @@ export default function SearchModalContent() {
   return (
     <S.Wrapper>
       <S.SearchBox>
-        <S.SearchInput
-          autoFocus
-          placeholder="검색어를 입력하세요."
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-        <S.SearchIcon onClick={handleSearch}>
-          <MdSearch size={24} />
-        </S.SearchIcon>
+        <S.Left>
+          <S.SearchIcon onClick={handleSearch}>
+            <MdSearch size={24} />
+          </S.SearchIcon>
+          <S.SearchInput
+            autoFocus
+            placeholder="검색어를 입력하세요."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+        </S.Left>
+        <S.Filter>
+          <S.FilterIcon>
+            <MdTune size={20} />
+          </S.FilterIcon>
+          <S.FilterCount>
+            {appliedFilterCount > 0
+              ? `필터 ${appliedFilterCount}개 적용`
+              : "필터"}
+          </S.FilterCount>
+        </S.Filter>
       </S.SearchBox>
       <S.Body>
-        <S.Filter>
-          <S.FilterLeft>
-            <S.FilterTitle>
-              <S.FilterIcon>
-                <MdTune size={20} />
-              </S.FilterIcon>
-              <S.FilterText>적용된 검색 필터</S.FilterText>
-            </S.FilterTitle>
-            <S.FilterCount>{appliedFilterCount}건</S.FilterCount>
-          </S.FilterLeft>
-          <MdChevronRight size={24} />
-        </S.Filter>
         <S.HistoryContainer>
           {recentSearches.map((term) => (
             <S.HistoryItem
