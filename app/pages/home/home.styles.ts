@@ -61,7 +61,7 @@ export const SectionContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
+  gap: 30px;
   display: flex;
 `;
 
@@ -109,14 +109,7 @@ export const CountText = styled.div`
   word-wrap: break-word;
 `;
 
-export const JobContainer = styled.div`
-  display: flex;
-  overflow-x: auto;
-  box-sizing: border-box;
-  padding: 10px;
-  width: 100%;
-  gap: 10px;
-`;
+
 
 export const RealtimeJobContainer = styled.div`
   width: 100%;

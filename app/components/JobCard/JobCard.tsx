@@ -1,84 +1,79 @@
-import { MdBookmark, MdCategory, MdLocationOn } from "react-icons/md";
-import { useTheme } from "styled-components";
-
-import IconButton from "~/components/IconButton";
+import { useState } from "react";
+import {
+  MdOutlineBookmark,
+  MdOutlineBookmarkBorder,
+  MdStars,
+} from "react-icons/md";
 
 import * as S from "./JobCard.styles";
 
 interface JobCardProps {
+  thumbnail?: string;
+  companyPicture?: string;
   companyName: string;
   jobTitle: string;
   salary: string;
-  timeAgo: string;
-  location: string;
   category: string;
-  isRealtime?: boolean;
+  feature?: string;
   isBookmarked?: boolean;
+  onBookmarkClick?: () => void;
 }
 
 export default function JobCard({
+  thumbnail,
+  companyPicture,
   companyName,
   jobTitle,
   salary,
-  timeAgo,
-  location,
   category,
-  isRealtime = false,
+  feature,
   isBookmarked = false,
+  onBookmarkClick,
 }: JobCardProps) {
-  const theme = useTheme();
+  const [bookmarked, setBookmarked] = useState(isBookmarked);
 
-  if (isRealtime) {
-    return (
-      <S.RealtimeJob className="Job">
-        <S.RealtimeThumbnail className="Thumbnail">
-          <S.RealtimeTag className="Tag">
-            <S.RealtimeTagText>{category}</S.RealtimeTagText>
-          </S.RealtimeTag>
-          <S.BookmarkIconButtonWrapper>
-            <IconButton
-              icon={<MdBookmark size={24} />}
-              size={32}
-              color={isBookmarked ? theme.colors.primary : theme.colors.grey}
-            />
-          </S.BookmarkIconButtonWrapper>
-        </S.RealtimeThumbnail>
-        <S.RealtimeInfo className="Info">
-          <S.RealtimeCompanyText>{companyName}</S.RealtimeCompanyText>
-          <S.RealtimeJobTitle>{jobTitle}</S.RealtimeJobTitle>
-        </S.RealtimeInfo>
-      </S.RealtimeJob>
-    );
-  }
+  const handleBookmarkClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
+    setBookmarked(!bookmarked);
+    onBookmarkClick?.();
+  };
 
   return (
-    <S.Job className="Job">
-      <S.Thumbnail className="Thumbnail" />
-      <S.Info className="Info">
-        <S.Top className="Top">
-          <S.CompanyText>{companyName}</S.CompanyText>
-          <S.JobTitle>{jobTitle}</S.JobTitle>
-        </S.Top>
-        <S.Detail className="Detail">
-          <S.SalaryText>{salary}</S.SalaryText>
-          <S.SmallDivider className="Divider" />
-          <S.TimeAgoText>{timeAgo}</S.TimeAgoText>
-        </S.Detail>
-        <S.TagContainer className="TagContainer">
-          <S.Tag className="Tag">
-            <S.LocationOnIcon className="LocationOn">
-              <MdLocationOn />
-            </S.LocationOnIcon>
-            <S.LocationText>{location}</S.LocationText>
-          </S.Tag>
-          <S.Tag className="Tag">
-            <S.CategoryIcon className="Category">
-              <MdCategory />
-            </S.CategoryIcon>
-            <S.CategoryText>{category}</S.CategoryText>
-          </S.Tag>
+    <S.Wrapper>
+      <S.Top $backgroundImage={thumbnail} $short={feature !== undefined}>
+        <S.TagContainer>
+          <S.Tag>{category}</S.Tag>
         </S.TagContainer>
-      </S.Info>
-    </S.Job>
+        <S.Title>{jobTitle}</S.Title>
+        <S.Bookmark
+          onClick={handleBookmarkClick}
+          icon={
+            bookmarked ? (
+              <MdOutlineBookmark size={24} />
+            ) : (
+              <MdOutlineBookmarkBorder size={24} />
+            )
+          }
+        />
+      </S.Top>
+      {feature && (
+        <S.Feature>
+          <MdStars />
+          <div>{feature}</div>
+        </S.Feature>
+      )}
+      <S.Bottom>
+        <S.PictureWrapper>
+          <S.CompanyLogo
+            src={companyPicture || "https://placehold.co/40x40"}
+            alt={`${companyName} logo`}
+          />
+        </S.PictureWrapper>
+        <S.Info>
+          <S.CompanyName>{companyName}</S.CompanyName>
+          <S.Salary>{salary}</S.Salary>
+        </S.Info>
+      </S.Bottom>
+    </S.Wrapper>
   );
 }

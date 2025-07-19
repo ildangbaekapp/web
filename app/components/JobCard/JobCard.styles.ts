@@ -1,239 +1,162 @@
 import styled from "styled-components";
 
-export const Job = styled.div`
-  height: 140px;
-  padding: 15px;
-  box-sizing: border-box;
+import IconButton from "~/components/IconButton";
+
+export const Wrapper = styled.div`
+  width: 200px;
+  height: 250px;
+  flex-shrink: 0;
   background: ${({ theme }) => theme.colors.white};
+  font-family: ${({ theme }) => theme.fontFamily};
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+  border-radius: 24px;
   display: flex;
-  flex-shrink: 0;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  }
 `;
 
-export const Thumbnail = styled.div`
-  width: 110px;
-  height: 110px;
+export const Top = styled.div<{ $backgroundImage?: string; $short?: boolean }>`
+  align-self: stretch;
+  height: ${({ $short }) => ($short ? "150px" : "180px")};
+  padding: 15px;
   position: relative;
-  background: ${({ theme }) => theme.colors.lightGrey};
-  border-radius: 10px;
-`;
-
-export const Info = styled.div`
-  width: 220px;
+  box-sizing: border-box;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url(${({ $backgroundImage }) =>
+      $backgroundImage || "https://placehold.co/200"});
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-  display: inline-flex;
-`;
-
-export const Top = styled.div`
-  align-self: stretch;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 5px;
   display: flex;
-`;
-
-export const CompanyText = styled.div`
-  align-self: stretch;
-  color: ${({ theme }) => theme.colors.grey};
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 500;
-  word-wrap: break-word;
-`;
-
-export const JobTitle = styled.div`
-  align-self: stretch;
-  color: ${({ theme }) => theme.colors.black};
-  font-size: 18px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 700;
-  word-wrap: break-word;
-`;
-
-export const Detail = styled.div`
-  align-self: stretch;
-  overflow: hidden;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   gap: 5px;
-  display: inline-flex;
-`;
-
-export const SalaryText = styled.div`
-  color: ${({ theme }) => theme.colors.red};
-  font-size: 16px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 500;
-  word-wrap: break-word;
-`;
-
-export const SmallDivider = styled.div`
-  width: 2px;
-  height: 2px;
-  background: ${({ theme }) => theme.colors.grey};
-  border-radius: 9999px;
-`;
-
-export const TimeAgoText = styled.div`
-  text-align: right;
-  color: ${({ theme }) => theme.colors.grey};
-  font-size: 12px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 500;
-  word-wrap: break-word;
 `;
 
 export const TagContainer = styled.div`
-  align-self: stretch;
-  overflow: hidden;
+  display: inline-flex;
+  gap: 5px;
   justify-content: flex-start;
   align-items: center;
-  gap: 5px;
-  display: inline-flex;
 `;
 
 export const Tag = styled.div`
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background: ${({ theme }) => theme.colors.darkGrey};
-  overflow: hidden;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+  padding: 5px 10px;
+  background: ${({ theme }) => theme.colors.primary};
+  border-radius: 12px;
   display: flex;
-`;
-
-export const LocationOnIcon = styled.div`
-  width: 16px;
-  height: 16px;
-  position: relative;
-  overflow: hidden;
-  & > svg {
-    width: 100%;
-    height: 100%;
-    color: ${({ theme }) => theme.colors.lightGrey};
-  }
-`;
-
-export const LocationText = styled.div`
-  color: ${({ theme }) => theme.colors.lightGrey};
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 500;
-  word-wrap: break-word;
-`;
-
-export const CategoryIcon = styled.div`
-  width: 16px;
-  height: 16px;
-  position: relative;
-  overflow: hidden;
-  & > svg {
-    width: 100%;
-    height: 100%;
-    color: ${({ theme }) => theme.colors.lightGrey};
-  }
-`;
-
-export const CategoryText = styled.div`
-  color: ${({ theme }) => theme.colors.lightGrey};
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 500;
-  word-wrap: break-word;
-`;
-
-export const RealtimeJob = styled.div`
-  width: 150px;
-  padding: 10px;
-  overflow: hidden;
-  border-radius: 10px;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
-  display: inline-flex;
-  flex-shrink: 0;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 14px;
+  font-weight: 500;
 `;
 
-export const RealtimeThumbnail = styled.div`
-  width: 150px;
-  height: 150px;
-  position: relative;
-  background: ${({ theme }) => theme.colors.lightGrey};
+export const Title = styled.div`
+  align-self: stretch;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 20px;
+  font-weight: 700;
+  word-wrap: break-word;
   overflow: hidden;
-  border-radius: 10px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
-export const RealtimeTag = styled.div`
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  left: 81px;
-  top: 113px;
+export const Bookmark = styled(IconButton)`
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  border-radius: 20px;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  color: ${({ theme }) => theme.colors.white};
+`;
+
+export const Feature = styled.div`
+  align-self: stretch;
+  height: 30px;
+  padding: 0 10px;
+  background: ${({ theme }) => theme.colors.red};
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  display: inline-flex;
-`;
-
-export const RealtimeTagText = styled.div`
-  color: ${({ theme }) => theme.colors.lightGrey};
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.fontFamily};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 12px;
   font-weight: 500;
-  word-wrap: break-word;
-`;
-
-export const BookmarkIconButtonWrapper = styled.div`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-`;
-
-export const RealtimeInfo = styled.div`
-  align-self: stretch;
   overflow: hidden;
-  flex-direction: column;
+
+  & > svg {
+    width: 16px;
+    height: 16px;
+    color: ${({ theme }) => theme.colors.lightGrey};
+  }
+`;
+
+export const Bottom = styled.div`
+  align-self: stretch;
+  flex: 1 1 0;
+  padding: 0 10px;
+  display: inline-flex;
   justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+`;
+
+export const PictureWrapper = styled.div`
+  padding-right: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CompanyLogo = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  object-fit: cover;
+`;
+
+export const Info = styled.div`
+  flex: 1 1 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   gap: 5px;
-  display: flex;
+  overflow: hidden;
 `;
 
-export const RealtimeCompanyText = styled.div`
-  align-self: stretch;
-  color: ${({ theme }) => theme.colors.grey};
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.fontFamily};
+export const CompanyName = styled.div`
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-size: 12px;
   font-weight: 500;
-  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 `;
 
-export const RealtimeJobTitle = styled.div`
-  align-self: stretch;
-  color: ${({ theme }) => theme.colors.black};
-  font-size: 18px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 600;
-  word-wrap: break-word;
+export const Salary = styled.div`
+  color: ${({ theme }) => theme.colors.red};
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 `;
