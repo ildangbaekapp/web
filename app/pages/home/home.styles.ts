@@ -61,7 +61,7 @@ export const SectionContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 30px;
+  gap: 20px;
   display: flex;
 `;
 
@@ -70,7 +70,7 @@ export const RowSection = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
+  gap: 20px;
   display: flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -80,11 +80,11 @@ export const RowSection = styled.div`
 
 export const Ad = styled.div`
   width: 100%;
-  height: 250px;
+  height: 200px;
   position: relative;
   background: ${({ theme }) => theme.colors.grey};
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 24px;
 `;
 
 export const Count = styled.div`
@@ -108,8 +108,6 @@ export const CountText = styled.div`
   font-weight: 500;
   word-wrap: break-word;
 `;
-
-
 
 export const RealtimeJobContainer = styled.div`
   width: 100%;

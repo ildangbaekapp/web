@@ -1,9 +1,8 @@
 import { MdArrowDropDown } from "react-icons/md";
 
-import MySection from "~/components/MySection";
-
 import * as S from "./home.styles";
 import JobContainer from "./JobContainer";
+import MySection from "./MySection";
 
 export default function Home() {
   return (
