@@ -1,5 +1,6 @@
 import { MdArrowDropDown } from "react-icons/md";
 
+import Ad from "./Ad";
 import * as S from "./home.styles";
 import JobContainer from "./JobContainer";
 import MySection from "./MySection";
@@ -18,9 +19,7 @@ export default function Home() {
       <S.SectionContainer>
         <S.RowSection>
           <S.Ad>
-            <S.Count>
-              <S.CountText>1 / 7</S.CountText>
-            </S.Count>
+            <Ad />
           </S.Ad>
           <MySection name={"홍길동"} />
         </S.RowSection>
