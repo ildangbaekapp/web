@@ -3,8 +3,12 @@ import styled from "styled-components";
 import IconButton from "~/components/IconButton";
 
 export const Wrapper = styled.div`
-  width: 200px;
-  height: 250px;
+  min-width: 150px;
+  width: 30vw;
+  max-width: 200px;
+  min-height: 200px;
+  height: 40vw;
+  max-height: 250px;
   flex-shrink: 0;
   background: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fontFamily};
@@ -24,7 +28,7 @@ export const Wrapper = styled.div`
 
 export const Top = styled.div<{ $backgroundImage?: string; $short?: boolean }>`
   align-self: stretch;
-  height: ${({ $short }) => ($short ? "150px" : "180px")};
+  flex: 1;
   padding: 15px;
   position: relative;
   box-sizing: border-box;
@@ -67,7 +71,7 @@ export const Tag = styled.div`
 export const Title = styled.div`
   align-self: stretch;
   color: ${({ theme }) => theme.colors.white};
-  font-size: 20px;
+  font-size: max(14px, min(20px, 3vw));
   font-weight: 700;
   word-wrap: break-word;
   overflow: hidden;
@@ -109,8 +113,7 @@ export const Feature = styled.div`
 
 export const Bottom = styled.div`
   align-self: stretch;
-  flex: 1 1 0;
-  padding: 0 10px;
+  padding: 10px;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;

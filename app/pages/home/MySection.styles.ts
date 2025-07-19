@@ -13,6 +13,10 @@ export const Wrapper = styled(Card)`
   justify-content: center;
   align-items: center;
   display: inline-flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
 `;
 
 export const Header = styled.div`

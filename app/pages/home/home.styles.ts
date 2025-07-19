@@ -13,7 +13,7 @@ export const MainContainer = styled.div`
   display: inline-flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 0 10px 100px 10px;
+    padding: 0 0 100px 0;
   }
 `;
 
@@ -26,6 +26,10 @@ export const FilterWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 20px;
+  }
 `;
 
 export const Filter = styled.div`
@@ -75,6 +79,7 @@ export const RowSection = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
+    padding: 0 10px;
   }
 `;
 

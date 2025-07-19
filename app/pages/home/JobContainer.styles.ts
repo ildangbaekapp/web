@@ -6,5 +6,5 @@ export const JobContainer = styled.div`
   box-sizing: border-box;
   padding: 10px;
   width: 100%;
-  gap: 20px;
+  gap: max(10px, 2vw);
 `;
