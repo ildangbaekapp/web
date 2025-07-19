@@ -3,6 +3,7 @@ import { MdHistory, MdSearch, MdTune } from "react-icons/md";
 
 import { useSearchStore } from "~/store/searchStore";
 
+import FilterView from "./FilterView";
 import * as S from "./SearchModalContent.styles";
 
 const recentSearches = ["상하차", "배달", "단기 알바", "사무 보조"];
@@ -10,6 +11,7 @@ const recentSearches = ["상하차", "배달", "단기 알바", "사무 보조"]
 export default function SearchModalContent() {
   const { query, setQuery, filter } = useSearchStore();
   const [inputValue, setInputValue] = useState(query);
+  const [viewMode, setViewMode] = useState<"search" | "filter">("search");
 
   const handleSearch = () => {
     setQuery(inputValue);
@@ -29,6 +31,10 @@ export default function SearchModalContent() {
     (value) => value !== null && (!Array.isArray(value) || value.length > 0)
   ).length;
 
+  if (viewMode === "filter") {
+    return <FilterView onBack={() => setViewMode("search")} />;
+  }
+
   return (
     <S.Wrapper>
       <S.SearchBox>
@@ -44,7 +50,7 @@ export default function SearchModalContent() {
             onKeyDown={handleKeyDown}
           />
         </S.Left>
-        <S.Filter>
+        <S.Filter onClick={() => setViewMode("filter")}>
           <S.FilterIcon>
             <MdTune size={20} />
           </S.FilterIcon>
