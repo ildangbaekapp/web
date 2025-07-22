@@ -1,7 +1,7 @@
 export enum Type {
   CARGO = "cargo",
   INDUSTRY = "industry",
-  DILIVERY = "delivery",
+  DELIVERY = "delivery",
   FLEX = "flex",
 }
 
@@ -36,6 +36,9 @@ interface Location {
 
 export type RecruitLocation = Location;
 
-export type duration = number;
+export interface duration {
+  min: number;
+  max: number;
+}
 
 export type WorkLocation = Location;

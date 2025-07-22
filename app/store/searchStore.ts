@@ -7,9 +7,9 @@ export interface Filters {
   carreer: Filter.Carreer | null;
   weekday: Filter.Weekday[] | null;
   salary: Filter.Salary | null;
-  time: Filter.Time | null;
+  time: Filter.Time | "negotiable" | null;
   recruitLocation: Filter.RecruitLocation[] | null;
-  duration: Filter.duration | null;
+  duration: Filter.duration | "negotiable" | null;
   workLocation: Filter.WorkLocation[] | null;
 }
 

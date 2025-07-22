@@ -12,23 +12,10 @@ export const ModalOverlay = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 10px;
 `;
 
 export const ModalContent = styled(motion.div)`
+  max-width: 800px;
   width: 100%;
-  max-width: 600px; /* Adjust as needed */
-  padding: 20px;
-  background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  border-radius: 30px;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-  display: inline-flex;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin: 20px;
-  }
 `;

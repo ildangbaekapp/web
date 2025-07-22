@@ -17,11 +17,14 @@ export default function FilterMenuItem({
   isSelected,
   onClick,
 }: FilterMenuItemProps) {
+  const isDefault = value === "설정 안 함";
+
   return (
     <S.MenuItem $isSelected={isSelected} onClick={onClick}>
       <S.Label $isSelected={isSelected}>
         {label}
         {isModified && "*"}
+        {!isDefault && <S.Dot />}
       </S.Label>
       <S.Content>
         <S.Value>{value || "설정 안 함"}</S.Value>

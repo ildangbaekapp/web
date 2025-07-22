@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
   width: 100%;
   gap: 10px;
   display: inline-flex;
@@ -12,13 +14,11 @@ export const Wrapper = styled.div`
 
 export const SearchBox = styled.div`
   align-self: stretch;
-  height: 60px;
-  padding: 0 15px;
+  padding: 10px;
   gap: 15px;
   background: ${({ theme }) => theme.colors.white};
   overflow: hidden;
   border-radius: 30px;
-  outline: 1px solid ${({ theme }) => theme.colors.darkGrey};
   justify-content: space-between;
   align-items: center;
   display: inline-flex;
@@ -52,10 +52,9 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchIcon = styled.div`
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   color: ${({ theme }) => theme.colors.darkGrey};
-  cursor: pointer;
 `;
 
 export const Body = styled.div`
@@ -68,22 +67,38 @@ export const Body = styled.div`
   display: flex;
 `;
 
-export const Filter = styled.div`
+export const Filter = styled.button`
+  border: none;
+  cursor: pointer;
   flex-shrink: 0;
   display: flex;
-  height: 30px;
-  padding: 5px 10px;
+  height: 36px;
+  padding: 0 15px;
   justify-content: center;
   align-items: center;
   gap: 5px;
   border-radius: 9999px;
-  background: ${({ theme }) => theme.colors.primary};
+  font-family: ${({ theme }) => theme.fontFamily};
+  background: ${({ theme }) => theme.colors.darkGrey};
 `;
 
-export const FilterCount = styled.div`
+export const FilterText = styled.div`
   color: ${({ theme }) => theme.colors.white};
   font-size: 14px;
   font-weight: 500;
+`;
+
+export const FilterCount = styled.div`
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${({ theme }) => theme.colors.lightGrey};
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
 `;
 
 export const FilterIcon = styled.div`
@@ -116,14 +131,14 @@ export const HistoryItem = styled.button`
   border: none;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.lightGrey};
+    background-color: ${({ theme }) => theme.colors.lightGrey}80;
   }
 `;
 
 export const HistoryIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.darkGrey};
 `;
 
 export const HistoryText = styled.div`
