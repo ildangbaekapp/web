@@ -13,6 +13,12 @@ const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
       return css`
         background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
+        &:hover {
+          background-color: ${theme.colors.primaryHover};
+        }
+        &:active {
+          background-color: ${theme.colors.primaryActive};
+        }
         &:disabled {
           background-color: ${theme.colors.grey};
           cursor: not-allowed;
@@ -23,6 +29,15 @@ const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
         background-color: ${theme.colors.white};
         color: ${theme.colors.darkGrey};
         border: 1px solid ${theme.colors.grey};
+        &:hover,
+        &:active {
+          background-color: ${theme.colors.lightGrey};
+        }
+        &:disabled {
+          background-color: ${theme.colors.grey};
+          color: ${theme.colors.white};
+          cursor: not-allowed;
+        }
       `;
     default:
       return css``;
@@ -43,6 +58,7 @@ export const StyledButton = styled(motion.button)<ButtonProps>`
   border: none;
   cursor: pointer;
   white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   ${({ $variant = "primary", theme }) => getVariantStyles($variant, theme)}
 `;

@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import type { HTMLMotionProps } from "motion/react";
 import type { ReactNode } from "react";
 
 import * as S from "./Button.styles";
 
 export type ButtonVariant = "primary" | "secondary";
 
-interface ButtonProps extends React.ComponentProps<typeof motion.button> {
+interface ButtonProps extends HTMLMotionProps<"button"> {
   children: ReactNode;
   variant?: "primary" | "secondary";
   icon?: ReactNode;
@@ -20,9 +20,9 @@ export default function Button({
   return (
     <S.StyledButton
       $variant={variant}
-      whileHover={{ filter: "brightness(1.1)" }}
-      whileTap={{ scale: 0.95, filter: "brightness(0.9)" }}
-      whileFocus={{ filter: "brightness(1.1)" }}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      whileFocus={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       {...props}
     >

@@ -8,6 +8,8 @@ interface Colors {
   black: string;
   red: string;
   primary: string;
+  primaryHover: string;
+  primaryActive: string;
   primaryBg: string;
   primaryLight: string;
 

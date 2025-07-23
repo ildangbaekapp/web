@@ -14,6 +14,8 @@ const lightColors: VariableColors = {
   black: "#000000",
   red: "#F64F4F",
   primary: "#0077B6",
+  primaryHover: "#0087ca",
+  primaryActive: "#005794",
   primaryBg: "#D5F1FF",
   primaryLight: "#D2F2F9",
 };
