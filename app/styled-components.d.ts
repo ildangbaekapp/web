@@ -4,9 +4,15 @@ interface Colors {
   lightGrey: string;
   grey: string;
   darkGrey: string;
+  greyHover: string;
+  greyActive: string;
+
   white: string;
+  whiteHover: string;
+  whiteActive: string;
   black: string;
   red: string;
+
   primary: string;
   primaryHover: string;
   primaryActive: string;

@@ -29,9 +29,11 @@ const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
         background-color: ${theme.colors.white};
         color: ${theme.colors.darkGrey};
         border: 1px solid ${theme.colors.grey};
-        &:hover,
+        &:hover {
+          background-color: ${theme.colors.whiteHover};
+        }
         &:active {
-          background-color: ${theme.colors.lightGrey};
+          background-color: ${theme.colors.whiteActive};
         }
         &:disabled {
           background-color: ${theme.colors.grey};

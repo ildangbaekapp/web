@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import Button from "~/components/Button";
+
 export const Wrapper = styled.div`
   display: grid;
   box-sizing: border-box;
@@ -12,7 +14,7 @@ export const Wrapper = styled.div`
   height: 100%;
 `;
 
-export const TypeButton = styled.button<{ $isSelected: boolean }>`
+export const TypeButton = styled(Button)<{ $isSelected: boolean }>`
   width: 100%;
   height: 100%;
   padding: 10px;
@@ -27,13 +29,7 @@ export const TypeButton = styled.button<{ $isSelected: boolean }>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   font-family: ${({ theme }) => theme.fontFamily};
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
 `;
 
 export const Circle = styled.div<{ $isSelected: boolean }>`

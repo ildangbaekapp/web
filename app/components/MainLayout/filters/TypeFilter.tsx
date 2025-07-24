@@ -31,6 +31,8 @@ export default function TypeFilter({ value, onChange }: TypeFilterProps) {
     <S.Wrapper>
       {typeOptions.map((option) => (
         <S.TypeButton
+          transitionVariant="hover"
+          variant="secondary"
           key={option.name}
           $isSelected={selectedTypes.includes(option.name)}
           onClick={() => handleTypeClick(option.name)}

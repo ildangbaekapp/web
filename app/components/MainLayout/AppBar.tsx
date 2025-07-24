@@ -44,7 +44,12 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
   return (
     <S.AppBar>
       <S.Left>
-        <S.Logo src={logo} alt="logo" onClick={handleLogoClick} />
+        <IconButton
+          icon={<S.Logo src={logo} alt="logo" />}
+          onClick={handleLogoClick}
+          size={54}
+        />
+
         <S.SearchBox onClick={onSearchBoxClick}>
           <S.SearchBoxText>{query || "검색어를 입력하세요."}</S.SearchBoxText>
           <S.Right>
