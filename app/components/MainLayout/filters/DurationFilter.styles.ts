@@ -39,18 +39,18 @@ export const DurationInput = styled.input`
   width: 80px;
   height: 100%;
   border-radius: 20px;
-  border: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  border: 1px solid ${({ theme }) => theme.colors.background.light};
   text-align: center;
   font-size: 24px;
   font-family: ${({ theme }) => theme.fontFamily};
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
 
   &:focus {
-    outline: 1px solid ${({ theme }) => theme.colors.primary};
+    outline: 1px solid ${({ theme }) => theme.colors.primary.normal};
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.lightGrey};
+    background-color: ${({ theme }) => theme.colors.background.light};
     cursor: not-allowed;
   }
 
@@ -65,13 +65,13 @@ export const DurationInput = styled.input`
 export const Suffix = styled.span`
   font-size: 24px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.secondary.normal};
 `;
 
 export const Tilde = styled.span`
   font-size: 24px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
 `;
 
 export const OptionWrapper = styled.div`
@@ -87,5 +87,5 @@ export const Label = styled.span<{ $isSelected: boolean }>`
   font-weight: 500;
   white-space: nowrap;
   color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primary : theme.colors.darkGrey};
+    $isSelected ? theme.colors.primary.normal : theme.colors.foreground.light};
 `;

@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const AllAgreeContainer = styled.div`
   align-self: stretch;
-  padding: 15px;
-  background: ${({ theme }) => theme.colors.primaryBg};
-  border-radius: 20px;
+  padding: 10px;
+  background: ${({ theme }) => theme.colors.primaryBackground.normal};
+  border-radius: 16px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -17,6 +17,6 @@ export const TermsList = styled.div`
   flex-direction: column;
 
   & > *:not(:last-child) {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.secondary.normal};
   }
 `;

@@ -17,7 +17,7 @@ export const StyledIconButton = styled(motion.button)<StyledIconButtonProps>`
   border-radius: 50%;
   width: ${({ $size }) => $size}px;
   height: ${({ $size }) => $size}px;
-  color: ${({ $color, theme }) => $color || theme.colors.darkGrey};
+  color: ${({ $color, theme }) => $color || theme.colors.foreground.normal};
   transition: background-color 0.2s ease-in-out;
 
   &:hover,
@@ -30,7 +30,7 @@ export const StyledIconButton = styled(motion.button)<StyledIconButtonProps>`
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.colors.grey};
+    color: ${({ theme }) => theme.colors.foreground.normal};
     cursor: not-allowed;
     background-color: transparent;
   }

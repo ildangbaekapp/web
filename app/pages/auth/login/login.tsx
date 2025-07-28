@@ -41,15 +41,20 @@ export default function LoginPage() {
           <S.Logo src={LogoSrc} />
           <S.InputFields>
             <Input
+              autoFocus
               variant="underline"
+              name="email"
               type="email"
+              autoComplete="email"
               placeholder="이메일"
               value={email}
               onChange={(e) => setEmailInput(e.target.value)}
             />
             <Input
               variant="underline"
+              name="password"
               type="password"
+              autoComplete="current-password"
               placeholder="비밀번호"
               value={password}
               onChange={(e) => setPasswordInput(e.target.value)}
@@ -78,10 +83,22 @@ export default function LoginPage() {
             <S.SnsLoginDivider />
           </S.SnsLoginText>
           <S.SnsButtons>
-            <SnsButton provider="kakao" icon={KakaoIcon} alt="kakao" />
-            <SnsButton provider="google" icon={GoogleIcon} alt="google" />
-            <SnsButton provider="naver" icon={NaverIcon} alt="naver" />
-            <SnsButton provider="apple" icon={AppleIcon} alt="apple" />
+            <SnsButton
+              provider="kakao"
+              icon={KakaoIcon}
+              alt="카카오로 로그인"
+            />
+            <SnsButton
+              provider="google"
+              icon={GoogleIcon}
+              alt="Google로 로그인"
+            />
+            <SnsButton
+              provider="naver"
+              icon={NaverIcon}
+              alt="네이버로 로그인"
+            />
+            <SnsButton provider="apple" icon={AppleIcon} alt="Apple로 로그인" />
           </S.SnsButtons>
         </S.BottomSection>
       </S.LoginBox>

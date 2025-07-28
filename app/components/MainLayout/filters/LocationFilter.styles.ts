@@ -1,5 +1,6 @@
-import { motion } from "motion/react";
 import styled from "styled-components";
+
+import Button from "~/components/Button";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,35 +22,42 @@ export const Column = styled.div`
   flex: 1;
   overflow-y: auto;
   height: 100%;
-  border-right: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  border-right: 1px solid ${({ theme }) => theme.colors.background.light};
 
   &:last-child {
     border-right: none;
   }
 `;
 
-export const Item = styled.div<{ $isSelected: boolean; $hasChildren: boolean }>`
+export const Item = styled.button<{
+  $isSelected: boolean;
+  $hasChildren: boolean;
+}>`
   height: 40px;
   padding: 0 15px;
+  border: none;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   font-size: 14px;
+  font-family: ${({ theme }) => theme.fontFamily};
   background-color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primaryBg : "transparent"};
+    $isSelected ? theme.colors.primaryBackground.normal : "transparent"};
   color: ${({ theme, $isSelected, $hasChildren }) =>
     $isSelected
-      ? theme.colors.primary
+      ? theme.colors.primary.normal
       : $hasChildren
-      ? theme.colors.darkGrey
-      : theme.colors.grey};
+      ? theme.colors.foreground.light
+      : theme.colors.secondary.normal};
   font-weight: ${({ $isSelected }) => ($isSelected ? 700 : 400)};
+  transition: background-color 0.2s ease, color 0.2s ease;
 
   &:hover {
     background-color: ${({ theme, $isSelected }) =>
-      !$isSelected && theme.colors.lightGrey};
+      !$isSelected && theme.colors.background.light};
   }
 `;
 
@@ -61,13 +69,14 @@ export const SelectedLocationsContainer = styled.div`
   padding: 0 5px;
   height: 60px;
   box-sizing: border-box;
-  border-top: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  border-top: 1px solid ${({ theme }) => theme.colors.background.light};
   width: 100%;
   overflow-x: scroll;
 `;
 
-export const SelectedLocationTag = styled(motion.div)`
-  display: flex;
+export const SelectedLocationTag = styled(Button).attrs({
+  colorScheme: "background",
+})`
   align-items: center;
   flex-shrink: 0;
   gap: 5px;
@@ -75,11 +84,10 @@ export const SelectedLocationTag = styled(motion.div)`
   height: 30px;
   box-sizing: border-box;
   border-radius: 15px;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary.normal};
+  color: ${({ theme }) => theme.colors.primary.normal};
   font-size: 14px;
   font-weight: 500;
-  cursor: pointer;
   word-break: break-all;
   text-overflow: ellipsis;
   overflow: hidden;

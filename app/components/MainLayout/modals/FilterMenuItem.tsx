@@ -20,7 +20,11 @@ export default function FilterMenuItem({
   const isDefault = value === "설정 안 함";
 
   return (
-    <S.MenuItem $isSelected={isSelected} onClick={onClick}>
+    <S.MenuItem
+      colorScheme={isSelected ? "primaryBackground" : "background"}
+      onClick={onClick}
+      $isSelected={isSelected}
+    >
       <S.Label $isSelected={isSelected}>
         {label}
         {isModified && "*"}

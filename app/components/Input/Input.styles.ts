@@ -7,18 +7,18 @@ const getVariantStyles = (variant: InputVariant, theme: DefaultTheme) => {
     case "outline":
       return css`
         border-radius: 5px;
-        border: 1px solid ${theme.colors.grey};
+        border: 1px solid ${theme.colors.secondary.normal};
         &:focus {
-          border-color: ${theme.colors.primary};
+          border-color: ${theme.colors.primary.normal};
           outline: none;
         }
       `;
     case "underline":
       return css`
         border: none;
-        border-bottom: 1px solid ${theme.colors.grey};
+        border-bottom: 1px solid ${theme.colors.secondary.normal};
         &:focus {
-          border-color: ${theme.colors.primary};
+          border-color: ${theme.colors.primary.normal};
           outline: none;
         }
       `;
@@ -44,12 +44,13 @@ export const StyledInput = styled.input<{ $variant?: InputVariant }>`
   flex-shrink: 0;
   min-width: 0;
   padding: 15px;
-  border: 1px solid ${({ theme }) => theme.colors.grey};
+  border: 1px solid ${({ theme }) => theme.colors.secondary.normal};
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily};
+  background: none;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.grey};
+    color: ${({ theme }) => theme.colors.secondary.normal};
   }
 
   ${({ $variant = "outline", theme }) => getVariantStyles($variant, theme)}

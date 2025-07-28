@@ -63,17 +63,21 @@ export default function VerifyPage() {
         <Input
           id="name"
           name="name"
+          autoComplete="name"
           placeholder="휴대폰 명의자"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </FormField>
 
-      <FormField label="생년월일 및 성별" required>
+      <FormField label="생년월일 및 성별" required htmlFor="birthDate">
         <InputGroup>
           <Input
+            id="birthDate"
             name="birthDate"
+            autoComplete="bday"
             placeholder="YYMMDD"
+            pattern="\d{6}"
             maxLength={6}
             value={birthDate}
             onChange={(e) => setBirthDate(e.target.value)}
@@ -110,11 +114,14 @@ export default function VerifyPage() {
             id="phone"
             name="phone"
             placeholder="'-'를 제외하고 입력"
+            pattern="\d{10,11}"
+            maxLength={11}
+            autoComplete="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
           <S.StyledButton
-            variant="secondary"
+            colorScheme="primary"
             onClick={handleSendCode}
             disabled={isCodeSent}
           >
@@ -138,6 +145,9 @@ export default function VerifyPage() {
                 id="verificationCode"
                 name="verificationCode"
                 placeholder="인증 번호"
+                pattern="\d{6}"
+                maxLength={6}
+                autoComplete="one-time-code"
                 value={verificationCode}
                 onChange={(e) => setVerificationCode(e.target.value)}
                 disabled={isVerified}
@@ -145,7 +155,7 @@ export default function VerifyPage() {
               {!isVerified && !timerExpired && <S.Timer>03:00</S.Timer>}
             </InputWrapper>
             <S.StyledButton
-              variant="primary"
+              colorScheme="primary"
               onClick={handleVerifyCode}
               disabled={isVerified}
             >

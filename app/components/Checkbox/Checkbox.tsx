@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { useTheme } from "styled-components";
 
 import * as S from "./Checkbox.styles";
 
@@ -7,7 +9,6 @@ interface CheckboxProps {
   onChange: (checked: boolean) => void;
   label: string;
   size?: "small" | "large";
-  isAllAgree?: boolean;
 }
 
 export default function Checkbox({
@@ -15,18 +16,35 @@ export default function Checkbox({
   onChange,
   label,
   size = "small",
-  isAllAgree = false,
 }: CheckboxProps) {
+  const theme = useTheme();
+  const [id] = useState(`checkbox-${Math.random().toString(36)}`);
+
   const handleChange = () => {
     onChange(!checked);
   };
 
   return (
-    <S.CheckboxContainer onClick={handleChange}>
-      <S.IconWrapper checked={checked} size={size}>
-        {checked && <FaCheck />}
+    <S.Wrapper
+      htmlFor={id}
+      whileHover={{
+        backgroundColor: `${theme.colors.background.dark}4d`,
+      }}
+      whileTap={{
+        scale: 0.95,
+        backgroundColor: `${theme.colors.background.dark}80`,
+      }}
+      whileFocus={{
+        backgroundColor: `${theme.colors.background.dark}4d`,
+      }}
+      transition={{scale: { type: "spring", stiffness: 400, damping: 17 }}}
+      $size={size}
+    >
+      <S.Input id={id} checked={checked} onChange={handleChange} />
+      <S.IconWrapper $size={size} $checked={checked}>
+        {checked && <FaCheck size={size === "large" ? 16 : 12} />}
       </S.IconWrapper>
-      <S.Label $isAllAgree={isAllAgree}>{label}</S.Label>
-    </S.CheckboxContainer>
+      <S.Label $size={size}>{label}</S.Label>
+    </S.Wrapper>
   );
 }

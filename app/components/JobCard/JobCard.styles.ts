@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   height: 40vw;
   max-height: 250px;
   flex-shrink: 0;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background.normal};
   font-family: ${({ theme }) => theme.fontFamily};
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
@@ -58,19 +58,19 @@ export const TagContainer = styled.div`
 
 export const Tag = styled.div`
   padding: 5px 10px;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primary.normal};
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-size: 14px;
   font-weight: 500;
 `;
 
 export const Title = styled.div`
   align-self: stretch;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-size: max(14px, min(20px, 3vw));
   font-weight: 700;
   word-wrap: break-word;
@@ -87,19 +87,19 @@ export const Bookmark = styled(IconButton)`
   right: 15px;
   width: 24px;
   height: 24px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
 `;
 
 export const Feature = styled.div`
   align-self: stretch;
   height: 30px;
   padding: 0 10px;
-  background: ${({ theme }) => theme.colors.red};
+  background: ${({ theme }) => theme.colors.red.normal};
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-size: 12px;
   font-weight: 500;
   overflow: hidden;
@@ -107,7 +107,7 @@ export const Feature = styled.div`
   & > svg {
     width: 16px;
     height: 16px;
-    color: ${({ theme }) => theme.colors.lightGrey};
+    color: ${({ theme }) => theme.colors.background.light};
   }
 `;
 
@@ -145,7 +145,7 @@ export const Info = styled.div`
 `;
 
 export const CompanyName = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
@@ -155,7 +155,7 @@ export const CompanyName = styled.div`
 `;
 
 export const Salary = styled.div`
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.red.normal};
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;

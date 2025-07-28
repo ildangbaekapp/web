@@ -20,19 +20,19 @@ export const TermTitle = styled.div`
 `;
 
 export const RequiredChip = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary.normal};
   font-size: 14px;
   font-weight: 700;
 `;
 
 export const OptionalChip = styled.span`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-size: 14px;
   font-weight: 700;
 `;
 
 export const TermLabel = styled.span`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.foreground.normal};
   font-size: 18px;
   font-weight: 600;
 `;

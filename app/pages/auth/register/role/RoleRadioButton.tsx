@@ -14,7 +14,11 @@ export default function RoleRadioButton({
   onClick,
 }: RoleRadioButtonProps) {
   return (
-    <S.RoleButtonWrapper $selected={selected} onClick={onClick}>
+    <S.RoleButtonWrapper
+      $selected={selected}
+      onClick={onClick}
+      colorScheme={selected ? "primaryBackground" : "background"}
+    >
       <S.IconWrapper $selected={selected}>{icon}</S.IconWrapper>
       <S.Label $selected={selected}>{label}</S.Label>
     </S.RoleButtonWrapper>

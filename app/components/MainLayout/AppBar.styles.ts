@@ -1,5 +1,6 @@
-import { motion } from "motion/react";
 import { styled } from "styled-components";
+
+import Button from "~/components/Button";
 
 export const AppBar = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const AppBar = styled.div`
   height: 80px;
   padding: 0 max(15px, 10vw);
   gap: 20px;
-  background: ${({ theme }) => theme.colors.white}80;
+  background: ${({ theme }) => theme.colors.background.normal}80;
   backdrop-filter: blur(2px);
   z-index: 1000;
 
@@ -36,7 +37,10 @@ export const Logo = styled.img`
   cursor: pointer;
 `;
 
-export const SearchBox = styled(motion.button)`
+export const SearchBox = styled(Button).attrs({
+  colorScheme: "background",
+  transitionVariant: "none",
+})`
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -45,19 +49,13 @@ export const SearchBox = styled(motion.button)`
   min-width: 50px;
   align-items: center;
   padding: 10px 20px;
-  background: ${({ theme }) => theme.colors.white};
+  height: auto;
   border-radius: 30px;
-  border: 1px solid ${({ theme }) => theme.colors.lightGrey};
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.lightGrey};
-  }
+  border: 1px solid ${({ theme }) => theme.colors.background.dark};
 `;
 
 export const SearchBoxText = styled.span`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: 18px;
   font-weight: 500;
@@ -72,7 +70,7 @@ export const ShortcutWrapper = styled.div`
   align-items: center;
   border-radius: 30px;
   padding: 5px 10px;
-  background: ${({ theme }) => theme.colors.grey};
+  background: ${({ theme }) => theme.colors.secondary.normal};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: none;
@@ -80,7 +78,7 @@ export const ShortcutWrapper = styled.div`
 `;
 
 export const ShortcutText = styled.div`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: 12px;
 `;

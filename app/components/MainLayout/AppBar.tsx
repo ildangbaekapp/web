@@ -56,7 +56,7 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
             <S.ShortcutWrapper>
               <S.ShortcutText>Ctrl + K</S.ShortcutText>
             </S.ShortcutWrapper>
-            <MdSearch size={24} color={theme.colors.darkGrey} />
+            <MdSearch size={24} color={theme.colors.foreground.light} />
           </S.Right>
         </S.SearchBox>
       </S.Left>
@@ -64,7 +64,7 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
         <IconButton
           icon={<MdPerson size={32} />}
           onClick={handleProfileClick}
-          color={theme.colors.darkGrey}
+          color={theme.colors.foreground.light}
           size={36}
         />
       </S.Right>

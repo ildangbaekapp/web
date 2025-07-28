@@ -9,7 +9,7 @@ export const Container = styled.div`
   background: linear-gradient(
     145deg,
     white 0%,
-    ${({ theme }) => theme.colors.primaryBg} 100%
+    ${({ theme }) => theme.colors.primaryBackground.normal} 100%
   );
   display: flex;
   justify-content: center;
@@ -75,6 +75,7 @@ export const AuthButtons = styled.div`
 
 export const LoginButton = styled(Button)`
   width: 100%;
+  color: ${({ theme }) => theme.colors.background.normal};
 `;
 
 export const AuthLinks = styled.div`
@@ -85,7 +86,7 @@ export const AuthLinks = styled.div`
 `;
 
 export const AuthLink = styled.a`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.secondary.dark};
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: 14px;
   font-weight: 500;
@@ -96,7 +97,7 @@ export const AuthLink = styled.a`
 export const Divider = styled.div`
   width: 1px;
   height: 12px;
-  background-color: ${({ theme }) => theme.colors.grey};
+  background-color: ${({ theme }) => theme.colors.secondary.normal};
 `;
 
 export const BottomSection = styled.div`
@@ -113,17 +114,18 @@ export const SnsLoginText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${({ theme }) => theme.colors.secondary.normal};
   gap: 10px;
 `;
 
 export const SnsLoginDivider = styled.div`
   flex: 1 1 0;
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.secondary.normal};
 `;
 
 export const SnsLoginLabel = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.secondary.normal};
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: 12px;
   font-weight: 500;

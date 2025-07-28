@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { useTheme } from "styled-components";
-
 import Checkbox from "~/components/Checkbox";
 import type { Salary } from "~/types/filter";
 
@@ -39,13 +36,19 @@ const getSalaryTypeText = (type: Salary["type"]): string => {
 export default function SalaryFilter({ value, onChange }: SalaryFilterProps) {
   const isIrrelevant = value === null;
 
-  const [type, setType] = useState<Salary["type"]>(value?.type || "hourly");
-
   const onIrrelevantChange = (checked: boolean) => {
     if (checked) {
       onChange(null);
     } else {
+      onChange({ type: "hourly", min: 0, max: 0 });
+    }
+  };
+
+  const handleTypeChange = (type: Salary["type"]) => {
+    if (isIrrelevant) {
       onChange({ type, min: 0, max: 0 });
+    } else {
+      onChange({ ...value, type });
     }
   };
 
@@ -56,9 +59,8 @@ export default function SalaryFilter({ value, onChange }: SalaryFilterProps) {
         {salaryTypes.map((t) => (
           <S.TypeButton
             key={t}
-            $isSelected={type === t && !isIrrelevant}
-            onClick={() => setType(t)}
-            disabled={isIrrelevant}
+            onClick={() => handleTypeChange(t)}
+            colorScheme={value?.type === t ? "primary" : "secondary"}
           >
             {getSalaryTypeText(t)}
           </S.TypeButton>

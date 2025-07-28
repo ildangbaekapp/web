@@ -31,11 +31,11 @@ export default function TypeFilter({ value, onChange }: TypeFilterProps) {
     <S.Wrapper>
       {typeOptions.map((option) => (
         <S.TypeButton
-          transitionVariant="hover"
-          variant="secondary"
           key={option.name}
-          $isSelected={selectedTypes.includes(option.name)}
           onClick={() => handleTypeClick(option.name)}
+          colorScheme={"background"}
+          transitionVariant={"hover"}
+          $isSelected={selectedTypes.includes(option.name)}
         >
           <S.Circle $isSelected={selectedTypes.includes(option.name)}>
             <S.IconWrapper>{option.icon}</S.IconWrapper>

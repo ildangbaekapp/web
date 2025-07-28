@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const SnsButton = styled.div<{ $background: string }>`
+import Button from "~/components/Button";
+
+export const SnsButton = styled(Button)`
   width: 56px;
   height: 56px;
-  background: ${({ $background }) => $background};
   border-radius: 31.5px;
   display: inline-flex;
   flex-direction: column;

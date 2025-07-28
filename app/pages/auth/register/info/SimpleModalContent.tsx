@@ -1,4 +1,3 @@
-import React from "react";
 import { MdCheck } from "react-icons/md";
 
 import * as S from "./SimpleModalContent.styles";

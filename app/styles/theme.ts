@@ -1,34 +1,17 @@
 import type { DefaultTheme } from "styled-components";
+import type { Colors } from "theme";
 
-type CommonColors = Pick<
-  DefaultTheme["colors"],
-  "kakao" | "google" | "naver" | "apple"
->;
-type VariableColors = Omit<DefaultTheme["colors"], keyof CommonColors>;
-
-const lightColors: VariableColors = {
-  lightGrey: "#F2F2F2",
-  grey: "#B2B2B2",
-  darkGrey: "#747474",
-  greyHover: "#A0A0A0",
-  greyActive: "#8C8C8C",
-  white: "#FFFFFF",
-  whiteHover: "#F8F8F8",
-  whiteActive: "#E0E0E0",
-  black: "#000000",
-  red: "#F64F4F",
-  primary: "#0077B6",
-  primaryHover: "#0087ca",
-  primaryActive: "#005794",
-  primaryBg: "#D5F1FF",
-  primaryLight: "#D2F2F9",
-};
-
-const commonColors: CommonColors = {
-  kakao: "#FEE600",
-  google: "#4286F5",
-  naver: "#21C607",
-  apple: "#000000",
+const colors: Colors = {
+  background: { normal: "#f8f8f8", light: "#e7e7e7", dark: "#c6c6c6" },
+  foreground: { normal: "#2e2e2e", light: "#6d6d6d", dark: "#202020" },
+  secondary: { normal: "#747474", light: "#9e9e9e", dark: "#515151" },
+  red: { normal: "#f64f4f", light: "#f98484", dark: "#ac3737" },
+  primary: { normal: "#0077b6", light: "#4da0cc", dark: "#00537f" },
+  primaryBackground: { normal: "#d5f1ff", light: "#e2f5ff", dark: "#95a9b3" },
+  kakao: { normal: "#fee600", light: "#feee4d", dark: "#b2a100" },
+  google: { normal: "#4286f5", light: "#7baaf8", dark: "#2e5eac" },
+  naver: { normal: "#21c607", light: "#64d751", dark: "#178b05" },
+  apple: { normal: "#000000", light: "#4d4d4d", dark: "#8c8c8c" },
 };
 
 const breakpoints: DefaultTheme["breakpoints"] = {
@@ -53,8 +36,8 @@ const fontFamily: DefaultTheme["fontFamily"] = [
   "sans-serif",
 ].join(", ");
 
-const theme = {
-  colors: { ...commonColors, ...lightColors },
+const theme: DefaultTheme = {
+  colors,
   breakpoints,
   fontFamily,
 };

@@ -22,7 +22,9 @@ export const TypeButton = styled(Button)<{ $isSelected: boolean }>`
   border-radius: 24px;
   border: 1px solid
     ${({ theme, $isSelected }) =>
-      $isSelected ? theme.colors.primary : theme.colors.lightGrey};
+      $isSelected
+        ? theme.colors.primary.normal
+        : theme.colors.background.light};
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -36,7 +38,7 @@ export const Circle = styled.div<{ $isSelected: boolean }>`
   width: 100px;
   height: 100px;
   background: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primary : theme.colors.lightGrey};
+    $isSelected ? theme.colors.primary.normal : theme.colors.background.light};
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -44,7 +46,9 @@ export const Circle = styled.div<{ $isSelected: boolean }>`
   align-items: center;
   gap: 5px;
   color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.white : theme.colors.darkGrey};
+    $isSelected
+      ? theme.colors.background.normal
+      : theme.colors.foreground.light};
   transition: all 0.2s ease-in-out;
 `;
 

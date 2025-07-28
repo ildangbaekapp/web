@@ -48,21 +48,21 @@ export default function CareerFilter({ value, onChange }: CareerFilterProps) {
 
   return (
     <S.Wrapper>
-      <S.OptionWrapper onClick={() => handleOptionChange("newcomer")}>
+      <S.OptionWrapper>
         <RadioButton
           checked={selectedOption === "newcomer"}
-          onChange={() => {}}
+          onChange={() => handleOptionChange("newcomer")}
+          label="신입"
         />
-        <S.Label $isSelected={selectedOption === "newcomer"}>신입</S.Label>
       </S.OptionWrapper>
 
-      <S.OptionWrapper onClick={() => handleOptionChange("experience")}>
+      <S.OptionWrapper>
         <RadioButton
           checked={selectedOption === "experience"}
-          onChange={() => {}}
+          onChange={() => handleOptionChange("experience")}
+          label="경력 설정"
         />
         <S.ExperienceInputWrapper>
-          <S.Label $isSelected={selectedOption === "experience"}>경력</S.Label>
           <S.YearInput
             type="number"
             value={years}
@@ -72,15 +72,16 @@ export default function CareerFilter({ value, onChange }: CareerFilterProps) {
             disabled={selectedOption !== "experience"}
             min="1"
           />
-          <S.Label $isSelected={selectedOption === "experience"}>
-            년 이상
-          </S.Label>
+          <S.Label>년 이상</S.Label>
         </S.ExperienceInputWrapper>
       </S.OptionWrapper>
 
-      <S.OptionWrapper onClick={() => handleOptionChange("any")}>
-        <RadioButton checked={selectedOption === "any"} onChange={() => {}} />
-        <S.Label $isSelected={selectedOption === "any"}>경력 무관</S.Label>
+      <S.OptionWrapper>
+        <RadioButton
+          checked={selectedOption === "any"}
+          onChange={() => handleOptionChange("any")}
+          label="경력 무관"
+        />
       </S.OptionWrapper>
     </S.Wrapper>
   );

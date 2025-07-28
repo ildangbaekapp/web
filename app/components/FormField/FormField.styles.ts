@@ -13,19 +13,19 @@ export const LabelContainer = styled.div`
 `;
 
 export const RequiredChip = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary.normal};
   font-size: 14px;
   font-weight: 700;
 `;
 
 export const Label = styled.label`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.foreground.normal};
   font-size: 16px;
   font-weight: 500;
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.red.normal};
   font-size: 16px;
   font-weight: 500;
 `;

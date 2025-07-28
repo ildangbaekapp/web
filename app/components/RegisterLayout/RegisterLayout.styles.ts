@@ -11,6 +11,7 @@ export const Layout = styled.div`
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: ${({ theme }) => theme.colors.background.normal};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 0;

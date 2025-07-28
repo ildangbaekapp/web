@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+import Button from "~/components/Button";
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  min-width: min(800px, 90vw);
   font-family: ${({ theme }) => theme.fontFamily};
   padding: 10px;
   box-sizing: border-box;
@@ -20,7 +22,7 @@ export const Header = styled.div`
 
 export const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily};
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-size: 20px;
   font-weight: 500;
   margin: 0;
@@ -47,7 +49,7 @@ export const MenuContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    border-right: 1px solid ${({ theme }) => theme.colors.lightGrey};
+    border-right: 1px solid ${({ theme }) => theme.colors.background.light};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -56,7 +58,7 @@ export const MenuContainer = styled.div`
     overflow-x: auto;
     border-right: none;
     gap: 10px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.lightGrey};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.background.light};
   }
 `;
 
@@ -86,4 +88,12 @@ export const Footer = styled.div`
   & > button {
     border-radius: 5px;
   }
+`;
+
+export const ResetButton = styled(Button)`
+  color: ${({ theme }) => theme.colors.secondary.normal};
+`;
+
+export const ApplyButton = styled(Button)`
+  color: ${({ theme }) => theme.colors.background.normal};
 `;

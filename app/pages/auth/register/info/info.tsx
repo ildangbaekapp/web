@@ -58,11 +58,13 @@ export default function InfoPage() {
           <Input
             id="email"
             name="email"
+            type="email"
+            autoComplete="email"
             placeholder="example@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <S.StyledButton variant="secondary" onClick={handleCheckEmail}>
+          <S.StyledButton colorScheme="primary" onClick={handleCheckEmail}>
             중복 확인
           </S.StyledButton>
         </InputGroup>
@@ -80,6 +82,8 @@ export default function InfoPage() {
         <Input
           type="password"
           name="password"
+          autoComplete="new-password"
+          required
           placeholder="영문 + 숫자 + 특수문자 조합 8~20자 입력"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -87,6 +91,8 @@ export default function InfoPage() {
         <Input
           type="password"
           name="passwordConfirm"
+          autoComplete="new-password"
+          required
           placeholder="비밀번호 확인"
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}

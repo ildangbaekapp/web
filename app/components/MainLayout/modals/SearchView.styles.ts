@@ -1,22 +1,31 @@
 import styled from "styled-components";
 
+import Button from "~/components/Button";
+
 export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 20px;
   box-sizing: border-box;
-  width: 100%;
-  gap: 10px;
+  min-width: min(600px, 90vw);
   display: inline-flex;
   font-family: ${({ theme }) => theme.fontFamily};
 `;
 
+export const Header = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-bottom: 0;
+`;
+
 export const SearchBox = styled.div`
   align-self: stretch;
+  width: 100%;
   padding: 10px;
+  box-sizing: border-box;
   gap: 15px;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background.normal};
   overflow: hidden;
   border-radius: 30px;
   justify-content: space-between;
@@ -34,7 +43,7 @@ export const Left = styled.div`
 
 export const SearchInput = styled.input`
   flex-grow: 1;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-size: 24px;
   font-weight: 500;
   border: none;
@@ -47,14 +56,14 @@ export const SearchInput = styled.input`
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.grey};
+    color: ${({ theme }) => theme.colors.secondary.normal};
   }
 `;
 
 export const SearchIcon = styled.div`
   width: 28px;
   height: 28px;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
 `;
 
 export const Body = styled.div`
@@ -67,7 +76,7 @@ export const Body = styled.div`
   display: flex;
 `;
 
-export const Filter = styled.button`
+export const Filter = styled(Button)`
   border: none;
   cursor: pointer;
   flex-shrink: 0;
@@ -79,23 +88,22 @@ export const Filter = styled.button`
   gap: 5px;
   border-radius: 9999px;
   font-family: ${({ theme }) => theme.fontFamily};
-  background: ${({ theme }) => theme.colors.darkGrey};
 `;
 
 export const FilterText = styled.div`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-size: 14px;
   font-weight: 500;
 `;
 
 export const FilterCount = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-size: 12px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.lightGrey};
+  background: ${({ theme }) => theme.colors.background.light};
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -104,45 +112,39 @@ export const FilterCount = styled.div`
 export const FilterIcon = styled.div`
   width: 20px;
   height: 20px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
 `;
 
 export const HistoryContainer = styled.div`
   align-self: stretch;
   overflow: hidden;
-  border-radius: 20px;
+  padding: 15px;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   display: flex;
 `;
 
-export const HistoryItem = styled.button`
+export const HistoryItem = styled(Button)`
   align-self: stretch;
   padding: 15px 20px;
+  height: auto;
   overflow: hidden;
   border-radius: 20px;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  display: inline-flex;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.lightGrey}80;
-  }
 `;
 
 export const HistoryIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
 `;
 
 export const HistoryText = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: 20px;
   font-weight: 500;

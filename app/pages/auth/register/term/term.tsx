@@ -83,7 +83,6 @@ export default function TermPage() {
           onChange={handleAllAgreeChange}
           label="필수 및 선택 항목 전체 동의"
           size="large"
-          isAllAgree
         />
       </S.AllAgreeContainer>
       <S.TermsList>

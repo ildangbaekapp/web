@@ -13,7 +13,10 @@ interface DurationFilterProps {
   onChange: (value: Filters["duration"]) => void;
 }
 
-export default function DurationFilter({ value, onChange }: DurationFilterProps) {
+export default function DurationFilter({
+  value,
+  onChange,
+}: DurationFilterProps) {
   const [selectedOption, setSelectedOption] = useState<DurationOption>(() => {
     if (value === "negotiable") return "negotiable";
     if (value === null) return "irrelevant";
@@ -59,12 +62,12 @@ export default function DurationFilter({ value, onChange }: DurationFilterProps)
   return (
     <S.Wrapper>
       <S.DurationContainer>
-        <S.OptionWrapper onClick={() => setSelectedOption("input")}>
+        <S.OptionWrapper>
           <RadioButton
             checked={selectedOption === "input"}
-            onChange={() => {}}
+            onChange={() => setSelectedOption("input")}
+            label={"직접 설정"}
           />
-          <S.Label $isSelected={selectedOption === "input"}>직접 설정</S.Label>
         </S.OptionWrapper>
 
         <S.DurationInputContainer>
@@ -95,22 +98,20 @@ export default function DurationFilter({ value, onChange }: DurationFilterProps)
         </S.DurationInputContainer>
       </S.DurationContainer>
 
-      <S.OptionWrapper onClick={() => setSelectedOption("negotiable")}>
+      <S.OptionWrapper>
         <RadioButton
           checked={selectedOption === "negotiable"}
-          onChange={() => {}}
+          onChange={() => setSelectedOption("negotiable")}
+          label={"협의 가능"}
         />
-        <S.Label $isSelected={selectedOption === "negotiable"}>협의</S.Label>
       </S.OptionWrapper>
 
-      <S.OptionWrapper onClick={() => setSelectedOption("irrelevant")}>
+      <S.OptionWrapper >
         <RadioButton
           checked={selectedOption === "irrelevant"}
-          onChange={() => {}}
+          onChange={() => setSelectedOption("irrelevant")}
+          label={"계약 기간 무관"}
         />
-        <S.Label $isSelected={selectedOption === "irrelevant"}>
-          계약 기간 무관
-        </S.Label>
       </S.OptionWrapper>
     </S.Wrapper>
   );

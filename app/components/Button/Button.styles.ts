@@ -1,52 +1,12 @@
 import { motion } from "motion/react";
-import styled, { css, type DefaultTheme } from "styled-components";
+import styled from "styled-components";
+import type { ColorScheme } from "theme";
 
-import type { ButtonVariant } from "./Button";
-
-interface ButtonProps {
-  $variant?: ButtonVariant;
+interface StyledButtonProps {
+  $colorScheme: ColorScheme;
 }
 
-const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
-  switch (variant) {
-    case "primary":
-      return css`
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.white};
-        &:hover {
-          background-color: ${theme.colors.primaryHover};
-        }
-        &:active {
-          background-color: ${theme.colors.primaryActive};
-        }
-        &:disabled {
-          background-color: ${theme.colors.grey};
-          cursor: not-allowed;
-        }
-      `;
-    case "secondary":
-      return css`
-        background-color: ${theme.colors.white};
-        color: ${theme.colors.darkGrey};
-        border: 1px solid ${theme.colors.grey};
-        &:hover {
-          background-color: ${theme.colors.whiteHover};
-        }
-        &:active {
-          background-color: ${theme.colors.whiteActive};
-        }
-        &:disabled {
-          background-color: ${theme.colors.grey};
-          color: ${theme.colors.white};
-          cursor: not-allowed;
-        }
-      `;
-    default:
-      return css``;
-  }
-};
-
-export const StyledButton = styled(motion.button)<ButtonProps>`
+export const StyledButton = styled(motion.button)<StyledButtonProps>`
   height: 48px;
   padding: 15px 20px;
   border-radius: 16px;
@@ -60,7 +20,20 @@ export const StyledButton = styled(motion.button)<ButtonProps>`
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: ${({ $colorScheme }) => $colorScheme.normal};
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s;
 
-  ${({ $variant = "primary", theme }) => getVariantStyles($variant, theme)}
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${({ $colorScheme }) => $colorScheme.light};
+  }
+
+  &:active {
+    background-color: ${({ $colorScheme }) => $colorScheme.dark};
+  }
 `;

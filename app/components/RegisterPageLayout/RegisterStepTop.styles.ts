@@ -10,14 +10,14 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.foreground.normal};
   font-size: 24px;
   font-weight: 700;
   line-height: 33.6px;
 `;
 
 export const Description = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.secondary.normal};
   font-size: 16px;
   font-weight: 500;
   line-height: 22.4px;

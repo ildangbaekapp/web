@@ -72,12 +72,12 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
   return (
     <S.Wrapper>
       <S.TimeContainer>
-        <S.OptionWrapper onClick={() => setSelectedOption("input")}>
+        <S.OptionWrapper>
           <RadioButton
             checked={selectedOption === "input"}
-            onChange={() => {}}
+            label={"직접 설정"}
+            onChange={() => setSelectedOption("input")}
           />
-          <S.Label $isSelected={selectedOption === "input"}>직접 설정</S.Label>
         </S.OptionWrapper>
 
         <S.TimeInputContainer>
@@ -89,7 +89,6 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               onChange={(e) =>
                 handleTimeChange("start", "hour", e.target.value)
               }
-              onFocus={() => setSelectedOption("input")}
               disabled={isInputDisabled}
             />
             <S.Divider>:</S.Divider>
@@ -99,7 +98,6 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               onChange={(e) =>
                 handleTimeChange("start", "minute", e.target.value)
               }
-              onFocus={() => setSelectedOption("input")}
               disabled={isInputDisabled}
             />
           </S.TimeFieldWrapper>
@@ -109,7 +107,6 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               type="number"
               value={formatTime(endTime.hour)}
               onChange={(e) => handleTimeChange("end", "hour", e.target.value)}
-              onFocus={() => setSelectedOption("input")}
               disabled={isInputDisabled}
             />
             <S.Divider>:</S.Divider>
@@ -119,29 +116,26 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               onChange={(e) =>
                 handleTimeChange("end", "minute", e.target.value)
               }
-              onFocus={() => setSelectedOption("input")}
               disabled={isInputDisabled}
             />
           </S.TimeFieldWrapper>
         </S.TimeInputContainer>
       </S.TimeContainer>
 
-      <S.OptionWrapper onClick={() => setSelectedOption("negotiable")}>
+      <S.OptionWrapper>
         <RadioButton
           checked={selectedOption === "negotiable"}
-          onChange={() => {}}
+          onChange={() => setSelectedOption("negotiable")}
+          label={"협의 가능"}
         />
-        <S.Label $isSelected={selectedOption === "negotiable"}>협의</S.Label>
       </S.OptionWrapper>
 
-      <S.OptionWrapper onClick={() => setSelectedOption("irrelevant")}>
+      <S.OptionWrapper>
         <RadioButton
           checked={selectedOption === "irrelevant"}
-          onChange={() => {}}
+          onChange={() => setSelectedOption("irrelevant")}
+          label={"무관"}
         />
-        <S.Label $isSelected={selectedOption === "irrelevant"}>
-          근무 시간 무관
-        </S.Label>
       </S.OptionWrapper>
     </S.Wrapper>
   );

@@ -2,13 +2,8 @@ import React from "react";
 import { MdArrowForward } from "react-icons/md";
 import { useNavigate } from "react-router";
 
-
-import Button from "~/components/Button";
-
 import * as S from "./RegisterPageLayout.styles";
 import RegisterStepTop from "./RegisterStepTop";
-
-
 
 interface RegisterPageLayoutProps {
   title: string;
@@ -55,23 +50,23 @@ export default function RegisterPageLayout({
       <S.Content>{children}</S.Content>
       <S.ButtonContainer>
         {onCancel && (
-          <Button variant="secondary" onClick={handleCancel}>
+          <S.SecondaryButton colorScheme="background" onClick={handleCancel}>
             취소
-          </Button>
+          </S.SecondaryButton>
         )}
         {onPrev && (
-          <Button variant="secondary" onClick={handlePrev}>
+          <S.SecondaryButton colorScheme="background" onClick={handlePrev}>
             이전
-          </Button>
+          </S.SecondaryButton>
         )}
         {onNext && (
-          <Button
+          <S.NextButton
             onClick={onNext}
             disabled={isNextDisabled}
             icon={<MdArrowForward size={24} />}
           >
             {nextButtonText}
-          </Button>
+          </S.NextButton>
         )}
       </S.ButtonContainer>
     </S.PageContainer>

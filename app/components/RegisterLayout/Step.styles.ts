@@ -4,7 +4,7 @@ export const StepItem = styled.div<{ $isActive: boolean }>`
   align-self: stretch;
   padding: 15px;
   background: ${({ theme, $isActive }) =>
-    $isActive ? theme.colors.primaryBg : "transparent"};
+    $isActive ? theme.colors.primaryBackground.normal : "transparent"};
   overflow: hidden;
   border-radius: ${({ $isActive }) => ($isActive ? "20px" : "10px")};
   justify-content: flex-start;
@@ -12,21 +12,21 @@ export const StepItem = styled.div<{ $isActive: boolean }>`
   gap: 10px;
   display: inline-flex;
   color: ${({ theme, $isActive }) =>
-    $isActive ? theme.colors.primary : theme.colors.darkGrey};
+    $isActive ? theme.colors.primary.normal : theme.colors.secondary.normal};
 `;
 
 export const StepNumber = styled.div<{ $isActive: boolean }>`
   width: 28px;
   height: 28px;
   background: ${({ theme, $isActive }) =>
-    $isActive ? theme.colors.primary : theme.colors.darkGrey};
+    $isActive ? theme.colors.primary.normal : theme.colors.secondary.normal};
   overflow: hidden;
   border-radius: 14px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   display: inline-flex;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-size: 16px;
   font-weight: 500;
   line-height: 22.4px;

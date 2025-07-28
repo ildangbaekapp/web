@@ -38,8 +38,7 @@ export default function WeekdayFilter({ value, onChange }: WeekdayFilterProps) {
     if (checked) {
       onChange(null);
     } else {
-      // Prevent unchecking "Negotiable" to enforce a selection.
-      // A day button must be clicked to set a value.
+      onChange(weekdays.map((day) => day.value));
     }
   };
 
@@ -49,8 +48,10 @@ export default function WeekdayFilter({ value, onChange }: WeekdayFilterProps) {
         {weekdays.map((day) => (
           <S.DayButton
             key={day.value}
-            $isSelected={selectedDays.includes(day.value)}
             onClick={() => handleDayClick(day.value)}
+            colorScheme={
+              selectedDays.includes(day.value) ? "primary" : "secondary"
+            }
           >
             {day.label}
           </S.DayButton>

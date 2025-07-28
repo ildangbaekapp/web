@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MdArrowBack, MdCheck, MdRefresh } from "react-icons/md";
 
-import Button from "~/components/Button";
 import IconButton from "~/components/IconButton";
 import {
   useSearchStore,
@@ -291,23 +290,19 @@ export default function FilterView({ onBack }: FilterViewProps) {
         <S.ContentContainer>
           {renderFilterContent()}
           <S.Footer>
-            <Button variant="secondary" onClick={handleResetAll}>
+            <S.ResetButton onClick={handleResetAll} colorScheme={"background"}>
               전체 초기화
-            </Button>
-            <Button
-              variant="secondary"
+            </S.ResetButton>
+            <S.ResetButton
               onClick={handleResetCurrent}
+              colorScheme={"background"}
               icon={<MdRefresh size={24} />}
             >
               초기화
-            </Button>
-            <Button
-              variant="primary"
-              onClick={handleApply}
-              icon={<MdCheck size={24} />}
-            >
+            </S.ResetButton>
+            <S.ApplyButton onClick={handleApply} icon={<MdCheck size={24} />}>
               적용
-            </Button>
+            </S.ApplyButton>
           </S.Footer>
         </S.ContentContainer>
       </S.Body>

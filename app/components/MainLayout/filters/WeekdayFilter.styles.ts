@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import Button from "~/components/Button";
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,26 +22,18 @@ export const DayButtonContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const DayButton = styled.button<{ $isSelected: boolean }>`
+export const DayButton = styled(Button)`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primary : theme.colors.grey};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background.normal};
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 500;
   cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.2s;
-
-  &:hover {
-    filter: brightness(1.1);
-  }
 `;
 
 export const NegotiableWrapper = styled.div`

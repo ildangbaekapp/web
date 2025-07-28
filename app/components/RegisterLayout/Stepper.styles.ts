@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StepperContainer = styled.div`
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background.normal};
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   border-radius: 20px;

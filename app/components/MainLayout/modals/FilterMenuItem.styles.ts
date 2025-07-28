@@ -1,25 +1,20 @@
 import styled from "styled-components";
 
-export const MenuItem = styled.div<{
+import Button from "~/components/Button";
+
+export const MenuItem = styled(Button)<{
   $isSelected: boolean;
 }>`
   width: 100%;
   box-sizing: border-box;
   padding: 10px 10px 10px 20px;
-  background: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primaryBg : "transparent"};
+  border: none;
   border-radius: 20px;
   justify-content: space-between;
   align-items: center;
   display: inline-flex;
   cursor: pointer;
-  transition: background-color 0.2s;
   outline-offset: -1px;
-
-  &:hover {
-    background: ${({ theme, $isSelected }) =>
-      !$isSelected && theme.colors.lightGrey};
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 10px 0;
@@ -31,7 +26,7 @@ export const MenuItem = styled.div<{
 
 export const Label = styled.div<{ $isSelected: boolean }>`
   color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primary : theme.colors.darkGrey};
+    $isSelected ? theme.colors.primary.normal : theme.colors.foreground.light};
   font-size: 16px;
   font-weight: 500;
   word-wrap: break-word;
@@ -46,9 +41,9 @@ export const Content = styled.div`
   width: 160px;
   padding: 7px 10px;
   box-sizing: border-box;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background.normal};
   border-radius: 20px;
-  outline: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  outline: 1px solid ${({ theme }) => theme.colors.background.light};
   outline-offset: -1px;
   justify-content: center;
   align-items: center;
@@ -62,7 +57,7 @@ export const Content = styled.div`
 
 export const Value = styled.div`
   flex: 1 1 0;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
   font-size: 12px;
   font-weight: 500;
   word-wrap: break-word;
@@ -74,12 +69,12 @@ export const Value = styled.div`
 export const IconWrapper = styled.div`
   width: 18px;
   height: 18px;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
 `;
 
 export const Dot = styled.div`
   width: 6px;
   height: 6px;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primary.normal};
   border-radius: 50%;
 `;

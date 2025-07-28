@@ -17,8 +17,6 @@ export const OptionWrapper = styled.div`
   align-items: center;
   gap: 10px;
   height: 50px;
-  cursor: pointer;
-  user-select: none;
 `;
 
 export const ExperienceInputWrapper = styled.div`
@@ -27,30 +25,29 @@ export const ExperienceInputWrapper = styled.div`
   gap: 5px;
 `;
 
-export const Label = styled.span<{ $isSelected: boolean }>`
+export const Label = styled.span`
   font-size: 16px;
   font-weight: 500;
-  color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.colors.primary : theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.light};
 `;
 
 export const YearInput = styled.input`
   width: 50px;
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  border: 1px solid ${({ theme }) => theme.colors.background.light};
   text-align: center;
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily};
-  background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.background.normal};
+  color: ${({ theme }) => theme.colors.foreground.light};
 
   &:focus {
-    outline: 1px solid ${({ theme }) => theme.colors.primary};
+    outline: 1px solid ${({ theme }) => theme.colors.primary.normal};
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.lightGrey};
+    background-color: ${({ theme }) => theme.colors.background.light};
     cursor: not-allowed;
   }
 

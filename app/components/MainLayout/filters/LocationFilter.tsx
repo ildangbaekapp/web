@@ -146,6 +146,12 @@ export default function LocationFilter({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 17,
+                layout: { ease: "easeInOut", duration: 0.3 },
+              }}
               key={`${loc.first}-${loc.second}-${loc.third}`}
               onClick={() =>
                 handleThirdLevelClick(loc.first, loc.second, loc.third)

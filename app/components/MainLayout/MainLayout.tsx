@@ -30,8 +30,8 @@ export default function MainLayout() {
           animate={{
             background:
               modalState === "search"
-                ? `${theme.colors.white}cc`
-                : theme.colors.white,
+                ? `${theme.colors.background.normal}cc`
+                : theme.colors.background.normal,
             backdropFilter: modalState === "search" ? "blur(8px)" : "none",
           }}
           transition={{ type: "spring", duration: 0.5 }}
