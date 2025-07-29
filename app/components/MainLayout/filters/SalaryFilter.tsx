@@ -1,4 +1,7 @@
+import { useMemo } from "react";
+
 import Checkbox from "~/components/Checkbox";
+import RangeSlider from "~/components/RangeSlider";
 import type { Salary } from "~/types/filter";
 
 import * as S from "./SalaryFilter.styles";
@@ -33,6 +36,40 @@ const getSalaryTypeText = (type: Salary["type"]): string => {
   }
 };
 
+const getSalaryMinMax = (type: Salary["type"]): [number, number] => {
+  switch (type) {
+    case "hourly":
+      return [10000, 100000];
+    case "daily":
+      return [10000, 800000];
+    case "weekly":
+      return [10000, 4000000];
+    case "monthly":
+      return [10000, 20000000];
+    case "yearly":
+      return [10000, 240000000];
+    default:
+      return [10000, 100000];
+  }
+};
+
+const getSalaryRound = (type: Salary["type"]): number | false => {
+  switch (type) {
+    case "hourly":
+      return 1000;
+    case "daily":
+      return 1000;
+    case "weekly":
+      return 10000;
+    case "monthly":
+      return 100000;
+    case "yearly":
+      return 1000000;
+    default:
+      return false;
+  }
+};
+
 export default function SalaryFilter({ value, onChange }: SalaryFilterProps) {
   const isIrrelevant = value === null;
 
@@ -48,13 +85,45 @@ export default function SalaryFilter({ value, onChange }: SalaryFilterProps) {
     if (isIrrelevant) {
       onChange({ type, min: 0, max: 0 });
     } else {
-      onChange({ ...value, type });
+      const [newMin, newMax] = getSalaryMinMax(value?.type ?? "hourly");
+      onChange({
+        ...value,
+        min: Math.max(value.min, newMin),
+        max: Math.min(value.max, newMax),
+        type,
+      });
     }
   };
 
+  const [min, max] = useMemo(() => {
+    return getSalaryMinMax(value?.type ?? "hourly");
+  }, [value?.type]);
+
+  const round = useMemo(
+    () => getSalaryRound(value?.type ?? "hourly"),
+    [value?.type]
+  );
+
   return (
     <S.Wrapper>
-      <S.SliderWrapper></S.SliderWrapper>
+      <S.SliderWrapper>
+        <RangeSlider
+          min={min}
+          max={max}
+          defaultRangeStart={value?.min ?? min}
+          defaultRangeEnd={value?.max ?? max * 0.8}
+          markers={[]}
+          scaleMethod="square"
+          round={round}
+          disabled={isIrrelevant}
+          priceToString={(value) => `${value.toLocaleString()}원`}
+          onChange={(min, max) => {
+            if (value) {
+              onChange({ ...value, min, max });
+            }
+          }}
+        />
+      </S.SliderWrapper>
       <S.TypeButtonContainer>
         {salaryTypes.map((t) => (
           <S.TypeButton

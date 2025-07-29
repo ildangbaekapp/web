@@ -28,12 +28,12 @@ export const IconWrapper = styled.div`
   & > svg {
     width: 100%;
     height: 100%;
-    color: ${({ theme }) => theme.colors.darkGrey};
+    color: ${({ theme }) => theme.colors.foreground.dark};
   }
 `;
 
 export const Title = styled.div`
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.foreground.dark};
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 700;
