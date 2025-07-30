@@ -36,7 +36,7 @@ export default function MainLayout() {
           }}
           transition={{ type: "spring", duration: 0.5 }}
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
               layout
               key={modalState}

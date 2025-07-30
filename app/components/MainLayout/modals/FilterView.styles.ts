@@ -9,8 +9,6 @@ export const Wrapper = styled.div`
   font-family: ${({ theme }) => theme.fontFamily};
   padding: 10px;
   box-sizing: border-box;
-  border-radius: 32px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
 `;
 
 export const Header = styled.div`
