@@ -1,8 +1,27 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import IconButton from "~/components/IconButton";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div).attrs({
+  style: {
+    boxShadow: "0 0px 8px rgba(0, 0, 0, 0.25)",
+  },
+  whileHover: {
+    y: -5,
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
+  },
+  whileTap: {
+    scale: 0.97,
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
+  },
+  whileFocus: {
+    y: -5,
+    scale: 0.97,
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
+  },
+  transition: { type: "spring", stiffness: 400, damping: 17 },
+})`
   min-width: 150px;
   width: 30vw;
   max-width: 200px;
@@ -11,26 +30,43 @@ export const Wrapper = styled.div`
   max-height: 250px;
   flex-shrink: 0;
   background: ${({ theme }) => theme.colors.background.normal};
-  font-family: ${({ theme }) => theme.fontFamily};
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border-radius: 24px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s;
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.background.light};
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.colors.background.dark};
+  }
+`;
+
+export const StyledButton = styled.button`
+  width: 100%;
+  height: 100%;
+  background: none;
+  text-align: left;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-  }
+  font-family: ${({ theme }) => theme.fontFamily};
 `;
 
 export const Top = styled.div<{ $backgroundImage?: string; $short?: boolean }>`
   align-self: stretch;
   flex: 1;
   padding: 15px;
-  position: relative;
   box-sizing: border-box;
   background: linear-gradient(
       0deg,
@@ -85,8 +121,6 @@ export const Bookmark = styled(IconButton)`
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 24px;
-  height: 24px;
   color: ${({ theme }) => theme.colors.background.normal};
 `;
 

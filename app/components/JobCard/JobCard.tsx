@@ -40,40 +40,43 @@ export default function JobCard({
 
   return (
     <S.Wrapper>
-      <S.Top $backgroundImage={thumbnail} $short={feature !== undefined}>
-        <S.TagContainer>
-          <S.Tag>{category}</S.Tag>
-        </S.TagContainer>
-        <S.Title>{jobTitle}</S.Title>
-        <S.Bookmark
-          onClick={handleBookmarkClick}
-          icon={
-            bookmarked ? (
-              <MdOutlineBookmark size={24} />
-            ) : (
-              <MdOutlineBookmarkBorder size={24} />
-            )
-          }
-        />
-      </S.Top>
-      {feature && (
-        <S.Feature>
-          <MdStars />
-          <div>{feature}</div>
-        </S.Feature>
-      )}
-      <S.Bottom>
-        <S.PictureWrapper>
-          <S.CompanyLogo
-            src={companyPicture || "https://placehold.co/40x40"}
-            alt={`${companyName} logo`}
-          />
-        </S.PictureWrapper>
-        <S.Info>
-          <S.CompanyName>{companyName}</S.CompanyName>
-          <S.Salary>{salary}</S.Salary>
-        </S.Info>
-      </S.Bottom>
+      <S.StyledButton>
+        <S.Top $backgroundImage={thumbnail} $short={feature !== undefined}>
+          <S.TagContainer>
+            <S.Tag>{category}</S.Tag>
+          </S.TagContainer>
+          <S.Title>{jobTitle}</S.Title>
+        </S.Top>
+        {feature && (
+          <S.Feature>
+            <MdStars />
+            <div>{feature}</div>
+          </S.Feature>
+        )}
+        <S.Bottom>
+          <S.PictureWrapper>
+            <S.CompanyLogo
+              src={companyPicture || "https://placehold.co/40x40"}
+              alt={`${companyName} logo`}
+            />
+          </S.PictureWrapper>
+          <S.Info>
+            <S.CompanyName>{companyName}</S.CompanyName>
+            <S.Salary>{salary}</S.Salary>
+          </S.Info>
+        </S.Bottom>
+      </S.StyledButton>
+      <S.Bookmark
+        onClick={handleBookmarkClick}
+        size={30}
+        icon={
+          bookmarked ? (
+            <MdOutlineBookmark size={24} />
+          ) : (
+            <MdOutlineBookmarkBorder size={24} />
+          )
+        }
+      />
     </S.Wrapper>
   );
 }

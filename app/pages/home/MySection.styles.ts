@@ -93,7 +93,6 @@ export const ActionButtonIcon = styled.div`
   width: 32px;
   height: 32px;
   position: relative;
-  overflow: hidden;
 
   & > svg {
     width: 100%;
