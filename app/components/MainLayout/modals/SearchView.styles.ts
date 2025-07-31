@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "~/components/Button";
 
 export const Wrapper = styled.div`
-  min-width: min(600px, 90vw);
+  width: min(600px, 90vw);
   font-family: ${({ theme }) => theme.fontFamily};
 `;
 

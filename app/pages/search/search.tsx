@@ -97,9 +97,13 @@ export default function SearchResult() {
 
   return (
     <S.MainContainer>
-      <S.Filter onClick={handleFilterClick}>
+      <S.Filter
+        onClick={handleFilterClick}
+        layout
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      >
         <S.FilterContainer>
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="popLayout" initial={false}>
             {appliedFilter.map((key) => (
               <S.StyledFilterPreview
                 key={key}

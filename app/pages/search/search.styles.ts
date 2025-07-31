@@ -22,6 +22,7 @@ export const MainContainer = styled.div`
 
 export const Filter = styled(Button).attrs({
   colorScheme: "background",
+  transitionVariant: "none",
 })`
   display: flex;
   padding: 15px;
@@ -32,6 +33,10 @@ export const Filter = styled(Button).attrs({
   margin: 20px 0;
   border-radius: 24px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin: 20px 10px;
+  }
 `;
 
 export const FilterContainer = styled.div`
@@ -39,7 +44,10 @@ export const FilterContainer = styled.div`
   align-items: center;
   gap: 10px;
   flex: 1 0 0;
-  height: 60px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 24px;
 `;
 
 export const NoFilter = styled.span`

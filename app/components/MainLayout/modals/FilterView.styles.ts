@@ -5,7 +5,7 @@ import Button from "~/components/Button";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: min(800px, 90vw);
+  width: min(800px, 90vw);
   font-family: ${({ theme }) => theme.fontFamily};
   padding: 10px;
   box-sizing: border-box;
