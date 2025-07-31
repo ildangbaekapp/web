@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import styled from "styled-components";
 
-import Button from "~/components/Button";
 import FilterPreview from "~/components/FilterPreview/FilterPreview";
+import { Feedback } from "~/components/ui/Feedback";
 
 export const MainContainer = styled.div`
   width: 100%;
@@ -20,16 +20,10 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const Filter = styled(Button).attrs({
-  colorScheme: "background",
+export const FilterSummaryFeedback = styled(Feedback).attrs({
   transitionVariant: "none",
 })`
-  display: flex;
-  padding: 15px;
-  height: auto;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
+  width: 100%;
   margin: 20px 0;
   border-radius: 24px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
@@ -37,6 +31,13 @@ export const Filter = styled(Button).attrs({
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     margin: 20px 10px;
   }
+`;
+
+export const FilterSummary = styled.a`
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const FilterContainer = styled.div`

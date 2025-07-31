@@ -5,6 +5,7 @@ import { useTheme } from "styled-components";
 
 import logo from "~/assets/logo.png";
 import IconButton from "~/components/IconButton";
+import usePalette from "~/hooks/usePalette";
 import { useSearchStore } from "~/store/searchStore";
 
 import * as S from "./AppBar.styles";
@@ -16,6 +17,7 @@ interface AppBarProps {
 export default function AppBar({ onSearchBoxClick }: AppBarProps) {
   const navigate = useNavigate();
   const theme = useTheme();
+  const palette = usePalette("background");
   const query = useSearchStore((state) => state.query);
 
   const handleLogoClick = () => {
@@ -50,15 +52,17 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
           size={54}
         />
 
-        <S.SearchBox onClick={onSearchBoxClick}>
-          <S.SearchBoxText>{query || "검색어를 입력하세요."}</S.SearchBoxText>
-          <S.Right>
-            <S.ShortcutWrapper>
-              <S.ShortcutText>Ctrl + K</S.ShortcutText>
-            </S.ShortcutWrapper>
-            <MdSearch size={24} color={theme.colors.foreground.light} />
-          </S.Right>
-        </S.SearchBox>
+        <S.SearchBoxWrapper palette={palette}>
+          <S.SearchBox onClick={onSearchBoxClick}>
+            <S.SearchBoxText>{query || "검색어를 입력하세요."}</S.SearchBoxText>
+            <S.Right>
+              <S.ShortcutWrapper>
+                <S.ShortcutText>Ctrl + K</S.ShortcutText>
+              </S.ShortcutWrapper>
+              <MdSearch size={24} color={theme.colors.foreground.light} />
+            </S.Right>
+          </S.SearchBox>
+        </S.SearchBoxWrapper>
       </S.Left>
       <S.Right>
         <IconButton

@@ -47,7 +47,6 @@ export const SecondaryButton = styled(Button)`
   color: ${({ theme }) => theme.colors.foreground.normal};
 `;
 
-
 export const NextButton = styled(Button)`
   color: ${({ theme }) => theme.colors.background.normal};
 `;

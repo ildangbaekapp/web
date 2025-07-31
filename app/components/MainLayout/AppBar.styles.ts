@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 
 import Button from "~/components/Button";
 
+import { Feedback } from "../ui/Feedback";
+
 export const AppBar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -37,21 +39,22 @@ export const Logo = styled.img`
   cursor: pointer;
 `;
 
-export const SearchBox = styled(Button).attrs({
-  colorScheme: "background",
+export const SearchBoxWrapper = styled(Feedback).attrs({
   transitionVariant: "none",
 })`
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
   overflow: hidden;
   flex: 1 1 0;
   min-width: 50px;
-  align-items: center;
-  padding: 10px 20px;
-  height: auto;
   border-radius: 30px;
   border: 1px solid ${({ theme }) => theme.colors.background.dark};
+`;
+
+export const SearchBox = styled.a`
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
 `;
 
 export const SearchBoxText = styled.span`

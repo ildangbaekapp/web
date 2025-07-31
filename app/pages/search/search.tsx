@@ -2,7 +2,7 @@ import { AnimatePresence } from "motion/react";
 import { useMemo } from "react";
 import { MdChevronRight } from "react-icons/md";
 
-import FilterPreview from "~/components/FilterPreview/FilterPreview";
+import usePalette from "~/hooks/usePalette";
 import { useModalStore } from "~/store/modalStore";
 import { initialFilter, useSearchStore } from "~/store/searchStore";
 import type Filters from "~/types/filter";
@@ -85,8 +85,9 @@ const filterKeys = Object.keys(initialFilter) as (keyof Filters)[];
 export default function SearchResult() {
   const { setModalState } = useModalStore();
   const filter = useSearchStore((state) => state.filter);
+  const palette = usePalette("background");
 
-  const handleFilterClick = () => {
+  const handleFilterSummaryClick = () => {
     setModalState("filter");
   };
 
@@ -97,37 +98,35 @@ export default function SearchResult() {
 
   return (
     <S.MainContainer>
-      <S.Filter
-        onClick={handleFilterClick}
-        layout
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      >
-        <S.FilterContainer>
-          <AnimatePresence mode="popLayout" initial={false}>
-            {appliedFilter.map((key) => (
-              <S.StyledFilterPreview
-                key={key}
-                filter={key}
-                content={filter[key]}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                transition={{
-                  layout: { type: "spring", stiffness: 100, damping: 20 },
-                }}
-                layout
-              />
-            ))}
-          </AnimatePresence>
+      <S.FilterSummaryFeedback palette={palette} layout>
+        <S.FilterSummary onClick={handleFilterSummaryClick}>
+          <S.FilterContainer>
+            <AnimatePresence mode="popLayout" initial={false}>
+              {appliedFilter.map((key) => (
+                <S.StyledFilterPreview
+                  key={key}
+                  filter={key}
+                  content={filter[key]}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{
+                    layout: { type: "spring", stiffness: 100, damping: 20 },
+                  }}
+                  layout
+                />
+              ))}
+            </AnimatePresence>
 
-          {appliedFilter.length === 0 && (
-            <S.NoFilter>필터를 설정하세요.</S.NoFilter>
-          )}
-        </S.FilterContainer>
-        <S.IconWrapper>
-          <MdChevronRight size={24} />
-        </S.IconWrapper>
-      </S.Filter>
+            {appliedFilter.length === 0 && (
+              <S.NoFilter>필터를 설정하세요.</S.NoFilter>
+            )}
+          </S.FilterContainer>
+          <S.IconWrapper>
+            <MdChevronRight size={24} />
+          </S.IconWrapper>
+        </S.FilterSummary>
+      </S.FilterSummaryFeedback>
     </S.MainContainer>
   );
 }
