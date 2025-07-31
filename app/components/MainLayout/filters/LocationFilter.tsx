@@ -33,7 +33,7 @@ export default function LocationFilter({
 
       const data: RegionData = {};
       for (const line of lines) {
-        const [_, first, second, third] = line.split(",");
+        const [, first, second, third] = line.split(",");
         if (first && second && third) {
           if (!data[first]) data[first] = {};
           if (!data[first][second]) data[first][second] = [];

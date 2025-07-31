@@ -8,6 +8,7 @@ import {
 export default [
   layout("./components/MainLayout/MainLayout.tsx", [
     route("home", "./pages/home/home.tsx"),
+    route("search", "./pages/search/search.tsx"),
   ]),
   ...prefix("auth", [
     route("login", "./pages/auth/login/login.tsx"),

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import RadioButton from "~/components/RadioButton";
-import type { Filters } from "~/store/searchStore";
+import type Filters from "~/types/filter";
 import type { duration } from "~/types/filter";
 
 import * as S from "./DurationFilter.styles";
@@ -106,7 +106,7 @@ export default function DurationFilter({
         />
       </S.OptionWrapper>
 
-      <S.OptionWrapper >
+      <S.OptionWrapper>
         <RadioButton
           checked={selectedOption === "irrelevant"}
           onChange={() => setSelectedOption("irrelevant")}

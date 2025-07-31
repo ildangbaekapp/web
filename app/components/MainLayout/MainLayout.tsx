@@ -1,9 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import { Outlet } from "react-router";
 import { useTheme } from "styled-components";
 
 import Modal from "~/components/Modal";
+import { useModalStore } from "~/store/modalStore";
 
 import AppBar from "./AppBar";
 import * as S from "./MainLayout.styles";
@@ -12,10 +12,7 @@ import SearchView from "./modals/SearchView";
 
 export default function MainLayout() {
   const theme = useTheme();
-
-  const [modalState, setModalState] = useState<"search" | "filter" | null>(
-    null
-  );
+  const { modalState, setModalState } = useModalStore();
 
   return (
     <S.Layout>

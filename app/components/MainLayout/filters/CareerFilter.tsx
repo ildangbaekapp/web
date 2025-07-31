@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import RadioButton from "~/components/RadioButton";
-import type { Filters } from "~/store/searchStore";
+import type Filters from "~/types/filter";
 
 import * as S from "./CareerFilter.styles";
 

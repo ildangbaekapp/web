@@ -42,3 +42,14 @@ export interface duration {
 }
 
 export type WorkLocation = Location;
+
+export default interface Filters {
+  type: Type[] | null;
+  carreer: Carreer | null;
+  weekday: Weekday[] | null;
+  salary: Salary | null;
+  time: Time | "negotiable" | null;
+  recruitLocation: RecruitLocation[] | null;
+  duration: duration | "negotiable" | null;
+  workLocation: WorkLocation[] | null;
+}
