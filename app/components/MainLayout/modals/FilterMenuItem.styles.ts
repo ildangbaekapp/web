@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Button from "~/components/Button";
+import Button from "~/components/ui/Button";
 
 export const MenuItem = styled(Button)<{
   $isSelected: boolean;

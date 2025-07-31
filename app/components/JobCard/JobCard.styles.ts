@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import styled from "styled-components";
 
-import IconButton from "~/components/IconButton";
+import IconButton from "~/components/ui/IconButton";
 
 export const Wrapper = styled(motion.div).attrs({
   style: {

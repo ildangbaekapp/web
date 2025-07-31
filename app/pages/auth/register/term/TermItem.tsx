@@ -1,7 +1,7 @@
 import { MdChevronRight } from "react-icons/md";
 
 import Checkbox from "~/components/Checkbox";
-import IconButton from "~/components/IconButton";
+import IconButton from "~/components/ui/IconButton";
 
 import * as S from "./TermItem.styles";
 

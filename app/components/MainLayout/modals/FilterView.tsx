@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdArrowBack, MdCheck, MdRefresh } from "react-icons/md";
 
-import IconButton from "~/components/IconButton";
+import IconButton from "~/components/ui/IconButton";
 import { useSearchStore, initialFilter } from "~/store/searchStore";
 import type Filters from "~/types/filter";
 import getFilterValueText from "~/utils/getFilterValueText";

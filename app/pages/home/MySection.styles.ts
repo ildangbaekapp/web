@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import Button from "~/components/Button";
 import Card from "~/components/Card";
+import Button from "~/components/ui/Button";
 
 export const Wrapper = styled(Card)`
   align-self: stretch;

@@ -12,4 +12,5 @@ export interface Palette {
 export interface FeedbackProps extends HTMLMotionProps<"div"> {
   transitionVariant?: TransitionVariant;
   palette?: Palette;
+  disabled?: boolean;
 }

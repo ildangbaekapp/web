@@ -7,12 +7,14 @@ import KakaoIcon from "~/assets/kakao.svg";
 import LogoSrc from "~/assets/logo.png";
 import NaverIcon from "~/assets/naver.svg";
 import Input from "~/components/Input";
+import usePalette from "~/hooks/usePalette";
 import { useUserStore } from "~/store/userStore";
 
 import * as S from "./login.styles";
 import SnsButton from "./SnsButton";
 
 export default function LoginPage() {
+  const palette = usePalette("primary");
   const navigate = useNavigate();
   const { setId, setEmail, setName, setRole } = useUserStore();
 
@@ -62,6 +64,7 @@ export default function LoginPage() {
           </S.InputFields>
           <S.AuthButtons>
             <S.LoginButton
+              palette={palette}
               onClick={handleLoginClick}
               disabled={isLoginButtonDisabled}
             >

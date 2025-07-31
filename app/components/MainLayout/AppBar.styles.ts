@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 
-import Button from "~/components/Button";
-
-import { Feedback } from "../ui/Feedback";
+import Feedback from "~/components/ui/Feedback";
 
 export const AppBar = styled.div`
   display: flex;

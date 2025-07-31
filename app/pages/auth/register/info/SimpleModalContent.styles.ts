@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Button from "~/components/Button";
+import Button from "~/components/ui/Button";
 
 export const Wrapper = styled.div`
   min-width: min(500px, 90vw);

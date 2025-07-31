@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { useTheme } from "styled-components";
 
 import logo from "~/assets/logo.png";
-import IconButton from "~/components/IconButton";
+import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
 import { useSearchStore } from "~/store/searchStore";
 

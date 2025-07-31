@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import Button from "~/components/Button";
 import Card from "~/components/Card";
+import Button from "~/components/ui/Button";
 
 export const Container = styled.div`
   width: 100vw;
@@ -75,7 +75,6 @@ export const AuthButtons = styled.div`
 
 export const LoginButton = styled(Button)`
   width: 100%;
-  color: ${({ theme }) => theme.colors.background.normal};
 `;
 
 export const AuthLinks = styled.div`

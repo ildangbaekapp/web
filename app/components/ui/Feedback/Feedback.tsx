@@ -7,6 +7,7 @@ import type { FeedbackProps, Palette } from "./Feedback.types";
 export default function Feedback({
   transitionVariant = "scale",
   palette,
+  disabled = false,
   ...props
 }: FeedbackProps) {
   // 기본 팔레트 설정
@@ -15,6 +16,7 @@ export default function Feedback({
   return (
     <S.Wrapper
       $palette={palette ?? defaultPalette}
+      $disabled={disabled}
       {...props}
       {...transitions[transitionVariant]}
     />

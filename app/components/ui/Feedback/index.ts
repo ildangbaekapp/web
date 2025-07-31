@@ -1,2 +1,2 @@
-export { default as Feedback } from "./Feedback";
-export type { Palette } from "./Feedback.types";
+export { default } from "./Feedback";
+export type { Palette, FeedbackProps } from "./Feedback.types";

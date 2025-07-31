@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import styled from "styled-components";
 
 import FilterPreview from "~/components/FilterPreview/FilterPreview";
-import { Feedback } from "~/components/ui/Feedback";
+import Feedback from "~/components/ui/Feedback";
 
 export const MainContainer = styled.div`
   width: 100%;
