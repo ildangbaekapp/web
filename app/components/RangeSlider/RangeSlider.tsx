@@ -9,12 +9,14 @@ import type { ScaleMethod } from ".";
 interface RangeSliderProps {
   min: number;
   max: number;
-  defaultRangeStart: number;
-  defaultRangeEnd: number;
+  start?: number;
+  end?: number;
+  defaultStart?: number;
+  defaultEnd?: number;
   onChange: (rangeStart: number, rangeEnd: number) => void;
   markers?: number[];
   scaleMethod?: ScaleMethod;
-  priceToString?: (value: number) => string;
+  toString?: (value: number) => string;
   round?: number | false;
   disabled?: boolean;
 }
@@ -22,12 +24,14 @@ interface RangeSliderProps {
 export default function RangeSlider({
   min,
   max,
-  defaultRangeStart,
-  defaultRangeEnd,
+  start: startProp,
+  end: endProp,
+  defaultStart,
+  defaultEnd,
   onChange,
   markers = [],
   scaleMethod = "linear",
-  priceToString: label = (value) => value.toLocaleString(),
+  toString = (value) => value.toLocaleString(),
   round = false,
   disabled = false,
 }: RangeSliderProps) {
@@ -62,17 +66,20 @@ export default function RangeSlider({
     return () => observer.disconnect();
   }, [startLabelRef, endLabelRef]);
 
-  // 반환 값
-  const [start, setStart] = useState<number>(defaultRangeStart);
-  const [end, setEnd] = useState<number>(defaultRangeEnd);
+  const [internalStart, setInternalStart] = useState<number>(
+    defaultStart ?? min
+  );
+  const [internalEnd, setInternalEnd] = useState<number>(
+    defaultEnd ?? max * 0.8
+  );
 
-  // 원본 값
-  const [visualStart, setVisualStart] = useState<number>(
-    getVisualValue(defaultRangeStart)
-  );
-  const [visualEnd, setVisualEnd] = useState<number>(
-    getVisualValue(defaultRangeEnd)
-  );
+  const isControlled = startProp !== undefined && endProp !== undefined;
+
+  const start = isControlled ? startProp : internalStart;
+  const end = isControlled ? endProp : internalEnd;
+
+  const visualStart = getVisualValue(start);
+  const visualEnd = getVisualValue(end);
 
   // left 계산 함수
   function getLeftStyle(value: number, width = 0) {
@@ -80,28 +87,21 @@ export default function RangeSlider({
   }
 
   // min max 전환 함수
-  function handleSliderChange(index: number) {
-    console.assert(index === 1 || index === 2, "index must be 1 or 2");
+  function handleSliderChange() {
+    const slider1Value = slider1.current?.valueAsNumber;
+    const slider2Value = slider2.current?.valueAsNumber;
 
-    const value = (index === 1 ? slider1 : slider2).current?.valueAsNumber;
-    const oppositeValue = (index === 1 ? slider2 : slider1).current
-      ?.valueAsNumber;
-
-    if (value === undefined || oppositeValue === undefined) {
+    if (slider1Value === undefined || slider2Value === undefined) {
       return;
     }
 
     let newStart, newEnd;
-    if (value > oppositeValue) {
-      setVisualStart(oppositeValue);
-      setVisualEnd(value);
-      newStart = getScaledValue(oppositeValue);
-      newEnd = getScaledValue(value);
+    if (slider1Value > slider2Value) {
+      newStart = getScaledValue(slider2Value);
+      newEnd = getScaledValue(slider1Value);
     } else {
-      setVisualStart(value);
-      setVisualEnd(oppositeValue);
-      newStart = getScaledValue(value);
-      newEnd = getScaledValue(oppositeValue);
+      newStart = getScaledValue(slider1Value);
+      newEnd = getScaledValue(slider2Value);
     }
 
     if (round !== false) {
@@ -109,8 +109,10 @@ export default function RangeSlider({
       newEnd = Math.round(newEnd / round) * round;
     }
 
-    setStart(newStart);
-    setEnd(newEnd);
+    if (!isControlled) {
+      setInternalStart(newStart);
+      setInternalEnd(newEnd);
+    }
     onChange(newStart, newEnd);
   }
 
@@ -166,11 +168,6 @@ export default function RangeSlider({
   useEffect(() => adjustLabelStyle(0), [visualStart]);
   useEffect(() => adjustLabelStyle(1), [visualEnd]);
 
-  useEffect(() => {
-    handleSliderChange(1);
-    handleSliderChange(2);
-  }, [min, max]);
-
   return (
     <S.Container>
       {/* range input thumb 위에 있는 input의 현재 값 표시 */}
@@ -178,23 +175,21 @@ export default function RangeSlider({
         style={getLabelStyle(visualStart, startLabelWidth)}
         ref={startLabelRef}
       >
-        {label(start)}
+        {toString(start)}
       </S.Label>
       <S.Label
         style={getLabelStyle(visualEnd, endLabelWidth)}
         ref={endLabelRef}
       >
-        {label(end)}
+        {toString(end)}
       </S.Label>
 
       <S.Slider
         min={0}
         max={100}
         step={0.1}
-        defaultValue={getVisualValue(defaultRangeStart)}
-        onChange={() => {
-          handleSliderChange(1);
-        }}
+        value={visualStart}
+        onChange={handleSliderChange}
         ref={slider1}
         disabled={disabled}
       />
@@ -202,10 +197,8 @@ export default function RangeSlider({
         min={0}
         max={100}
         step={0.1}
-        defaultValue={getVisualValue(defaultRangeEnd)}
-        onChange={() => {
-          handleSliderChange(2);
-        }}
+        value={visualEnd}
+        onChange={handleSliderChange}
         ref={slider2}
         disabled={disabled}
       />
@@ -224,7 +217,7 @@ export default function RangeSlider({
           key={value}
         >
           <S.MarkerLine />
-          <S.MarkerText>{label(value)}</S.MarkerText>
+          <S.MarkerText>{toString(value)}</S.MarkerText>
         </S.Marker>
       ))}
     </S.Container>

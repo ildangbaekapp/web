@@ -19,7 +19,7 @@ const getFilterIcon = (filter: keyof Filters) => {
   switch (filter) {
     case "type":
       return <MdCategory />;
-    case "carreer":
+    case "career":
       return <MdWorkHistory />;
     case "weekday":
       return <MdViewWeek />;

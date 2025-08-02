@@ -13,7 +13,7 @@ interface SearchState {
 
 export const initialFilter: Filters = {
   type: null,
-  carreer: null,
+  career: null,
   weekday: null,
   salary: null,
   time: null,

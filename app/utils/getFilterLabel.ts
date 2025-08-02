@@ -4,7 +4,7 @@ export default function getFilterLabel(filter: keyof Filters): string {
   switch (filter) {
     case "type":
       return "업종";
-    case "carreer":
+    case "career":
       return "경력";
     case "weekday":
       return "요일";

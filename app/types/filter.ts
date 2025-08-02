@@ -5,7 +5,7 @@ export enum Type {
   FLEX = "flex",
 }
 
-export type Carreer = number;
+export type Career = number;
 
 export enum Weekday {
   MONDAY = "monday",
@@ -45,7 +45,7 @@ export type WorkLocation = Location;
 
 export default interface Filters {
   type: Type[] | null;
-  carreer: Carreer | null;
+  career: Career | null;
   weekday: Weekday[] | null;
   salary: Salary | null;
   time: Time | "negotiable" | null;

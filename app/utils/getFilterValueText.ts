@@ -1,5 +1,6 @@
 import * as Filter from "~/types/filter";
 import type Filters from "~/types/filter";
+import getKoreanNumber from "~/utils/getKoreanNumber";
 
 const getTypeText = (type: Filter.Type): string => {
   switch (type) {
@@ -59,7 +60,7 @@ const formatTime = (time: { hour: number; minute: number }) =>
     .toString()
     .padStart(2, "0")}`;
 
-export default function getFilterValueText (
+export default function getFilterValueText(
   key: keyof Filters,
   value: Filters[keyof Filters]
 ): string {
@@ -75,8 +76,8 @@ export default function getFilterValueText (
         return getTypeText(typeValue[0]) as string;
       }
 
-      case "carreer": {
-        const careerValue = value as Exclude<Filters["carreer"], null>;
+      case "career": {
+        const careerValue = value as Exclude<Filters["career"], null>;
         if (careerValue === 0) return "신입";
         return `경력 ${careerValue}년 이상`;
       }
@@ -103,9 +104,9 @@ export default function getFilterValueText (
       case "salary": {
         const salary = value as Exclude<Filters["salary"], null>;
         if (salary === null) return "급여 무관";
-        return `${getSalaryTypeText(
-          salary.type
-        )} ${salary.min.toLocaleString()}원 ~ ${salary.max.toLocaleString()}원`;
+        return `${getSalaryTypeText(salary.type)} ${getKoreanNumber(
+          salary.min
+        )}원 ~ ${getKoreanNumber(salary.max)}원`;
       }
 
       case "time": {
@@ -134,4 +135,4 @@ export default function getFilterValueText (
   } catch {
     return "설정 오류";
   }
-};
+}
