@@ -1,6 +1,6 @@
-import type { Salary } from "~/types/filter";
+import type { SalaryRange } from "job";
 
-export const salaryTypes: Salary["type"][] = [
+export const salaryTypes: SalaryRange["type"][] = [
   "hourly",
   "daily",
   "weekly",
@@ -8,7 +8,7 @@ export const salaryTypes: Salary["type"][] = [
   "yearly",
 ];
 
-export const salaryTypeText: { [x in Salary["type"]]: string } = {
+export const salaryTypeText: { [x in SalaryRange["type"]]: string } = {
   hourly: "시급",
   daily: "일급",
   weekly: "주급",
@@ -16,7 +16,7 @@ export const salaryTypeText: { [x in Salary["type"]]: string } = {
   yearly: "연봉",
 };
 
-export const salaryMinMax: { [x in Salary["type"]]: [number, number] } = {
+export const salaryMinMax: { [x in SalaryRange["type"]]: [number, number] } = {
   hourly: [10000, 100000],
   daily: [50000, 800000],
   weekly: [100000, 4000000],
@@ -24,7 +24,7 @@ export const salaryMinMax: { [x in Salary["type"]]: [number, number] } = {
   yearly: [1000000, 240000000],
 };
 
-export const salaryRound: { [x in Salary["type"]]: number } = {
+export const salaryRound: { [x in SalaryRange["type"]]: number } = {
   hourly: 1000,
   daily: 1000,
   weekly: 10000,

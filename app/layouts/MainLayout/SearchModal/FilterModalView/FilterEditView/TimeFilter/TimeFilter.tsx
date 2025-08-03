@@ -1,9 +1,8 @@
+import type { Filters, Time } from "job";
 import { useMemo, useState } from "react";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
 
 import RadioButton from "~/components/ui/RadioButton";
-import type Filters from "~/types/filter";
-import type { Time } from "~/types/filter";
 
 import * as S from "./TimeFilter.styles";
 

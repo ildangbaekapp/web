@@ -1,9 +1,8 @@
+import type { Filters, Duration } from "job";
 import { useMemo, useState } from "react";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
 
 import RadioButton from "~/components/ui/RadioButton";
-import type Filters from "~/types/filter";
-import type { duration } from "~/types/filter";
 
 import * as S from "./DurationFilter.styles";
 
@@ -25,7 +24,7 @@ export default function DurationFilter({
     return "input";
   }, [value]);
 
-  const [duration, setDuration] = useState<duration>(() => {
+  const [duration, setDuration] = useState<Duration>(() => {
     if (value && typeof value === "object") {
       return value;
     }

@@ -1,6 +1,5 @@
+import type { Filters } from "job";
 import { create } from "zustand";
-
-import type Filters from "~/types/filter";
 
 interface SearchState {
   query: string;

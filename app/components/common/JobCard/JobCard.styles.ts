@@ -1,26 +1,11 @@
-import { motion } from "motion/react";
 import styled from "styled-components";
 
+import Feedback from "~/components/ui/Feedback";
 import IconButton from "~/components/ui/IconButton";
 
-export const Wrapper = styled(motion.div).attrs({
-  style: {
-    boxShadow: "0 0px 8px rgba(0, 0, 0, 0.25)",
-  },
-  whileHover: {
-    y: -5,
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
-  },
-  whileTap: {
-    scale: 0.97,
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
-  },
-  whileFocus: {
-    y: -5,
-    scale: 0.97,
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
-  },
-  transition: { type: "spring", stiffness: 400, damping: 17 },
+export const JobCardWrapper = styled(Feedback).attrs({
+  transitionVariant: "hover",
+  style: { boxShadow: "0 0px 8px rgba(0, 0, 0, 0.25)" },
 })`
   min-width: 150px;
   width: 30vw;
@@ -29,37 +14,19 @@ export const Wrapper = styled(motion.div).attrs({
   height: 40vw;
   max-height: 250px;
   flex-shrink: 0;
-  background: ${({ theme }) => theme.colors.background.normal};
   overflow: hidden;
   border-radius: 24px;
   position: relative;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.2s;
-
-  &:hover,
-  &:focus {
-    background-color: ${({ theme }) => theme.colors.background.light};
-  }
-
-  &:active {
-    background-color: ${({ theme }) => theme.colors.background.dark};
-  }
 `;
 
-export const StyledButton = styled.button`
+export const JobCard = styled.a`
   width: 100%;
   height: 100%;
-  background: none;
   text-align: left;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  cursor: pointer;
   font-family: ${({ theme }) => theme.fontFamily};
 `;
 

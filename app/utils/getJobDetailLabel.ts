@@ -1,7 +1,7 @@
-import type Filters from "~/types/filter";
+import type { Details } from "job";
 
-export default function getFilterLabel(filter: keyof Filters): string {
-  switch (filter) {
+export default function getJobDetailLabel(detailKey: keyof Details): string {
+  switch (detailKey) {
     case "type":
       return "업종";
     case "career":
@@ -19,6 +19,6 @@ export default function getFilterLabel(filter: keyof Filters): string {
     case "workLocation":
       return "근무지";
     default:
-      return filter;
+      return detailKey;
   }
 }

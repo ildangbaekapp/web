@@ -1,6 +1,5 @@
+import type { Filters } from "job";
 import { useMemo } from "react";
-
-import type Filters from "~/types/filter";
 
 import CareerFilter from "./CareerFilter";
 import DurationFilter from "./DurationFilter";

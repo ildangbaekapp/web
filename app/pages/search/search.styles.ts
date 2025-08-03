@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import styled from "styled-components";
 
-import FilterPreview from "~/components/common/FilterPreview/FilterPreview";
+import JobDetailPreview from "~/components/common/JobDetailPreview/JobDetailPreview";
 import Feedback from "~/components/ui/Feedback";
 
 export const MainContainer = styled.div`
@@ -60,7 +60,7 @@ export const NoFilter = styled.span`
   font-weight: 500;
 `;
 
-export const StyledFilterPreview = styled(motion.create(FilterPreview))`
+export const FilterPreview = styled(motion.create(JobDetailPreview))`
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.foreground.dark}1a;
   transition: background-color 0.3s ease;
@@ -70,4 +70,16 @@ export const IconWrapper = styled.div`
   width: 24px;
   height: 24px;
   color: ${({ theme }) => theme.colors.foreground.light};
+`;
+
+export const JobContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 `;

@@ -1,3 +1,4 @@
+import type { Filters } from "job";
 import { useCallback, useState } from "react";
 import { MdArrowBack, MdCheck, MdRefresh } from "react-icons/md";
 import { useTheme } from "styled-components";
@@ -6,7 +7,6 @@ import Button from "~/components/ui/Button";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
 import { useSearchStore, initialFilter } from "~/store/searchStore";
-import type Filters from "~/types/filter";
 import getFilterValueText from "~/utils/getFilterValueText";
 
 import FilterEditView from "./FilterEditView";
@@ -87,7 +87,7 @@ export default function FilterModalView({ onBack }: FilterModalViewProps) {
             );
           })}
         </S.MenuContainer>
-        
+
         <S.ContentContainer>
           {/* 필터 수정 뷰 */}
           <FilterEditView

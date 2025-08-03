@@ -1,11 +1,11 @@
-import { Weekday } from "~/types/filter";
+import type { Weekday } from "job";
 
 export const weekdays: { label: string; value: Weekday }[] = [
-  { label: "일", value: Weekday.SUNDAY },
-  { label: "월", value: Weekday.MONDAY },
-  { label: "화", value: Weekday.TUESDAY },
-  { label: "수", value: Weekday.WEDNESDAY },
-  { label: "목", value: Weekday.THURSDAY },
-  { label: "금", value: Weekday.FRIDAY },
-  { label: "토", value: Weekday.SATURDAY },
+  { label: "일", value: "sunday" },
+  { label: "월", value: "monday" },
+  { label: "화", value: "tuesday" },
+  { label: "수", value: "wednesday" },
+  { label: "목", value: "thursday" },
+  { label: "금", value: "friday" },
+  { label: "토", value: "saturday" },
 ];

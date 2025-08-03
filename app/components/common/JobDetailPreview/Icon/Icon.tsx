@@ -1,3 +1,4 @@
+import type { Filters } from "job";
 import {
   MdCategory,
   MdWorkHistory,
@@ -9,13 +10,12 @@ import {
   MdLocationOn,
 } from "react-icons/md";
 
-import type Filters from "~/types/filter";
-interface FilterIconProps {
-  filter: keyof Filters;
+interface IconProps {
+  detailKey: keyof Filters;
 }
 
-export default function FilterIcon({ filter }: FilterIconProps) {
-  switch (filter) {
+export default function Icon({ detailKey }: IconProps) {
+  switch (detailKey) {
     case "type":
       return <MdCategory />;
     case "career":

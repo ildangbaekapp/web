@@ -1,8 +1,8 @@
+import type { Weekday } from "job";
 import { useMemo } from "react";
 
 import Checkbox from "~/components/ui/Checkbox";
 import usePalette from "~/hooks/usePalette";
-import { Weekday } from "~/types/filter";
 
 import { weekdays } from "./WeekdayFilter.constants";
 import * as S from "./WeekdayFilter.styles";

@@ -1,4 +1,4 @@
-import type Filters from "~/types/filter";
+import type { Filters } from "job";
 
 export const filterLabels: {
   [key in keyof Filters]: string;

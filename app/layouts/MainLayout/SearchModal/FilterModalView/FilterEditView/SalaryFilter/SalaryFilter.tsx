@@ -1,9 +1,9 @@
+import type { SalaryRange } from "job";
 import { useMemo } from "react";
 
 import Checkbox from "~/components/ui/Checkbox";
 import RangeSlider from "~/components/ui/RangeSlider";
 import usePalette from "~/hooks/usePalette";
-import type { Salary } from "~/types/filter";
 import getKoreanNumber from "~/utils/getKoreanNumber";
 
 import {
@@ -15,8 +15,8 @@ import {
 import * as S from "./SalaryFilter.styles";
 
 interface SalaryFilterProps {
-  value: Salary | null;
-  onChange: (value: Salary | null) => void;
+  value: SalaryRange | null;
+  onChange: (value: SalaryRange | null) => void;
 }
 
 export default function SalaryFilter({ value, onChange }: SalaryFilterProps) {
@@ -39,7 +39,7 @@ export default function SalaryFilter({ value, onChange }: SalaryFilterProps) {
   };
 
   // 급여 종류 변경 핸들러
-  const handleTypeChange = (type: Salary["type"]) => {
+  const handleTypeChange = (type: SalaryRange["type"]) => {
     const [newMin, newMax] = salaryMinMax[type ?? "hourly"];
     onChange({
       ...value,

@@ -6,6 +6,8 @@ import {
 } from "react-icons/md";
 import { useTheme } from "styled-components";
 
+import usePalette from "~/hooks/usePalette";
+
 import * as S from "./JobCard.styles";
 
 interface JobCardProps {
@@ -32,6 +34,7 @@ export default function JobCard({
   onBookmarkClick,
 }: JobCardProps) {
   const theme = useTheme();
+  const palette = usePalette("background");
 
   const [bookmarked, setBookmarked] = useState(isBookmarked);
 
@@ -42,8 +45,8 @@ export default function JobCard({
   };
 
   return (
-    <S.Wrapper>
-      <S.StyledButton>
+    <S.JobCardWrapper palette={palette}>
+      <S.JobCard>
         <S.Top $backgroundImage={thumbnail} $short={feature !== undefined}>
           <S.TagContainer>
             <S.Tag>{category}</S.Tag>
@@ -68,7 +71,7 @@ export default function JobCard({
             <S.Salary>{salary}</S.Salary>
           </S.Info>
         </S.Bottom>
-      </S.StyledButton>
+      </S.JobCard>
       <S.Bookmark
         onClick={handleBookmarkClick}
         palette={{
@@ -84,6 +87,6 @@ export default function JobCard({
           <MdOutlineBookmarkBorder size={24} />
         )}
       </S.Bookmark>
-    </S.Wrapper>
+    </S.JobCardWrapper>
   );
 }

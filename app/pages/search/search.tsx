@@ -1,84 +1,16 @@
+import type { Filters } from "job";
 import { AnimatePresence } from "motion/react";
 import { useMemo } from "react";
 import { MdChevronRight } from "react-icons/md";
 
+import DetailJobCard from "~/components/common/DetailJobCard";
 import usePalette from "~/hooks/usePalette";
 import { useModalStore } from "~/store/modalStore";
 import { initialFilter, useSearchStore } from "~/store/searchStore";
-import type Filters from "~/types/filter";
+import getFilterValueText from "~/utils/getFilterValueText";
 
+import { jobs } from "./search.constants";
 import * as S from "./search.styles";
-
-const jobs = [
-  {
-    id: 1,
-    company: "CJ대한통운",
-    title: "상하차 인력 구합니다 !!!",
-    salary: "일 120,000원",
-    bookmarked: true,
-    details: {
-      type: "상하차",
-      experience: "무관",
-      weekday: "무관",
-      time: "협의",
-      location: "강남구 신사동",
-      duration: "1일",
-      workplace: "서구 대곡동",
-      experienceYears: "경력 무관",
-    },
-  },
-  {
-    id: 2,
-    company: "CJ대한통운",
-    title: "상하차 인력 구합니다 !!!",
-    salary: "일 120,000원",
-    bookmarked: true,
-    details: {
-      type: "상하차",
-      experience: "무관",
-      weekday: "무관",
-      time: "협의",
-      location: "강남구 신사동",
-      duration: "1일",
-      workplace: "서구 대곡동",
-      experienceYears: "경력 무관",
-    },
-  },
-  {
-    id: 3,
-    company: "CJ대한통운",
-    title: "상하차 인력 구합니다 !!!",
-    salary: "일 120,000원",
-    bookmarked: true,
-    details: {
-      type: "상하차",
-      experience: "무관",
-      weekday: "무관",
-      time: "협의",
-      location: "강남구 신사동",
-      duration: "1일",
-      workplace: "서구 대곡동",
-      experienceYears: "경력 무관",
-    },
-  },
-  {
-    id: 4,
-    company: "CJ대한통운",
-    title: "상하차 인력 구합니다 !!!",
-    salary: "일 120,000원",
-    bookmarked: true,
-    details: {
-      type: "상하차",
-      experience: "무관",
-      weekday: "무관",
-      time: "협의",
-      location: "강남구 신사동",
-      duration: "1일",
-      workplace: "서구 대곡동",
-      experienceYears: "경력 무관",
-    },
-  },
-];
 
 const filterKeys = Object.keys(initialFilter) as (keyof Filters)[];
 
@@ -102,11 +34,10 @@ export default function SearchResult() {
         <S.FilterSummary onClick={handleFilterSummaryClick}>
           <S.FilterContainer>
             <AnimatePresence mode="popLayout" initial={false}>
-              {appliedFilter.map((key) => (
-                <S.StyledFilterPreview
-                  key={key}
-                  filter={key}
-                  content={filter[key]}
+              {appliedFilter.map((filterKey) => (
+                <S.FilterPreview
+                  key={filterKey}
+                  detailKey={filterKey}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0 }}
@@ -114,7 +45,9 @@ export default function SearchResult() {
                     layout: { type: "spring", stiffness: 100, damping: 20 },
                   }}
                   layout
-                />
+                >
+                  {getFilterValueText(filterKey, filter[filterKey])}
+                </S.FilterPreview>
               ))}
             </AnimatePresence>
 
@@ -127,6 +60,20 @@ export default function SearchResult() {
           </S.IconWrapper>
         </S.FilterSummary>
       </S.FilterSummaryWrapper>
+
+      <S.JobContainer>
+        {jobs.map((job) => (
+          <DetailJobCard
+            key={job.id}
+            thumbnail={"https://placehold.co/200"}
+            companyName={job.company}
+            jobTitle={job.title}
+            isBookmarked={job.bookmarked}
+            onBookmarkClick={() => {}}
+            details={job.details}
+          />
+        ))}
+      </S.JobContainer>
     </S.MainContainer>
   );
 }

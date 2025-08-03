@@ -1,9 +1,9 @@
+import type { RecruitLocation } from "job";
 import { AnimatePresence } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
 import { MdCheck, MdClose } from "react-icons/md";
 
 import usePalette from "~/hooks/usePalette";
-import type { RecruitLocation } from "~/types/filter";
 
 import * as S from "./LocationFilter.styles";
 

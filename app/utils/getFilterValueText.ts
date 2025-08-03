@@ -1,79 +1,28 @@
-import * as Filter from "~/types/filter";
-import type Filters from "~/types/filter";
+import type { Filters } from "job";
+
+import {
+  formatTime,
+  getSalaryTypeText,
+  getTypeText,
+  getWeekdayText,
+} from "~/utils/getJobDetailValueText";
 import getKoreanNumber from "~/utils/getKoreanNumber";
 
-const getTypeText = (type: Filter.Type): string => {
-  switch (type) {
-    case Filter.Type.INDUSTRY:
-      return "공장";
-    case Filter.Type.DELIVERY:
-      return "배달";
-    case Filter.Type.FLEX:
-      return "통합";
-    case Filter.Type.CARGO:
-      return "상하차";
-    default:
-      return type;
-  }
-};
-
-const getWeekdayText = (weekday: Filter.Weekday): string => {
-  switch (weekday) {
-    case "monday":
-      return "월";
-    case "tuesday":
-      return "화";
-    case "wednesday":
-      return "수";
-    case "thursday":
-      return "목";
-    case "friday":
-      return "금";
-    case "saturday":
-      return "토";
-    case "sunday":
-      return "일";
-    default:
-      return weekday;
-  }
-};
-
-const getSalaryTypeText = (type: Filter.Salary["type"]): string => {
-  switch (type) {
-    case "hourly":
-      return "시급";
-    case "daily":
-      return "일급";
-    case "weekly":
-      return "주급";
-    case "monthly":
-      return "월급";
-    case "yearly":
-      return "연봉";
-    default:
-      return type;
-  }
-};
-
-const formatTime = (time: { hour: number; minute: number }) =>
-  `${time.hour.toString().padStart(2, "0")}:${time.minute
-    .toString()
-    .padStart(2, "0")}`;
-
-export default function getFilterValueText(
-  key: keyof Filters,
-  value: Filters[keyof Filters]
+export default function getFilterValueText<K extends keyof Filters>(
+  key: K,
+  value: Filters[K]
 ): string {
   try {
     if (value === null || (Array.isArray(value) && value.length === 0)) {
       return "설정 안 함";
     }
+
     switch (key) {
       case "type": {
         const typeValue = value as Exclude<Filters["type"], null>;
         if (typeValue.length > 1)
           return `${getTypeText(typeValue[0])} 외 ${typeValue.length - 1}종`;
-        return getTypeText(typeValue[0]) as string;
+        return getTypeText(typeValue[0]);
       }
 
       case "career": {
