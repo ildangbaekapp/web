@@ -4,6 +4,7 @@ import {
   MdOutlineBookmarkBorder,
   MdStars,
 } from "react-icons/md";
+import { useTheme } from "styled-components";
 
 import * as S from "./JobCard.styles";
 
@@ -30,6 +31,8 @@ export default function JobCard({
   isBookmarked = false,
   onBookmarkClick,
 }: JobCardProps) {
+  const theme = useTheme();
+
   const [bookmarked, setBookmarked] = useState(isBookmarked);
 
   const handleBookmarkClick = (e: React.MouseEvent) => {
@@ -68,15 +71,19 @@ export default function JobCard({
       </S.StyledButton>
       <S.Bookmark
         onClick={handleBookmarkClick}
-        size={30}
-        icon={
-          bookmarked ? (
-            <MdOutlineBookmark size={24} />
-          ) : (
-            <MdOutlineBookmarkBorder size={24} />
-          )
-        }
-      />
+        palette={{
+          normal: `${theme.colors.background.light}00`,
+          hover: `${theme.colors.background.light}33`,
+          tap: `${theme.colors.background.light}66`,
+          focus: `${theme.colors.background.light}66`,
+        }}
+      >
+        {bookmarked ? (
+          <MdOutlineBookmark size={24} />
+        ) : (
+          <MdOutlineBookmarkBorder size={24} />
+        )}
+      </S.Bookmark>
     </S.Wrapper>
   );
 }
