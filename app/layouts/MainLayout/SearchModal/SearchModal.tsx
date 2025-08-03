@@ -6,7 +6,7 @@ import { useModalStore } from "~/store/modalStore";
 
 import FilterModalView from "./FilterModalView";
 import * as S from "./SearchModal.styles";
-import SearchModalView from "./SerachModalView";
+import SearchModalView from "./SearchModalView";
 
 export default function SearchModal() {
   const theme = useTheme();
