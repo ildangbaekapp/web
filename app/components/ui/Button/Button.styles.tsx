@@ -28,6 +28,7 @@ export const Button = styled.button<{ $color: string; $hasIcon: boolean }>`
 export const IconWrapper = styled.span<{ $color: string }>`
   width: 24px;
   height: 24px;
+  min-width: 18px;
   display: flex;
   align-items: center;
   justify-content: center;

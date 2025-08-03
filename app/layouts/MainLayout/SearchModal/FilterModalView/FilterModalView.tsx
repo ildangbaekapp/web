@@ -87,6 +87,7 @@ export default function FilterModalView({ onBack }: FilterModalViewProps) {
             );
           })}
         </S.MenuContainer>
+        
         <S.ContentContainer>
           {/* 필터 수정 뷰 */}
           <FilterEditView

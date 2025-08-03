@@ -7,13 +7,6 @@ export const MenuItemWrapper = styled(Feedback)<{
 }>`
   width: 100%;
   border-radius: 20px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 10px 0;
-    justify-content: center;
-    min-width: 100px;
-    border-radius: 9999px;
-  }
 `;
 
 export const MenuItem = styled.a`
@@ -23,6 +16,13 @@ export const MenuItem = styled.a`
   box-sizing: border-box;
   padding: 10px 10px 10px 20px;
   width: 100%;
+  height: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 10px 0;
+    justify-content: center;
+    min-width: 100px;
+  }
 `;
 
 export const Label = styled.div<{ $isSelected: boolean }>`

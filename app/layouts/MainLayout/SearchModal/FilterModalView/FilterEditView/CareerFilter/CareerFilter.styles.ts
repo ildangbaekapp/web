@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   height: 100%;
   box-sizing: border-box;
   justify-content: center;
+  align-items: flex-start;
   flex: 1;
 `;
 
@@ -19,10 +20,27 @@ export const OptionWrapper = styled.div`
   height: 50px;
 `;
 
+export const OptionWithInputWrapper = styled.div`
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
 export const ExperienceInputWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+  padding: 0 10px;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  color: ${({ theme }) => theme.colors.secondary.normal};
 `;
 
 export const Label = styled.span`

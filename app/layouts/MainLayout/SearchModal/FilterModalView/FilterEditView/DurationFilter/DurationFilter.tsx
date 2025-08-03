@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { MdSubdirectoryArrowRight } from "react-icons/md";
 
 import RadioButton from "~/components/ui/RadioButton";
 import type Filters from "~/types/filter";
@@ -64,7 +65,7 @@ export default function DurationFilter({
   return (
     <S.Wrapper>
       {/* 직접 설정 */}
-      <S.OptionWrapper>
+      <S.OptionWithInputWrapper>
         <RadioButton
           checked={selectedOption === "input"}
           onChange={() => handleOptionChange("input")}
@@ -72,6 +73,9 @@ export default function DurationFilter({
         />
         <S.DurationInputContainer>
           <S.DurationFieldWrapper>
+            <S.IconWrapper>
+              <MdSubdirectoryArrowRight />
+            </S.IconWrapper>
             <S.DurationInput
               name="min-duration"
               type="number"
@@ -97,7 +101,7 @@ export default function DurationFilter({
             <S.Suffix>개월</S.Suffix>
           </S.DurationFieldWrapper>
         </S.DurationInputContainer>
-      </S.OptionWrapper>
+      </S.OptionWithInputWrapper>
 
       {/* 협의 가능 */}
       <S.OptionWrapper>

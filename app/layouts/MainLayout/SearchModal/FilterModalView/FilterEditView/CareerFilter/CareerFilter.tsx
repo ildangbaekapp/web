@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { MdSubdirectoryArrowRight } from "react-icons/md";
 
 import RadioButton from "~/components/ui/RadioButton";
 import type Filters from "~/types/filter";
@@ -59,13 +60,16 @@ export default function CareerFilter({ value, onChange }: CareerFilterProps) {
       </S.OptionWrapper>
 
       {/* 경력 */}
-      <S.OptionWrapper>
+      <S.OptionWithInputWrapper>
         <RadioButton
           checked={selectedOption === "experience"}
           onChange={() => handleOptionChange("experience")}
           label="경력 설정"
         />
         <S.ExperienceInputWrapper>
+          <S.IconWrapper>
+            <MdSubdirectoryArrowRight />
+          </S.IconWrapper>
           <S.YearInput
             name="years"
             type="number"
@@ -78,7 +82,7 @@ export default function CareerFilter({ value, onChange }: CareerFilterProps) {
           />
           <S.Label>년 이상</S.Label>
         </S.ExperienceInputWrapper>
-      </S.OptionWrapper>
+      </S.OptionWithInputWrapper>
 
       {/* 무관 */}
       <S.OptionWrapper>

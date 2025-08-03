@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { MdSubdirectoryArrowRight } from "react-icons/md";
 
 import RadioButton from "~/components/ui/RadioButton";
 import type Filters from "~/types/filter";
@@ -70,13 +71,16 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
   return (
     <S.Wrapper>
       {/* 직접 설정 */}
-      <S.OptionWrapper>
+      <S.OptionWithInputWrapper>
         <RadioButton
           checked={selectedOption === "input"}
           onChange={() => handleOptionChange("input")}
           label="직접 설정"
         />
         <S.TimeInputContainer>
+          <S.IconWrapper>
+            <MdSubdirectoryArrowRight />
+          </S.IconWrapper>
           <S.TimeFieldWrapper>
             <S.TimeInput
               name="start-hour"
@@ -123,7 +127,7 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
             />
           </S.TimeFieldWrapper>
         </S.TimeInputContainer>
-      </S.OptionWrapper>
+      </S.OptionWithInputWrapper>
 
       {/* 협의 가능 */}
       <S.OptionWrapper>

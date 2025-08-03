@@ -59,7 +59,6 @@ export const MenuContainer = styled.div`
     height: 70px;
     flex-direction: row;
     overflow-x: auto;
-    border-right: none;
     gap: 10px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.background.light};
   }

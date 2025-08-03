@@ -19,10 +19,27 @@ export const OptionWrapper = styled.div`
   height: 50px;
 `;
 
+export const OptionWithInputWrapper = styled.div`
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
 export const DurationInputContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+  padding: 0 10px;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  color: ${({ theme }) => theme.colors.secondary.normal};
 `;
 
 export const DurationFieldWrapper = styled.div`
