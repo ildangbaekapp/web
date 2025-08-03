@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { MdPerson, MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router";
+import { useTheme } from "styled-components";
 
 import logo from "~/assets/logo.png";
+import type { Palette } from "~/components/ui/Feedback";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
 import { useSearchStore } from "~/store/searchStore";
@@ -15,7 +17,19 @@ interface AppBarProps {
 
 export default function AppBar({ onSearchBoxClick }: AppBarProps) {
   const navigate = useNavigate();
+  const theme = useTheme();
+
   const palette = usePalette("background");
+  const transparentPalette: Palette = useMemo(
+    () => ({
+      normal: `${theme.colors.foreground.light}00`,
+      hover: `${theme.colors.foreground.light}33`,
+      tap: `${theme.colors.foreground.light}66`,
+      focus: `${theme.colors.foreground.light}66`,
+    }),
+    [theme]
+  );
+
   const query = useSearchStore((state) => state.query);
 
   const handleLogoClick = () => {
@@ -45,7 +59,7 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
     <S.AppBar>
       <S.Left>
         {/* 로고 */}
-        <IconButton onClick={handleLogoClick} palette={palette}>
+        <IconButton onClick={handleLogoClick} palette={transparentPalette}>
           <S.Logo src={logo} alt="logo" />
         </IconButton>
 
@@ -67,7 +81,7 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
 
       <S.Right>
         {/* 프로필 아이콘 */}
-        <IconButton onClick={handleProfileClick} palette={palette}>
+        <IconButton onClick={handleProfileClick} palette={transparentPalette}>
           <S.IconWrapper>
             <MdPerson size={32} />
           </S.IconWrapper>
