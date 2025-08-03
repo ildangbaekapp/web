@@ -20,7 +20,7 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const FilterSummaryFeedback = styled(Feedback).attrs({
+export const FilterSummaryWrapper = styled(Feedback).attrs({
   transitionVariant: "none",
 })`
   width: 100%;
@@ -29,6 +29,7 @@ export const FilterSummaryFeedback = styled(Feedback).attrs({
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: calc(100% - 20px);
     margin: 20px 10px;
   }
 `;

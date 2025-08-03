@@ -98,7 +98,7 @@ export default function SearchResult() {
 
   return (
     <S.MainContainer>
-      <S.FilterSummaryFeedback palette={palette} layout>
+      <S.FilterSummaryWrapper palette={palette} layout>
         <S.FilterSummary onClick={handleFilterSummaryClick}>
           <S.FilterContainer>
             <AnimatePresence mode="popLayout" initial={false}>
@@ -126,7 +126,7 @@ export default function SearchResult() {
             <MdChevronRight size={24} />
           </S.IconWrapper>
         </S.FilterSummary>
-      </S.FilterSummaryFeedback>
+      </S.FilterSummaryWrapper>
     </S.MainContainer>
   );
 }
