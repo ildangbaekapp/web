@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+import Feedback from "~/components/ui/Feedback";
+
+export const JobCardWrapper = styled(Feedback)`
   align-self: stretch;
-  padding-top: 20px;
   background: ${({ theme }) => theme.colors.background.normal};
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border-radius: 24px;
+`;
+
+export const JobCard = styled.a`
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  display: inline-flex;
+  padding-top: 20px;
 `;
 
 export const Top = styled.div`

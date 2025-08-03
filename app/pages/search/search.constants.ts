@@ -1,17 +1,12 @@
-import type { Details } from "job";
+import type { Job, WithBookmark } from "job";
 
-export const jobs: {
-  id: number;
-  company: string;
-  title: string;
-  bookmarked: boolean;
-  details: Details;
-}[] = [
+export const jobs: WithBookmark<Job>[] = [
   {
     id: 1,
     company: "CJ대한통운",
     title: "상하차 인력 구합니다 !!!",
-    bookmarked: true,
+    thumbnail: "https://placehold.co/200",
+    isBookmarked: true,
     details: {
       type: "cargo",
       career: 1,
@@ -36,7 +31,8 @@ export const jobs: {
     id: 2,
     company: "배달의민족",
     title: "배달기사 모집합니다",
-    bookmarked: false,
+    thumbnail: "https://placehold.co/200",
+    isBookmarked: false,
     details: {
       type: "delivery",
       career: 0,
@@ -60,7 +56,8 @@ export const jobs: {
     id: 3,
     company: "쿠팡",
     title: "쿠팡 물류센터에서 일하실 분 구합니다",
-    bookmarked: true,
+    thumbnail: "https://placehold.co/200",
+    isBookmarked: true,
     details: {
       type: "cargo",
       career: 2,

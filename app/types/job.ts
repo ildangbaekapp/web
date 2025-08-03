@@ -61,4 +61,21 @@ declare module "job" {
     duration: Duration | "negotiable";
     workLocation: Location;
   }
+
+  export interface Job {
+    id: number;
+    company: string;
+    title: string;
+    thumbnail: string;
+    details: Details;
+  }
+
+  export interface DetailedJob extends Job {
+    description?: string;
+    images?: string[];
+  }
+
+  export type WithBookmark<T> = T & {
+    isBookmarked: boolean;
+  };
 }

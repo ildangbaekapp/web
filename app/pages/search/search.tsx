@@ -2,6 +2,7 @@ import type { Filters } from "job";
 import { AnimatePresence } from "motion/react";
 import { useMemo } from "react";
 import { MdChevronRight, MdSearch } from "react-icons/md";
+import { useNavigate } from "react-router";
 
 import DetailJobCard from "~/components/common/DetailJobCard";
 import usePalette from "~/hooks/usePalette";
@@ -15,6 +16,7 @@ import * as S from "./search.styles";
 const filterKeys = Object.keys(initialFilter) as (keyof Filters)[];
 
 export default function SearchResult() {
+  const navigate = useNavigate();
   const { setModalState } = useModalStore();
   const { filter, query } = useSearchStore();
   const palette = usePalette("background");
@@ -77,10 +79,11 @@ export default function SearchResult() {
         {jobs.map((job) => (
           <DetailJobCard
             key={job.id}
-            thumbnail={"https://placehold.co/200"}
+            thumbnail={job.thumbnail}
             companyName={job.company}
             jobTitle={job.title}
-            isBookmarked={job.bookmarked}
+            isBookmarked={job.isBookmarked}
+            onClick={() => navigate(`/job/${job.id}`)}
             onBookmarkClick={() => {}}
             details={job.details}
           />
