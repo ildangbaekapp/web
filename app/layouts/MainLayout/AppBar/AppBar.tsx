@@ -19,7 +19,7 @@ export default function AppBar({ onSearchBoxClick }: AppBarProps) {
   const query = useSearchStore((state) => state.query);
 
   const handleLogoClick = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   const handleProfileClick = () => {
