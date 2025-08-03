@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdHistory, MdSearch, MdTune } from "react-icons/md";
+import { useNavigate } from "react-router";
 import { useTheme } from "styled-components";
 
 import { useSearchStore } from "~/store/searchStore";
@@ -10,22 +11,30 @@ const recentSearches = ["상하차", "배달", "단기 알바", "사무 보조"]
 
 interface SearchModalViewProps {
   onFilterClick?: () => void;
+  onClose?: () => void;
 }
 
 export default function SearchModalView({
   onFilterClick,
+  onClose,
 }: SearchModalViewProps) {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const { query, setQuery, filter } = useSearchStore();
   const [inputValue, setInputValue] = useState(query);
 
   const handleSearch = () => {
+    if (inputValue.trim() === "") return;
     setQuery(inputValue);
+    onClose?.();
+    navigate(`/search`);
   };
 
   const handleRecentSearchClick = (searchTerm: string) => {
     setQuery(searchTerm);
+    onClose?.();
+    navigate(`/search`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

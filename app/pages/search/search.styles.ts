@@ -20,6 +20,32 @@ export const MainContainer = styled.div`
   }
 `;
 
+export const SearchQueryWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  box-sizing: border-box;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 10px 20px;
+  }
+`;
+
+export const SearchQuery = styled.span`
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.primary.normal};
+`;
+
+export const SearchQueryText = styled.span`
+  font-size: 16px;
+  font-weight: 500;
+  font-family: ${({ theme }) => theme.fontFamily};
+  color: ${({ theme }) => theme.colors.secondary.normal};
+`;
+
 export const FilterSummaryWrapper = styled(Feedback).attrs({
   transitionVariant: "none",
 })`

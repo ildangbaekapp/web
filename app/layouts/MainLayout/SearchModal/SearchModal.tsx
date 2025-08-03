@@ -36,7 +36,10 @@ export default function SearchModal() {
           >
             {/* 검색 모달 */}
             {modalState === "search" && (
-              <SearchModalView onFilterClick={() => setModalState("filter")} />
+              <SearchModalView
+                onFilterClick={() => setModalState("filter")}
+                onClose={() => setModalState(null)}
+              />
             )}
 
             {/* 필터 모달 */}

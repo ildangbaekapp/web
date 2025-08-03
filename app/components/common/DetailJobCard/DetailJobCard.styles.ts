@@ -60,7 +60,7 @@ export const IconWrapper = styled.div`
 export const CompanyName = styled.div`
   align-self: stretch;
   color: ${({ theme }) => theme.colors.foreground.light};
-  font-size: 16px;
+  font-size: 14px;
   font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 500;
   word-wrap: break-word;
@@ -68,7 +68,7 @@ export const CompanyName = styled.div`
 
 export const JobTitle = styled.div`
   color: ${({ theme }) => theme.colors.foreground.normal};
-  font-size: 20px;
+  font-size: 18px;
   font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 700;
   word-wrap: break-word;

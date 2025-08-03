@@ -1,7 +1,7 @@
 import type { Filters } from "job";
 import { AnimatePresence } from "motion/react";
 import { useMemo } from "react";
-import { MdChevronRight } from "react-icons/md";
+import { MdChevronRight, MdSearch } from "react-icons/md";
 
 import DetailJobCard from "~/components/common/DetailJobCard";
 import usePalette from "~/hooks/usePalette";
@@ -16,7 +16,7 @@ const filterKeys = Object.keys(initialFilter) as (keyof Filters)[];
 
 export default function SearchResult() {
   const { setModalState } = useModalStore();
-  const filter = useSearchStore((state) => state.filter);
+  const { filter, query } = useSearchStore();
   const palette = usePalette("background");
 
   const handleFilterSummaryClick = () => {
@@ -30,6 +30,17 @@ export default function SearchResult() {
 
   return (
     <S.MainContainer>
+      {/* 검색어 */}
+      <S.SearchQueryWrapper>
+        <S.IconWrapper>
+          <MdSearch size={24} />
+        </S.IconWrapper>
+        <S.SearchQueryText>
+          <S.SearchQuery>{query}</S.SearchQuery>에 대한 검색 결과입니다.
+        </S.SearchQueryText>
+      </S.SearchQueryWrapper>
+
+      {/* 적용된 필터 */}
       <S.FilterSummaryWrapper palette={palette} layout>
         <S.FilterSummary onClick={handleFilterSummaryClick}>
           <S.FilterContainer>
@@ -61,6 +72,7 @@ export default function SearchResult() {
         </S.FilterSummary>
       </S.FilterSummaryWrapper>
 
+      {/* 검색 결과 */}
       <S.JobContainer>
         {jobs.map((job) => (
           <DetailJobCard

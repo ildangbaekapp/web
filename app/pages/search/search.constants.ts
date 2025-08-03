@@ -56,4 +56,31 @@ export const jobs: {
       },
     },
   },
+  {
+    id: 3,
+    company: "쿠팡",
+    title: "쿠팡 물류센터에서 일하실 분 구합니다",
+    bookmarked: true,
+    details: {
+      type: "cargo",
+      career: 2,
+      weekday: ["monday", "tuesday", "wednesday", "thursday"],
+      salary: { salary: 13000, type: "hourly" },
+      time: {
+        start: { hour: 8, minute: 0 },
+        end: { hour: 17, minute: 0 },
+      },
+      recruitLocation: {
+        first: "경기",
+        second: "성남시",
+        third: "분당구",
+      },
+      duration: { min: 2, max: 4 },
+      workLocation: {
+        first: "경기",
+        second: "성남시",
+        third: "분당구",
+      },
+    },
+  },
 ];
