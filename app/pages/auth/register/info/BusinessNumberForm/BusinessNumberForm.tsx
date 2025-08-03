@@ -1,5 +1,5 @@
-import FormField from "~/components/FormField";
-import Input from "~/components/Input";
+import FormField from "~/components/ui/FormField";
+import Input from "~/components/ui/Input";
 import { useRegisterStore } from "~/store/registerStore";
 
 export default function BusinessNumberForm() {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { StyledInput } from "~/components/Input/Input.styles";
+import { StyledInput } from "~/components/ui/Input/Input.styles";
 
 export const SelectWrapper = styled.div`
   position: relative;

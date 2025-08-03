@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router";
 
-import Checkbox from "~/components/Checkbox";
+import Checkbox from "~/components/ui/Checkbox";
 import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import { useRegisterStore } from "~/store/registerStore";
 

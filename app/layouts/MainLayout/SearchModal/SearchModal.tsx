@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "styled-components";
 
-import Modal from "~/components/Modal";
+import Modal from "~/components/ui/Modal";
 import { useModalStore } from "~/store/modalStore";
 
 import FilterModalView from "./FilterModalView";

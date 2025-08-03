@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 
 import SimpleModalContent from "~/components/common/SimpleModalContent";
-import Modal from "~/components/Modal";
+import Modal from "~/components/ui/Modal";
 import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import { useRegisterStore } from "~/store/registerStore";
 

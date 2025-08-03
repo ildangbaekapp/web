@@ -1,4 +1,4 @@
-import JobCard from "~/components/JobCard";
+import JobCard from "~/components/common/JobCard";
 
 import * as S from "./JobContainer.styles";
 

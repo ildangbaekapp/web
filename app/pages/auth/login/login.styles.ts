@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import Card from "~/components/Card";
 import Button from "~/components/ui/Button";
+import Card from "~/components/ui/Card";
 
 export const Container = styled.div`
   width: 100vw;

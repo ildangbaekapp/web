@@ -6,7 +6,7 @@ import GoogleIcon from "~/assets/google.svg";
 import KakaoIcon from "~/assets/kakao.svg";
 import LogoSrc from "~/assets/logo.png";
 import NaverIcon from "~/assets/naver.svg";
-import Input from "~/components/Input";
+import Input from "~/components/ui/Input";
 import usePalette from "~/hooks/usePalette";
 import { useUserStore } from "~/store/userStore";
 

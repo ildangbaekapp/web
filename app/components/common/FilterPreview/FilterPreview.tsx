@@ -1,42 +1,9 @@
-import {
-  MdCategory,
-  MdWorkHistory,
-  MdViewWeek,
-  MdMoney,
-  MdSchedule,
-  MdEmergencyShare,
-  MdDateRange,
-  MdLocationOn,
-} from "react-icons/md";
-
 import type Filters from "~/types/filter";
 import getFilterLabel from "~/utils/getFilterLabel";
 import getFilterValueText from "~/utils/getFilterValueText";
 
+import FilterIcon from "./FilterIcon";
 import * as S from "./FilterPreview.styles";
-
-const getFilterIcon = (filter: keyof Filters) => {
-  switch (filter) {
-    case "type":
-      return <MdCategory />;
-    case "career":
-      return <MdWorkHistory />;
-    case "weekday":
-      return <MdViewWeek />;
-    case "salary":
-      return <MdMoney />;
-    case "time":
-      return <MdSchedule />;
-    case "recruitLocation":
-      return <MdEmergencyShare />;
-    case "duration":
-      return <MdDateRange />;
-    case "workLocation":
-      return <MdLocationOn />;
-    default:
-      return null;
-  }
-};
 
 interface ConditionPreviewProps<K extends keyof Filters> {
   filter: K;
@@ -54,7 +21,7 @@ export default function FilterPreview<K extends keyof Filters>({
   return (
     <S.Wrapper className={className} ref={ref}>
       <S.Name>
-        {getFilterIcon(filter)}
+        <FilterIcon filter={filter} />
         {getFilterLabel(filter)}
       </S.Name>
       <S.Content>

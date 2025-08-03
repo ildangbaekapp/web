@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import RadioButton from "~/components/RadioButton";
+import RadioButton from "~/components/ui/RadioButton";
 import type Filters from "~/types/filter";
 import type { Time } from "~/types/filter";
 
@@ -54,7 +54,7 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
 
     const newTimeValue = val === "" ? 0 : Math.min(max, Math.max(0, numVal));
 
-    setTime(prev => {
+    setTime((prev) => {
       const newPart = { ...prev[part], [unit]: newTimeValue };
       const newState = { ...prev, [part]: newPart };
 
@@ -82,7 +82,9 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               name="start-hour"
               type="number"
               value={formatTime(time.start.hour)}
-              onChange={e => handleTimeChange("start", "hour", e.target.value)}
+              onChange={(e) =>
+                handleTimeChange("start", "hour", e.target.value)
+              }
               onFocus={() => handleOptionChange("input")}
               disabled={isInputDisabled}
             />
@@ -91,7 +93,7 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               name="start-minute"
               type="number"
               value={formatTime(time.start.minute)}
-              onChange={e =>
+              onChange={(e) =>
                 handleTimeChange("start", "minute", e.target.value)
               }
               onFocus={() => handleOptionChange("input")}
@@ -104,7 +106,7 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               name="end-hour"
               type="number"
               value={formatTime(time.end.hour)}
-              onChange={e => handleTimeChange("end", "hour", e.target.value)}
+              onChange={(e) => handleTimeChange("end", "hour", e.target.value)}
               onFocus={() => handleOptionChange("input")}
               disabled={isInputDisabled}
             />
@@ -113,7 +115,9 @@ export default function TimeFilter({ value, onChange }: TimeFilterProps) {
               name="end-minute"
               type="number"
               value={formatTime(time.end.minute)}
-              onChange={e => handleTimeChange("end", "minute", e.target.value)}
+              onChange={(e) =>
+                handleTimeChange("end", "minute", e.target.value)
+              }
               onFocus={() => handleOptionChange("input")}
               disabled={isInputDisabled}
             />

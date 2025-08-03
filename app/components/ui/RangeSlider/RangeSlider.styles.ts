@@ -15,6 +15,7 @@ export const Slider = styled.input.attrs({ type: "range" })`
   appearance: none;
   background: none;
   pointer-events: none;
+  z-index: 1;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -43,7 +44,6 @@ export const SliderBackground = styled.div`
   height: 4px;
   position: absolute;
   top: 50%;
-  z-index: -1;
 `;
 
 export const SliderForeground = styled.div.attrs<{
@@ -59,7 +59,6 @@ export const SliderForeground = styled.div.attrs<{
   height: 4px;
   position: absolute;
   top: 50%;
-  z-index: -1;
 `;
 
 export const Label = styled.div`

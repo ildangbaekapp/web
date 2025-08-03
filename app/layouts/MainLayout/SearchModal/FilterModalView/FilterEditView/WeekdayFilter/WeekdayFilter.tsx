@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import Checkbox from "~/components/Checkbox";
+import Checkbox from "~/components/ui/Checkbox";
 import usePalette from "~/hooks/usePalette";
 import { Weekday } from "~/types/filter";
 

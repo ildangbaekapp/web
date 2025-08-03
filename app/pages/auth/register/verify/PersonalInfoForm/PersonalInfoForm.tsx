@@ -1,6 +1,6 @@
-import FormField from "~/components/FormField";
-import Input, { InputGroup } from "~/components/Input";
-import Select from "~/components/Select";
+import FormField from "~/components/ui/FormField";
+import Input, { InputGroup } from "~/components/ui/Input";
+import Select from "~/components/ui/Select";
 import { useRegisterStore } from "~/store/registerStore";
 
 import { telecomOptions } from "./PersonalInfoForm.constants";

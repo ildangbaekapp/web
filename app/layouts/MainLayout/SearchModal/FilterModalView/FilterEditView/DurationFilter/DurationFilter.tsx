@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import RadioButton from "~/components/RadioButton";
+import RadioButton from "~/components/ui/RadioButton";
 import type Filters from "~/types/filter";
 import type { duration } from "~/types/filter";
 
@@ -50,7 +50,7 @@ export default function DurationFilter({
 
     const newDurationValue = val === "" ? 1 : Math.max(1, numVal);
 
-    setDuration(prev => {
+    setDuration((prev) => {
       const newState = { ...prev, [part]: newDurationValue };
       if (selectedOption === "input") {
         onChange(newState);
@@ -76,7 +76,7 @@ export default function DurationFilter({
               name="min-duration"
               type="number"
               value={duration.min}
-              onChange={e => handleDurationChange("min", e.target.value)}
+              onChange={(e) => handleDurationChange("min", e.target.value)}
               onFocus={() => handleOptionChange("input")}
               disabled={isInputDisabled}
               min="1"
@@ -89,7 +89,7 @@ export default function DurationFilter({
               name="max-duration"
               type="number"
               value={duration.max}
-              onChange={e => handleDurationChange("max", e.target.value)}
+              onChange={(e) => handleDurationChange("max", e.target.value)}
               onFocus={() => handleOptionChange("input")}
               disabled={isInputDisabled}
               min="1"

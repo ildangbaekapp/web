@@ -1,5 +1,5 @@
-import FormField from "~/components/FormField";
-import Input, { InputGroup, InputWrapper } from "~/components/Input";
+import FormField from "~/components/ui/FormField";
+import Input, { InputGroup, InputWrapper } from "~/components/ui/Input";
 import { useRegisterStore } from "~/store/registerStore";
 
 import * as S from "./PhoneVerificationForm.styles";

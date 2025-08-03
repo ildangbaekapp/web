@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import RadioButton from "~/components/RadioButton";
+import RadioButton from "~/components/ui/RadioButton";
 import type Filters from "~/types/filter";
 
 import * as S from "./CareerFilter.styles";

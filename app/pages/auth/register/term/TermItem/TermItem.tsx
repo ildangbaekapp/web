@@ -1,7 +1,7 @@
 import { MdChevronRight } from "react-icons/md";
 import { useTheme } from "styled-components";
 
-import Checkbox from "~/components/Checkbox";
+import Checkbox from "~/components/ui/Checkbox";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
 

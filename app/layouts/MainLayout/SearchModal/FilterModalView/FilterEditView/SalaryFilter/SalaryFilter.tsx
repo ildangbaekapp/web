@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import Checkbox from "~/components/Checkbox";
-import RangeSlider from "~/components/RangeSlider";
+import Checkbox from "~/components/ui/Checkbox";
+import RangeSlider from "~/components/ui/RangeSlider";
 import usePalette from "~/hooks/usePalette";
 import type { Salary } from "~/types/filter";
 import getKoreanNumber from "~/utils/getKoreanNumber";
