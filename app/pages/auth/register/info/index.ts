@@ -1,1 +1,1 @@
-export { default } from './SimpleModalContent';
+export { default } from "./info";

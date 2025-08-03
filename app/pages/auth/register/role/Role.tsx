@@ -4,10 +4,10 @@ import { useNavigate } from "react-router";
 import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import { useRegisterStore } from "~/store/registerStore";
 
-import * as S from "./role.styles";
-import RoleRadioButton from "./RoleRadioButton";
+import * as S from "./Role.styles";
+import RoleRadioButton from "./RoleButton";
 
-export default function RolePage() {
+export default function Role() {
   const navigate = useNavigate();
   const { selectedRole, setSelectedRole } = useRegisterStore();
 

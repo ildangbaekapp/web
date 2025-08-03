@@ -1,7 +1,9 @@
 import { MdChevronRight } from "react-icons/md";
+import { useTheme } from "styled-components";
 
 import Checkbox from "~/components/Checkbox";
 import IconButton from "~/components/ui/IconButton";
+import usePalette from "~/hooks/usePalette";
 
 import * as S from "./TermItem.styles";
 
@@ -21,6 +23,9 @@ export default function TermItem({
   onChange: (checked: boolean) => void;
   onDetailClick?: () => void;
 }) {
+  const theme = useTheme();
+  const palette = usePalette("background");
+
   return (
     <S.TermItemWrapper>
       <S.TermContent>
@@ -40,10 +45,12 @@ export default function TermItem({
       </S.TermContent>
       {term.hasDetailPage && (
         <IconButton
-          icon={<MdChevronRight size={30} />}
-          size={42}
           onClick={onDetailClick}
-        />
+          palette={palette}
+          color={theme.colors.secondary.normal}
+        >
+          <MdChevronRight size={30} />
+        </IconButton>
       )}
     </S.TermItemWrapper>
   );

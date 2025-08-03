@@ -1,1 +1,1 @@
-export { default } from "./TermItem";
+export { default } from "./Term";

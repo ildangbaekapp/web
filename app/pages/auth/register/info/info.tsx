@@ -1,36 +1,25 @@
 import { useNavigate } from "react-router";
 
-import FormField from "~/components/FormField";
-import Input, { InputGroup } from "~/components/Input";
+import SimpleModalContent from "~/components/common/SimpleModalContent";
 import Modal from "~/components/Modal";
 import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import { useRegisterStore } from "~/store/registerStore";
 
-import * as S from "./info.styles";
-import SimpleModalContent from "./SimpleModalContent";
+import BusinessNumberForm from "./BusinessNumberForm";
+import EmailForm from "./EmailForm";
+import PasswordForm from "./PasswordForm";
 
 export default function InfoPage() {
   const navigate = useNavigate();
   const {
-    email,
-    setEmail,
     password,
-    setPassword,
     passwordConfirm,
-    setPasswordConfirm,
     businessNumber,
-    setBusinessNumber,
     isEmailChecked,
-    setIsEmailChecked,
     selectedRole,
     showCompletionModal,
     setShowCompletionModal,
   } = useRegisterStore();
-
-  const handleCheckEmail = () => {
-    // TODO: Implement email duplication check
-    setIsEmailChecked(true);
-  };
 
   const isPasswordInvalid = password !== passwordConfirm;
   const isBusinessNumberRequired = selectedRole === "employer";
@@ -53,63 +42,9 @@ export default function InfoPage() {
       onPrev={() => navigate(-1)}
       isNextDisabled={getIsNextDisabled()}
     >
-      <FormField label="아이디 (이메일)" required htmlFor="email">
-        <InputGroup>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder="example@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <S.StyledButton colorScheme="primary" onClick={handleCheckEmail}>
-            중복 확인
-          </S.StyledButton>
-        </InputGroup>
-      </FormField>
-
-      <FormField
-        label="비밀번호"
-        required
-        errorMessage={
-          isPasswordInvalid && passwordConfirm
-            ? "비밀번호 확인이 일치하지 않습니다."
-            : undefined
-        }
-      >
-        <Input
-          type="password"
-          name="password"
-          autoComplete="new-password"
-          required
-          placeholder="영문 + 숫자 + 특수문자 조합 8~20자 입력"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Input
-          type="password"
-          name="passwordConfirm"
-          autoComplete="new-password"
-          required
-          placeholder="비밀번호 확인"
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
-        />
-      </FormField>
-
-      {isBusinessNumberRequired && (
-        <FormField label="사업자등록번호" required htmlFor="businessNumber">
-          <Input
-            id="businessNumber"
-            name="businessNumber"
-            placeholder="‘-’를 제외하고 입력"
-            value={businessNumber}
-            onChange={(e) => setBusinessNumber(e.target.value)}
-          />
-        </FormField>
-      )}
+      <EmailForm />
+      <PasswordForm />
+      {isBusinessNumberRequired && <BusinessNumberForm />}
 
       <Modal
         isOpen={showCompletionModal}

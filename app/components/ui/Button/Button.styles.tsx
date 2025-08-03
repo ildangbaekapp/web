@@ -22,6 +22,7 @@ export const Button = styled.button<{ $color: string; $hasIcon: boolean }>`
   font-family: ${({ theme }) => theme.fontFamily};
   color: ${({ $color }) => $color};
   cursor: inherit;
+  white-space: nowrap;
 `;
 
 export const IconWrapper = styled.span<{ $color: string }>`

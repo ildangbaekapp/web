@@ -13,9 +13,9 @@ export default [
   ...prefix("auth", [
     route("login", "./pages/auth/login/login.tsx"),
     route("register", "./layouts/RegisterLayout/index.ts", [
-      route("term", "./pages/auth/register/term/term.tsx"),
-      route("role", "./pages/auth/register/role/role.tsx"),
-      route("verify", "./pages/auth/register/verify/verify.tsx"),
+      route("term", "./pages/auth/register/term/index.ts"),
+      route("role", "./pages/auth/register/role/index.ts"),
+      route("verify", "./pages/auth/register/verify/index.ts"),
       route("info", "./pages/auth/register/info/info.tsx"),
     ]),
   ]),

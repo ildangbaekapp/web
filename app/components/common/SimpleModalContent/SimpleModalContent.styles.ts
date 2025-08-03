@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   min-width: min(500px, 90vw);
   width: 100%;
   height: 100%;
-  border-radius: 28px;
+  border-radius: 24px;
   padding: 20px;
   box-sizing: border-box;
   background: ${({ theme }) => theme.colors.background.normal};
@@ -49,22 +49,6 @@ export const Description = styled.div`
   white-space: pre-wrap;
 `;
 
-export const ConfirmButton = styled(Button).attrs({
-  colorScheme: "primary",
-})`
+export const ConfirmButton = styled(Button)`
   align-self: stretch;
-  height: 48px;
-  padding: 15px 20px;
-  border-radius: 28px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  display: inline-flex;
-  border: none;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.background.normal};
-  font-size: 16px;
-  font-family: ${({ theme }) => theme.fontFamily};
-  font-weight: 500;
-  word-wrap: break-word;
 `;
