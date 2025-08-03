@@ -1,7 +1,7 @@
 import { MdBusiness, MdPerson } from "react-icons/md";
 import { useNavigate } from "react-router";
 
-import RegisterPageLayout from "~/components/RegisterPageLayout";
+import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import { useRegisterStore } from "~/store/registerStore";
 
 import * as S from "./role.styles";

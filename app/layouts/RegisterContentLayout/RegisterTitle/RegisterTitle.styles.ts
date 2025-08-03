@@ -9,16 +9,18 @@ export const Container = styled.div`
   font-family: ${({ theme }) => theme.fontFamily};
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.foreground.normal};
   font-size: 24px;
   font-weight: 700;
-  line-height: 33.6px;
+  margin: 0;
+  padding: 0;
 `;
 
-export const Description = styled.div`
+export const Description = styled.h2`
   color: ${({ theme }) => theme.colors.secondary.normal};
   font-size: 16px;
   font-weight: 500;
-  line-height: 22.4px;
+  margin: 0;
+  padding: 0;
 `;

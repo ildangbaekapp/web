@@ -7,8 +7,8 @@ export const ButtonFeedback = styled(Feedback)`
   overflow: hidden;
 `;
 
-export const Button = styled.button<{ $color: string }>`
-  padding: 15px 20px;
+export const Button = styled.button<{ $color: string; $hasIcon: boolean }>`
+  padding: ${({ $hasIcon }) => ($hasIcon ? "12.5px 20px" : "15px 20px")};
   width: 100%;
   height: 100%;
   display: flex;
@@ -27,5 +27,13 @@ export const Button = styled.button<{ $color: string }>`
 export const IconWrapper = styled.span<{ $color: string }>`
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${({ $color }) => $color};
+
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
 `;

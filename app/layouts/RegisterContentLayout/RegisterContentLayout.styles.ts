@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import Button from "~/components/ui/Button";
-
 export const PageContainer = styled.div`
   flex-grow: 1;
   padding: 20px;
@@ -41,12 +39,4 @@ export const ButtonContainer = styled.div`
     left: 0;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   }
-`;
-
-export const SecondaryButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.foreground.normal};
-`;
-
-export const NextButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.background.normal};
 `;

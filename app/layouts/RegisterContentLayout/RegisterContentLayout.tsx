@@ -1,11 +1,15 @@
 import React from "react";
 import { MdArrowForward } from "react-icons/md";
 import { useNavigate } from "react-router";
+import { useTheme } from "styled-components";
 
-import * as S from "./RegisterPageLayout.styles";
-import RegisterStepTop from "./RegisterStepTop";
+import Button from "~/components/ui/Button";
+import usePalette from "~/hooks/usePalette";
 
-interface RegisterPageLayoutProps {
+import * as S from "./RegisterContentLayout.styles";
+import RegisterTitle from "./RegisterTitle";
+
+interface RegisterContentLayoutProps {
   title: string;
   description: string;
   children: React.ReactNode;
@@ -16,7 +20,7 @@ interface RegisterPageLayoutProps {
   nextButtonText?: string;
 }
 
-export default function RegisterPageLayout({
+export default function RegisterContentLayout({
   title,
   description,
   children,
@@ -25,8 +29,10 @@ export default function RegisterPageLayout({
   onPrev,
   isNextDisabled,
   nextButtonText = "다음",
-}: RegisterPageLayoutProps) {
+}: RegisterContentLayoutProps) {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const palette = usePalette("background");
 
   const handleCancel = () => {
     if (onCancel) {
@@ -46,27 +52,35 @@ export default function RegisterPageLayout({
 
   return (
     <S.PageContainer>
-      <RegisterStepTop title={title} description={description} />
+      <RegisterTitle title={title} description={description} />
       <S.Content>{children}</S.Content>
       <S.ButtonContainer>
         {onCancel && (
-          <S.SecondaryButton colorScheme="background" onClick={handleCancel}>
+          <Button
+            palette={palette}
+            onClick={handleCancel}
+            color={theme.colors.foreground.normal}
+          >
             취소
-          </S.SecondaryButton>
+          </Button>
         )}
         {onPrev && (
-          <S.SecondaryButton colorScheme="background" onClick={handlePrev}>
+          <Button
+            palette={palette}
+            onClick={handlePrev}
+            color={theme.colors.foreground.normal}
+          >
             이전
-          </S.SecondaryButton>
+          </Button>
         )}
         {onNext && (
-          <S.NextButton
+          <Button
             onClick={onNext}
             disabled={isNextDisabled}
-            icon={<MdArrowForward size={24} />}
+            icon={<MdArrowForward />}
           >
             {nextButtonText}
-          </S.NextButton>
+          </Button>
         )}
       </S.ButtonContainer>
     </S.PageContainer>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import FormField from "~/components/FormField";
 import Input, { InputGroup } from "~/components/Input";
 import Modal from "~/components/Modal";
-import RegisterPageLayout from "~/components/RegisterPageLayout";
+import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import { useRegisterStore } from "~/store/registerStore";
 
 import * as S from "./info.styles";

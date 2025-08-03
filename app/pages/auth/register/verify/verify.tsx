@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 
 import FormField from "~/components/FormField";
 import Input, { InputGroup, InputWrapper } from "~/components/Input";
-import RegisterPageLayout from "~/components/RegisterPageLayout";
+import RegisterPageLayout from "~/layouts/RegisterContentLayout";
 import Select from "~/components/Select";
 import { useRegisterStore } from "~/store/registerStore";
 

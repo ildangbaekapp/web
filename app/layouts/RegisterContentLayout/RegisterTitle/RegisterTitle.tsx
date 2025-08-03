@@ -1,14 +1,14 @@
-import * as S from "./RegisterStepTop.styles";
+import * as S from "./RegisterTitle.styles";
 
-interface RegisterStepTopProps {
+interface RegisterTitleProps {
   title: string;
   description: string;
 }
 
-export default function RegisterStepTop({
+export default function RegisterTitle({
   title,
   description,
-}: RegisterStepTopProps) {
+}: RegisterTitleProps) {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>

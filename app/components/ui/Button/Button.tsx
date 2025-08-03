@@ -38,7 +38,12 @@ export default function Button({
       ref={ref}
       className={className}
     >
-      <S.Button disabled={disabled} $color={color ?? defaultColor} {...props}>
+      <S.Button
+        disabled={disabled}
+        $color={color ?? defaultColor}
+        $hasIcon={icon !== undefined}
+        {...props}
+      >
         {icon !== undefined && (
           <S.IconWrapper $color={color ?? defaultColor}>{icon}</S.IconWrapper>
         )}
