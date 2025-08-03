@@ -6,13 +6,13 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  layout("./layouts/MainLayout/MainLayout.tsx", [
+  layout("./layouts/MainLayout/index.ts", [
     route("home", "./pages/home/home.tsx"),
     route("search", "./pages/search/search.tsx"),
   ]),
   ...prefix("auth", [
     route("login", "./pages/auth/login/login.tsx"),
-    route("register", "./components/RegisterLayout/RegisterLayout.tsx", [
+    route("register", "./layouts/RegisterLayout/index.ts", [
       route("term", "./pages/auth/register/term/term.tsx"),
       route("role", "./pages/auth/register/role/role.tsx"),
       route("verify", "./pages/auth/register/verify/verify.tsx"),

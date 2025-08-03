@@ -8,8 +8,8 @@ interface StepperProps {
 
 export default function Stepper({ steps, activeStep }: StepperProps) {
   return (
-    <S.StepperContainer>
-      <S.StepsWrapper>
+    <S.Wrapper>
+      <S.StepContainer>
         {steps.map((label, index) => (
           <Step
             key={index}
@@ -18,7 +18,7 @@ export default function Stepper({ steps, activeStep }: StepperProps) {
             isActive={index + 1 === activeStep}
           />
         ))}
-      </S.StepsWrapper>
-    </S.StepperContainer>
+      </S.StepContainer>
+    </S.Wrapper>
   );
 }

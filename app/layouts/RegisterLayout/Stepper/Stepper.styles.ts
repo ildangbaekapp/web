@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StepperContainer = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.colors.background.normal};
@@ -14,7 +14,7 @@ export const StepperContainer = styled.div`
   font-family: ${({ theme }) => theme.fontFamily};
 `;
 
-export const StepsWrapper = styled.div`
+export const StepContainer = styled.div`
   align-self: stretch;
   padding: 10px;
   flex-direction: column;
