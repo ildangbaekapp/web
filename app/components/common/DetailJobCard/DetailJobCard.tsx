@@ -1,10 +1,8 @@
 import type { Details } from "job";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { MdBookmark, MdBookmarkBorder } from "react-icons/md";
-import { useTheme } from "styled-components";
 
 import JobDetailPreview from "~/components/common/JobDetailPreview";
-import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
 import getJobDetailValueText from "~/utils/getJobDetailValueText";
 
@@ -26,23 +24,14 @@ export default function DetailJobCard({
   jobTitle,
   isBookmarked = false,
   onClick,
-  onBookmarkClick,
   details,
 }: DetailJobCardProps) {
-  const theme = useTheme();
   const palette = usePalette("background");
 
-  const [bookmarked, setBookmarked] = useState(isBookmarked);
   const detailKeys = useMemo(
     () => Object.keys(details) as (keyof Details)[],
     [details]
   );
-
-  const handleBookmarkClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
-    setBookmarked(!bookmarked);
-    onBookmarkClick?.();
-  };
 
   return (
     <S.JobCardWrapper palette={palette}>
@@ -55,23 +44,13 @@ export default function DetailJobCard({
             <S.CompanyName>{companyName}</S.CompanyName>
             <S.JobTitle>{jobTitle}</S.JobTitle>
           </S.Info>
-          <IconButton
-            onClick={handleBookmarkClick}
-            palette={{
-              normal: `${theme.colors.background.light}00`,
-              hover: `${theme.colors.background.light}33`,
-              tap: `${theme.colors.background.light}66`,
-              focus: `${theme.colors.background.light}66`,
-            }}
-          >
-            <S.IconWrapper>
-              {bookmarked ? (
-                <MdBookmark size={24} />
-              ) : (
-                <MdBookmarkBorder size={24} />
-              )}
-            </S.IconWrapper>
-          </IconButton>
+          <S.IconWrapper>
+            {isBookmarked ? (
+              <MdBookmark size={24} />
+            ) : (
+              <MdBookmarkBorder size={24} />
+            )}
+          </S.IconWrapper>
         </S.Top>
         <S.DetailContainer>
           {detailKeys.map((key, index) => (
