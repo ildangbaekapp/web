@@ -1,10 +1,9 @@
 import type { JobType } from "job";
 import { useCallback, useMemo } from "react";
-import { FaDolly, FaIndustry } from "react-icons/fa";
-import { MdGridView, MdTwoWheeler } from "react-icons/md";
 
-import usePalette from "~/hooks/usePalette";
+import OptionButton from "~/components/common/OptionButton";
 
+import { typeOptions } from "./TypeFilter.constants";
 import * as S from "./TypeFilter.styles";
 
 interface TypeFilterProps {
@@ -12,19 +11,7 @@ interface TypeFilterProps {
   onChange: (value: JobType[] | null) => void;
 }
 
-const typeOptions: { name: JobType; icon: React.ReactNode; label: string }[] = [
-  { name: "industry", icon: <FaIndustry size={24} />, label: "공장" },
-  { name: "delivery", icon: <MdTwoWheeler size={24} />, label: "배달" },
-  { name: "flex", icon: <MdGridView size={24} />, label: "통합" },
-  { name: "cargo", icon: <FaDolly size={24} />, label: "상하차" },
-];
-
 export default function TypeFilter({ value, onChange }: TypeFilterProps) {
-  const [selectedPalette, normalPalette] = usePalette([
-    "primaryBackground",
-    "background",
-  ]);
-
   const selectedTypes = useMemo(() => value || [], [value]);
   const isSelected = useCallback(
     (type: JobType) => selectedTypes.includes(type),
@@ -41,19 +28,13 @@ export default function TypeFilter({ value, onChange }: TypeFilterProps) {
   return (
     <S.Wrapper>
       {typeOptions.map((option) => (
-        <S.TypeButtonWrapper
+        <OptionButton
           key={option.name}
-          palette={isSelected(option.name) ? selectedPalette : normalPalette}
-          transitionVariant={"hover"}
-          $isSelected={isSelected(option.name)}
-        >
-          <S.TypeButton onClick={() => handleTypeClick(option.name)}>
-            <S.Circle $isSelected={isSelected(option.name)}>
-              <S.IconWrapper>{option.icon}</S.IconWrapper>
-              <S.Label>{option.label}</S.Label>
-            </S.Circle>
-          </S.TypeButton>
-        </S.TypeButtonWrapper>
+          isSelected={isSelected(option.name)}
+          onClick={() => handleTypeClick(option.name)}
+          icon={option.icon}
+          label={option.label}
+        />
       ))}
     </S.Wrapper>
   );

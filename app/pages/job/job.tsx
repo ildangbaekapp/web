@@ -1,11 +1,12 @@
 import type { DetailedJob, Details, WithBookmark } from "job";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { MdBookmark, MdBookmarkBorder, MdSend } from "react-icons/md";
 
 import FilterMatchBadge from "~/components/common/FilterMatchBadge/FilterMatchBadge";
 import Button from "~/components/ui/Button";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
+import ApplyModal from "~/pages/job/ApplyModal";
 import { useSearchStore } from "~/store/searchStore";
 import theme from "~/styles/theme";
 import getJobDetailValueText from "~/utils/getJobDetailValueText";
@@ -29,6 +30,8 @@ export default function JobPage() {
     () => jobSatisfiesFilters(job.details, filter),
     [job.details, filter]
   );
+
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <S.Container>
@@ -55,7 +58,9 @@ export default function JobPage() {
                 <MdBookmarkBorder size={24} />
               )}
             </IconButton>
-            <Button icon={<MdSend />}>지원하기</Button>
+            <Button icon={<MdSend />} onClick={() => setModalOpen(true)}>
+              지원하기
+            </Button>
           </S.OverviewRight>
         </S.Overview>
 
@@ -99,11 +104,18 @@ export default function JobPage() {
               <MdBookmarkBorder size={24} />
             )}
           </IconButton>
-          <IconButton palette={palette} color={theme.colors.primary.normal}>
+          <IconButton
+            palette={palette}
+            color={theme.colors.primary.normal}
+            onClick={() => setModalOpen(true)}
+          >
             <MdSend size={24} />
           </IconButton>
         </S.FooterRight>
       </S.Footer>
+
+      {/* 지원 모달 */}
+      <ApplyModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
     </S.Container>
   );
 }
