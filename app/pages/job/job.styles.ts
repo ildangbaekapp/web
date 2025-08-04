@@ -98,19 +98,34 @@ export const OverviewRight = styled.div`
   }
 `;
 
-export const DetailContainer = styled(Card)`
+export const DetailWithMatchWrapper = styled(Card)`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   padding: 10px;
+  gap: 10px;
   box-sizing: border-box;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: calc(100% - 20px);
     margin: 0 10px;
   }
+`;
+
+export const Divider = styled.div`
+  width: calc(100% - 40px);
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.background.light};
+`;
+
+export const DetailContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;
 
 export const Detail = styled(JobDetailPreview)`
@@ -179,12 +194,12 @@ export const FooterTitle = styled.div`
 export const FooterSalary = styled.div`
   color: ${({ theme }) => theme.colors.red.normal};
   font-family: ${({ theme }) => theme.fontFamily};
-  font-size: max(10.5px, min(3vw, 15px));
+  font-size: max(12px, min(3vw, 15px));
   font-weight: 500;
 `;
 
 export const FooterRight = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 `;

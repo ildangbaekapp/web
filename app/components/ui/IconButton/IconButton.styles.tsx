@@ -10,7 +10,7 @@ export const ButtonFeedback = styled(Feedback)`
 export const Button = styled.button<{ $color: string }>`
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 8px;
   box-sizing: border-box;
   border: none;
   background: transparent;

@@ -2,11 +2,14 @@ import type { DetailedJob, Details, WithBookmark } from "job";
 import { useMemo } from "react";
 import { MdBookmark, MdBookmarkBorder, MdSend } from "react-icons/md";
 
+import FilterMatchBadge from "~/components/common/FilterMatchBadge/FilterMatchBadge";
 import Button from "~/components/ui/Button";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
+import { useSearchStore } from "~/store/searchStore";
 import theme from "~/styles/theme";
 import getJobDetailValueText from "~/utils/getJobDetailValueText";
+import jobSatisfiesFilters from "~/utils/jobSatisfiesFilters";
 
 import { mockJob } from "./job.constants";
 import * as S from "./job.styles";
@@ -15,10 +18,16 @@ export default function JobPage() {
   const palette = usePalette("background");
 
   const job: WithBookmark<DetailedJob> = mockJob;
+  const filter = useSearchStore((state) => state.filter);
 
   const detailKeys = useMemo(
     () => Object.keys(job.details) as (keyof Details)[],
     [job.details]
+  );
+
+  const satisfiesFilters = useMemo(
+    () => jobSatisfiesFilters(job.details, filter),
+    [job.details, filter]
   );
 
   return (
@@ -39,7 +48,7 @@ export default function JobPage() {
 
           {/* 북마크 및 지원하기 버튼 */}
           <S.OverviewRight>
-            <IconButton palette={palette} color={theme.colors.secondary.normal}>
+            <IconButton palette={palette} color={theme.colors.primary.normal}>
               {job.isBookmarked ? (
                 <MdBookmark size={24} />
               ) : (
@@ -51,13 +60,18 @@ export default function JobPage() {
         </S.Overview>
 
         {/* 공고 조건 */}
-        <S.DetailContainer>
-          {detailKeys.map((detailKey) => (
-            <S.Detail key={detailKey} detailKey={detailKey}>
-              {getJobDetailValueText(detailKey, job.details[detailKey])}
-            </S.Detail>
-          ))}
-        </S.DetailContainer>
+        <S.DetailWithMatchWrapper>
+          {/* 필터 일치 여부 */}
+          <FilterMatchBadge isMatch={satisfiesFilters} />
+          <S.Divider />
+          <S.DetailContainer>
+            {detailKeys.map((detailKey) => (
+              <S.Detail key={detailKey} detailKey={detailKey}>
+                {getJobDetailValueText(detailKey, job.details[detailKey])}
+              </S.Detail>
+            ))}
+          </S.DetailContainer>
+        </S.DetailWithMatchWrapper>
 
         {/* 공고 설명 */}
         {job.description !== undefined && (
@@ -78,14 +92,16 @@ export default function JobPage() {
           </S.FooterSalary>
         </S.FooterLeft>
         <S.FooterRight>
-          <IconButton palette={palette} color={theme.colors.secondary.normal}>
+          <IconButton palette={palette} color={theme.colors.primary.normal}>
             {job.isBookmarked ? (
               <MdBookmark size={24} />
             ) : (
               <MdBookmarkBorder size={24} />
             )}
           </IconButton>
-          <Button icon={<MdSend />}>지원하기</Button>
+          <IconButton palette={palette} color={theme.colors.primary.normal}>
+            <MdSend size={24} />
+          </IconButton>
         </S.FooterRight>
       </S.Footer>
     </S.Container>
