@@ -9,6 +9,8 @@ interface OptionButtonProps {
   size?: number | string;
   fontSize?: number | string;
   onClick: () => void;
+  className?: string;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export default function OptionButton({
@@ -18,6 +20,8 @@ export default function OptionButton({
   size = 100,
   fontSize = 16,
   onClick,
+  className,
+  ref,
 }: OptionButtonProps) {
   const [normalPalette, selectedPalette] = usePalette([
     "background",
@@ -26,6 +30,8 @@ export default function OptionButton({
 
   return (
     <S.ButtonWrapper
+      className={className}
+      ref={ref}
       palette={isSelected ? selectedPalette : normalPalette}
       transitionVariant="hover"
       $isSelected={isSelected}

@@ -1,8 +1,6 @@
 import type { JobType } from "job";
 import { useCallback, useMemo } from "react";
 
-import OptionButton from "~/components/common/OptionButton";
-
 import { typeOptions } from "./TypeFilter.constants";
 import * as S from "./TypeFilter.styles";
 
@@ -28,7 +26,7 @@ export default function TypeFilter({ value, onChange }: TypeFilterProps) {
   return (
     <S.Wrapper>
       {typeOptions.map((option) => (
-        <OptionButton
+        <S.TypeButton
           key={option.name}
           isSelected={isSelected(option.name)}
           onClick={() => handleTypeClick(option.name)}
