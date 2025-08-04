@@ -98,14 +98,16 @@ export const IconWrapper = styled.div`
   color: ${({ theme }) => theme.colors.foreground.light};
 `;
 
-export const JobContainer = styled.div`
+export const JobContainer = styled(motion.div)`
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 20px;
+  border-radius: 24px;
+  overflow: hidden;
+`;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
+export const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background: ${({ theme }) => theme.colors.background.light};
 `;

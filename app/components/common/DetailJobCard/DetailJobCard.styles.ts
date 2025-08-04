@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 import Feedback from "~/components/ui/Feedback";
 
-export const JobCardWrapper = styled(Feedback)`
+export const JobCardWrapper = styled(Feedback).attrs({
+  transitionVariant: "none",
+})`
   align-self: stretch;
   background: ${({ theme }) => theme.colors.background.normal};
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  border-radius: 24px;
 `;
 
 export const JobCard = styled.a`
@@ -15,13 +15,12 @@ export const JobCard = styled.a`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 20px;
+  padding: 20px;
+  gap: 20px;
 `;
 
 export const Top = styled.div`
   align-self: stretch;
-  padding-left: 20px;
-  padding-right: 20px;
   overflow: hidden;
   justify-content: flex-start;
   align-items: center;
@@ -79,21 +78,21 @@ export const JobTitle = styled.div`
   word-wrap: break-word;
 `;
 
+export const Salary = styled.div`
+  color: ${({ theme }) => theme.colors.red.normal};
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.fontFamily};
+  font-weight: 700;
+  word-wrap: break-word;
+`;
+
 export const DetailContainer = styled.div`
   align-self: stretch;
   padding: 10px;
   box-sizing: border-box;
-  overflow-x: auto;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 5px;
-  display: inline-flex;
+  gap: 10px;
   width: 100%;
-`;
-
-export const Divider = styled.div`
-  flex-shrink: 0;
-  width: 1px;
-  height: 30px;
-  background: ${({ theme }) => theme.colors.secondary.light};
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-content: flex-start;
 `;

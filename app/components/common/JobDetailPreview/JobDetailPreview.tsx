@@ -9,6 +9,7 @@ interface JobDetailPreviewProps {
   detailKey: keyof Details;
   children?: React.ReactNode;
   className?: string;
+  direction?: "row" | "column";
   ref?: React.Ref<HTMLDivElement>;
 }
 
@@ -16,10 +17,11 @@ export default function JobDetailPreview({
   detailKey,
   children,
   className,
+  direction = "column",
   ref,
 }: JobDetailPreviewProps) {
   return (
-    <S.Wrapper className={className} ref={ref}>
+    <S.Wrapper $direction={direction} className={className} ref={ref}>
       <S.Name>
         <Icon detailKey={detailKey} />
         {getJobDetailLabel(detailKey)}

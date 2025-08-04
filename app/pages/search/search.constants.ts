@@ -80,4 +80,37 @@ export const jobs: WithBookmark<Job>[] = [
       },
     },
   },
+  {
+    id: 4,
+    company: "컬리",
+    title: "새벽 배송 기사 모집합니다",
+    thumbnail: "https://placehold.co/200",
+    isBookmarked: false,
+    details: {
+      type: "delivery",
+      career: 0,
+      weekday: [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+      ],
+      salary: { salary: 56781234, type: "yearly" },
+      time: { start: { hour: 3, minute: 0 }, end: { hour: 12, minute: 0 } },
+      recruitLocation: {
+        first: "서울",
+        second: "송파구",
+        third: "잠실동",
+      },
+      duration: { min: 1, max: 5 },
+      workLocation: {
+        first: "서울",
+        second: "송파구",
+        third: "잠실동",
+      },
+    },
+  },
 ];

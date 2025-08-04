@@ -4,7 +4,10 @@ import { MdBookmark, MdBookmarkBorder } from "react-icons/md";
 
 import JobDetailPreview from "~/components/common/JobDetailPreview";
 import usePalette from "~/hooks/usePalette";
-import getJobDetailValueText from "~/utils/getJobDetailValueText";
+import getJobDetailValueText, {
+  getSalaryTypeText,
+} from "~/utils/getJobDetailValueText";
+import getKoreanNumber from "~/utils/getKoreanNumber";
 
 import * as S from "./DetailJobCard.styles";
 
@@ -43,6 +46,9 @@ export default function DetailJobCard({
           <S.Info>
             <S.CompanyName>{companyName}</S.CompanyName>
             <S.JobTitle>{jobTitle}</S.JobTitle>
+            <S.Salary>{`${getSalaryTypeText(
+              details.salary.type
+            )} ${getKoreanNumber(details.salary.salary)}원`}</S.Salary>
           </S.Info>
           <S.IconWrapper>
             {isBookmarked ? (
@@ -52,13 +58,13 @@ export default function DetailJobCard({
             )}
           </S.IconWrapper>
         </S.Top>
+
         <S.DetailContainer>
           {detailKeys.map((key, index) => (
             <React.Fragment key={`${key}-${index}`}>
-              <JobDetailPreview detailKey={key}>
+              <JobDetailPreview detailKey={key} direction="row">
                 {getJobDetailValueText(key, details[key])}
               </JobDetailPreview>
-              {index < detailKeys.length - 1 && <S.Divider />}
             </React.Fragment>
           ))}
         </S.DetailContainer>

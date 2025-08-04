@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $direction: "row" | "column" }>`
   display: flex;
-  min-width: 120px;
-  height: 60px;
-  flex-direction: column;
-  justify-content: center;
+  min-width: ${({ $direction }) =>
+    $direction === "column" ? "120px" : "200px"};
+  height: ${({ $direction }) => ($direction === "column" ? "60px" : "unset")};
+  flex-direction: ${({ $direction }) => $direction};
+  justify-content: ${({ $direction }) =>
+    $direction === "column" ? "center" : "flex-start"};
   align-items: flex-start;
   gap: 5px;
 `;

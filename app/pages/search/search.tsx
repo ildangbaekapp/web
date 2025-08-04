@@ -75,18 +75,21 @@ export default function SearchResult() {
       </S.FilterSummaryWrapper>
 
       {/* 검색 결과 */}
-      <S.JobContainer>
-        {jobs.map((job) => (
-          <DetailJobCard
-            key={job.id}
-            thumbnail={job.thumbnail}
-            companyName={job.company}
-            jobTitle={job.title}
-            isBookmarked={job.isBookmarked}
-            onClick={() => navigate(`/job/${job.id}`)}
-            onBookmarkClick={() => {}}
-            details={job.details}
-          />
+      <S.JobContainer layout>
+        {jobs.map((job, index) => (
+          <>
+            <DetailJobCard
+              key={job.id}
+              thumbnail={job.thumbnail}
+              companyName={job.company}
+              jobTitle={job.title}
+              isBookmarked={job.isBookmarked}
+              onClick={() => navigate(`/job/${job.id}`)}
+              onBookmarkClick={() => {}}
+              details={job.details}
+            />
+            {index < jobs.length - 1 && <S.Divider />}
+          </>
         ))}
       </S.JobContainer>
     </S.MainContainer>
