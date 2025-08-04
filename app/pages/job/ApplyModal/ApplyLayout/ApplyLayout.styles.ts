@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import OptionButton from "~/components/common/OptionButton";
@@ -8,15 +9,14 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   width: min(800px, 90vw);
 `;
 
-export const TypeButtonContainer = styled.div`
+export const TypeButtonContainer = styled(motion.div).attrs({ layout: true })`
   display: flex;
   width: 100%;
   max-width: 600px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,6 @@ export const TypeButton = styled(OptionButton).attrs({
   fontSize: "min(max(12px, 2.5vw), 16px)",
 })``;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   align-self: stretch;
-  height: 64px;
 `;

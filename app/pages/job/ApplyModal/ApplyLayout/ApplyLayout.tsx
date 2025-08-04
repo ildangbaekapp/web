@@ -1,8 +1,9 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { MdCall, MdSend, MdSms } from "react-icons/md";
 
 import type { ApplyType } from "../ApplyModal.types";
 
+import ApplyContentView from "./ApplyContentView";
 import { APPLY_TYPES } from "./ApplyLayout.constants";
 import * as S from "./ApplyLayout.styles";
 
@@ -40,16 +41,15 @@ export default function ApplyLayout({
 
       {/* 콘텐츠 */}
       <AnimatePresence mode="popLayout" initial={false}>
-        <motion.div
+        <S.Content
           key={applyType}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {/* TODO: Add content for each apply type */}
-          <S.Content />
-        </motion.div>
+          <ApplyContentView applyType={applyType} />
+        </S.Content>
       </AnimatePresence>
     </S.Wrapper>
   );

@@ -16,7 +16,7 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <S.ModalContent>
+      <S.ModalContent layout transition={{ type: "spring", duration: 0.5 }}>
         <ApplyModalView
           applyType={applyType}
           setApplyType={setApplyType}
