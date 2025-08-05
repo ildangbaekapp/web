@@ -4,6 +4,7 @@ import styled from "styled-components";
 import OptionButton from "~/components/common/OptionButton";
 
 export const Wrapper = styled.div`
+  position: relative;
   background-color: ${({ theme }) => theme.colors.background.normal};
   overflow: hidden;
   display: flex;
@@ -26,7 +27,9 @@ export const TypeButtonContainer = styled(motion.div).attrs({ layout: true })`
 export const TypeButton = styled(OptionButton).attrs({
   size: "min(20vw, 100px)",
   fontSize: "min(max(12px, 2.5vw), 16px)",
-})``;
+})`
+  flex: unset;
+`;
 
 export const Content = styled(motion.div)`
   align-self: stretch;

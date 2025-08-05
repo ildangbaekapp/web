@@ -1,1 +1,1 @@
-export type ApplyType = "phone" | "sms" | "resume";
+export type ApplyType = "phone" | "resume";

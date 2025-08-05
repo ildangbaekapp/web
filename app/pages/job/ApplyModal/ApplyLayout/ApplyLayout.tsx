@@ -1,17 +1,11 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { MdCall, MdSend, MdSms } from "react-icons/md";
+import { AnimatePresence } from "motion/react";
+import { useCallback, useState } from "react";
 
 import type { ApplyType } from "../ApplyModal.types";
 
 import ApplyContentView from "./ApplyContentView";
-import { APPLY_TYPES } from "./ApplyLayout.constants";
+import { APPLY_TYPES, iconMapping, variants } from "./ApplyLayout.constants";
 import * as S from "./ApplyLayout.styles";
-
-const iconMapping = {
-  phone: <MdCall />,
-  sms: <MdSms />,
-  resume: <MdSend />,
-};
 
 interface ApplyLayoutProps {
   applyType: ApplyType;
@@ -22,8 +16,22 @@ interface ApplyLayoutProps {
 export default function ApplyLayout({
   applyType,
   setApplyType,
-  onClose,
 }: ApplyLayoutProps) {
+  const [direction, setDirection] = useState(0);
+
+  const getIndex = useCallback(
+    (targetType: ApplyType) =>
+      APPLY_TYPES.findIndex(({ type }) => targetType === type),
+    []
+  );
+
+  const handleTypeChange = (type: ApplyType) => {
+    const newIndex = getIndex(type);
+    const oldIndex = getIndex(applyType);
+    setDirection(newIndex > oldIndex ? 1 : -1);
+    setApplyType(type);
+  };
+
   return (
     <S.Wrapper>
       {/* 지원 방법 버튼 */}
@@ -32,7 +40,7 @@ export default function ApplyLayout({
           <S.TypeButton
             key={type}
             isSelected={applyType === type}
-            onClick={() => setApplyType(type)}
+            onClick={() => handleTypeChange(type)}
             icon={iconMapping[type]}
             label={label}
           />
@@ -40,13 +48,15 @@ export default function ApplyLayout({
       </S.TypeButtonContainer>
 
       {/* 콘텐츠 */}
-      <AnimatePresence mode="popLayout" initial={false}>
+      <AnimatePresence custom={direction} mode="popLayout" initial={false}>
         <S.Content
           key={applyType}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ type: "spring", duration: 0.5 }}
         >
           <ApplyContentView applyType={applyType} />
         </S.Content>
