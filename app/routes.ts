@@ -10,6 +10,7 @@ export default [
     route("home", "./pages/home/home.tsx"),
     route("job/:jobId", "./pages/job/index.ts"),
     route("search", "./pages/search/search.tsx"),
+    route("resume/:resumeId", "./pages/resume/index.ts"),
   ]),
   ...prefix("auth", [
     route("login", "./pages/auth/login/login.tsx"),
