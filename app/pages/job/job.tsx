@@ -2,7 +2,6 @@ import type { DetailedJob, Details, WithBookmark } from "@types";
 import { useMemo, useState } from "react";
 import { MdBookmark, MdBookmarkBorder, MdSend } from "react-icons/md";
 
-import FilterMatchBadge from "~/components/common/FilterMatchBadge/FilterMatchBadge";
 import Button from "~/components/ui/Button";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
@@ -12,6 +11,7 @@ import theme from "~/styles/theme";
 import getJobDetailValueText from "~/utils/getJobDetailValueText";
 import jobSatisfiesFilters from "~/utils/jobSatisfiesFilters";
 
+import FilterMatchBadge from "./FilterMatchBadge";
 import { mockJob } from "./job.constants";
 import * as S from "./job.styles";
 
