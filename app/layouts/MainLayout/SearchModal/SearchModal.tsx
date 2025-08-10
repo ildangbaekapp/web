@@ -1,15 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "styled-components";
 
+import FilterEdit from "~/components/common/FilterEdit";
 import Modal from "~/components/ui/Modal";
 import { useModalStore } from "~/store/modalStore";
+import { useSearchStore } from "~/store/searchStore";
 
-import FilterModalView from "./FilterModalView";
 import * as S from "./SearchModal.styles";
 import SearchModalView from "./SearchModalView";
 
 export default function SearchModal() {
   const theme = useTheme();
+  const { filter, setFilter } = useSearchStore();
   const { modalState, setModalState } = useModalStore();
 
   return (
@@ -44,7 +46,11 @@ export default function SearchModal() {
 
             {/* 필터 모달 */}
             {modalState === "filter" && (
-              <FilterModalView onBack={() => setModalState("search")} />
+              <FilterEdit
+                onBack={() => setModalState("search")}
+                filter={filter}
+                setFilter={setFilter}
+              />
             )}
           </motion.div>
         </AnimatePresence>

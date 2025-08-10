@@ -6,7 +6,7 @@ import { useTheme } from "styled-components";
 import Button from "~/components/ui/Button";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
-import { useSearchStore, initialFilter } from "~/store/searchStore";
+import { initialFilter } from "~/store/searchStore";
 import getFilterValueText from "~/utils/getFilterValueText";
 
 import FilterEditView from "./FilterEditView";
@@ -14,13 +14,18 @@ import FilterMenuItem from "./FilterMenuItem";
 import { filterLabels } from "./FilterModalView.constants";
 import * as S from "./FilterModalView.styles";
 
-interface FilterModalViewProps {
+interface FilterEditProps {
   onBack: () => void;
+  filter: Filters;
+  setFilter: (filter: Partial<Filters>) => void;
 }
 
-export default function FilterModalView({ onBack }: FilterModalViewProps) {
+export default function FilterEdit({
+  onBack,
+  filter,
+  setFilter,
+}: FilterEditProps) {
   const theme = useTheme();
-  const { filter, setFilter } = useSearchStore();
 
   const [selectedFilter, setSelectedFilter] = useState<keyof Filters>("type");
   const [tempFilter, setTempFilter] = useState(filter);
