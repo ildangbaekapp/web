@@ -1,4 +1,4 @@
-import type { Details, Filters, Location } from "job";
+import type { Details, Filters, Location } from "@types";
 
 const isSameLocation = (a: Location, b: Location) =>
   a.first === b.first && a.second === b.second && a.third === b.third;

@@ -1,4 +1,4 @@
-import type { JobType } from "job";
+import type { JobType } from "@types";
 import { FaIndustry, FaDolly } from "react-icons/fa";
 import { MdTwoWheeler, MdGridView } from "react-icons/md";
 

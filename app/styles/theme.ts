@@ -1,5 +1,5 @@
+import type { Colors } from "@types";
 import type { DefaultTheme } from "styled-components";
-import type { Colors } from "theme";
 
 const colors: Colors = {
   background: { normal: "#f8f8f8", light: "#e7e7e7", dark: "#c6c6c6" },

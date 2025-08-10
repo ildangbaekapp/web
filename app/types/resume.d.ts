@@ -1,4 +1,4 @@
-declare module "resume" {
+declare module "@types" {
   import type {
     Career,
     Duration,
@@ -7,7 +7,7 @@ declare module "resume" {
     SalaryRange,
     Time,
     Weekday,
-  } from "job";
+  } from "@types";
 
   export interface Resume {
     id: string;

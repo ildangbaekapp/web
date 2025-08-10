@@ -1,4 +1,4 @@
-import type { Filters } from "job";
+import type { Filters } from "@types";
 import { useMemo } from "react";
 
 import CareerFilter from "./CareerFilter";

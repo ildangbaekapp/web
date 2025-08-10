@@ -1,4 +1,4 @@
-import type { Job, WithBookmark } from "job";
+import type {  Job, WithBookmark } from "@types";
 
 export const jobs: WithBookmark<Job>[] = [
   {

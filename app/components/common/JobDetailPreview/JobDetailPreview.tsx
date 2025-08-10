@@ -1,4 +1,4 @@
-import type { Details } from "job";
+import type { Details } from "@types";
 
 import getJobDetailLabel from "~/utils/getJobDetailLabel";
 

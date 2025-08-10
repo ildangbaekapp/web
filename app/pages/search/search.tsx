@@ -1,4 +1,4 @@
-import type { Filters } from "job";
+import type { Filters } from "@types";
 import { AnimatePresence } from "motion/react";
 import { useMemo } from "react";
 import { MdChevronRight, MdSearch } from "react-icons/md";

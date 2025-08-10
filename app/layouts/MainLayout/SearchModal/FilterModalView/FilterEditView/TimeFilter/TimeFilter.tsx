@@ -1,4 +1,4 @@
-import type { Filters, Time } from "job";
+import type { Filters, Time } from "@types";
 import { useMemo, useState } from "react";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
 

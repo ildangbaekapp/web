@@ -1,5 +1,5 @@
+import type { Colors } from "@types";
 import { useTheme } from "styled-components";
-import type { Colors } from "theme";
 
 import type { Palette } from "~/components/ui/Feedback";
 

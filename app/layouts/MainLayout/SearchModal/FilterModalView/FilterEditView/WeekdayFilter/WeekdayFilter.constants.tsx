@@ -1,4 +1,4 @@
-import type { Weekday } from "job";
+import type { Weekday } from "@types";
 
 export const weekdays: { label: string; value: Weekday }[] = [
   { label: "일", value: "sunday" },

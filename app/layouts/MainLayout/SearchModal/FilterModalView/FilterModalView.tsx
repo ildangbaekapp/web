@@ -1,4 +1,4 @@
-import type { Filters } from "job";
+import type { Filters } from "@types";
 import { useCallback, useState } from "react";
 import { MdArrowBack, MdCheck, MdRefresh } from "react-icons/md";
 import { useTheme } from "styled-components";

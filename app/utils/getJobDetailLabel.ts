@@ -1,4 +1,4 @@
-import type { Details } from "job";
+import type { Details } from "@types";
 
 export default function getJobDetailLabel(detailKey: keyof Details): string {
   switch (detailKey) {

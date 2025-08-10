@@ -1,4 +1,4 @@
-import type { JobType, Weekday, SalaryRange, Details } from "job";
+import type { Details, JobType, SalaryRange, Weekday } from "@types";
 
 import getKoreanNumber from "~/utils/getKoreanNumber";
 

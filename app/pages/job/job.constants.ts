@@ -1,4 +1,4 @@
-import type { DetailedJob, WithBookmark } from "job";
+import type { DetailedJob, WithBookmark } from "@types";
 
 export const mockJob: WithBookmark<DetailedJob> = {
   id: 1,

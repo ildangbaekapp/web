@@ -1,4 +1,4 @@
-import type { DetailedJob, Details, WithBookmark } from "job";
+import type { DetailedJob, Details, WithBookmark } from "@types";
 import { useMemo, useState } from "react";
 import { MdBookmark, MdBookmarkBorder, MdSend } from "react-icons/md";
 

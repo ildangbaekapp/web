@@ -1,4 +1,4 @@
-declare module "job" {
+declare module "@types" {
   export type JobType = "cargo" | "industry" | "delivery" | "flex";
 
   export type Career = number;

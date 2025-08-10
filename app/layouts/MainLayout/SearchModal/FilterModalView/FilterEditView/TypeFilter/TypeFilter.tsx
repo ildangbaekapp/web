@@ -1,4 +1,4 @@
-import type { JobType } from "job";
+import type { JobType } from "@types";
 import { useCallback, useMemo } from "react";
 
 import { typeOptions } from "./TypeFilter.constants";

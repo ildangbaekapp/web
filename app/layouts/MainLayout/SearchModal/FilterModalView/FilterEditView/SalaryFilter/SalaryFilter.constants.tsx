@@ -1,4 +1,4 @@
-import type { SalaryRange } from "job";
+import type { SalaryRange } from "@types";
 
 export const salaryTypes: SalaryRange["type"][] = [
   "hourly",

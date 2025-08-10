@@ -1,4 +1,4 @@
-import type { SalaryRange } from "job";
+import type { SalaryRange } from "@types";
 import { useMemo } from "react";
 
 import Checkbox from "~/components/ui/Checkbox";

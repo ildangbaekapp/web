@@ -1,4 +1,4 @@
-import type { Weekday } from "job";
+import type { Weekday } from "@types";
 import { useMemo } from "react";
 
 import Checkbox from "~/components/ui/Checkbox";

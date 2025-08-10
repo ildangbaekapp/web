@@ -1,4 +1,4 @@
-declare module "theme" {
+declare module "@types" {
   export interface Colors {
     background: ColorScheme;
     foreground: ColorScheme;

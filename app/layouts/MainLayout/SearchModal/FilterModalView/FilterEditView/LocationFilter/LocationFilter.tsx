@@ -1,4 +1,4 @@
-import type { RecruitLocation } from "job";
+import type { RecruitLocation } from "@types";
 import { AnimatePresence } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
 import { MdCheck, MdClose } from "react-icons/md";
