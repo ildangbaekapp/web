@@ -15,7 +15,7 @@ export const Container = styled.div`
   display: inline-flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 0 0 100px 0;
+    padding: 0 10px 100px 10px;
   }
 `;
 
@@ -33,11 +33,6 @@ export const Overview = styled.div`
   align-items: center;
   width: 100%;
   padding: 20px 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: calc(100% - 20px);
-    margin: 0 10px;
-  }
 `;
 
 export const Text = styled.div`
@@ -70,9 +65,9 @@ export const LastUpdated = styled.div`
   font-weight: 500;
 `;
 
-export const DetailsList = styled.div`
+export const DetailContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
   gap: 20px 40px;
 `;
@@ -110,6 +105,8 @@ export const DetailValue = styled.div`
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: 16px;
   color: ${({ theme }) => theme.colors.secondary.normal};
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const IconWrapper = styled.div`
@@ -130,9 +127,4 @@ export const BodyInput = styled(Input)`
   font-size: 16px;
   line-height: 1.5;
   resize: vertical;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: calc(100% - 20px);
-    margin: 0 10px;
-  }
 `;

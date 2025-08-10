@@ -40,7 +40,7 @@ export default function ResumePage() {
           </S.ButtonContainer>
         </S.Overview>
 
-        <S.DetailsList>
+        <S.DetailContainer>
           {detailKeys.map((detailKey) => (
             <S.DetailWrapper key={detailKey}>
               <S.DetailLabel>{getJobDetailLabel(detailKey)}</S.DetailLabel>
@@ -56,7 +56,7 @@ export default function ResumePage() {
               </S.DetailItemWrapper>
             </S.DetailWrapper>
           ))}
-        </S.DetailsList>
+        </S.DetailContainer>
 
         {resume.body && <S.BodyInput as="textarea" value={resume.body} />}
       </S.Content>
