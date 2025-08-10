@@ -32,8 +32,8 @@ export const Left = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 `;
 

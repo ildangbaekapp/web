@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import Feedback from "~/components/ui/Feedback";
@@ -21,8 +22,11 @@ export const ResumeContainer = styled.div`
   align-self: stretch;
 `;
 
-export const ResumeWrapper = styled(Feedback)<{ $selected: boolean }>`
+export const ResumeWrapper = styled(Feedback).attrs({
+  transitionVariant: "none",
+})<{ $selected: boolean }>`
   width: 100%;
+  position: relative;
   border-radius: 24px;
   border: 1px solid
     ${({ $selected, theme }) =>
@@ -43,6 +47,13 @@ export const ResumeInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+`;
+
+export const EditButtonWrapper = styled(motion.div)`
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 `;
 
 export const ResumeTitle = styled.div<{ $selected: boolean }>`

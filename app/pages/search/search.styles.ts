@@ -102,8 +102,6 @@ export const JobContainer = styled(motion.div)`
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: 24px;
-  overflow: hidden;
 `;
 
 export const Divider = styled.div`
