@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { MdChevronRight, MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router";
 
-import DetailJobCard from "~/components/common/DetailJobCard";
 import usePalette from "~/hooks/usePalette";
 import { useModalStore } from "~/store/modalStore";
 import { initialFilter, useSearchStore } from "~/store/searchStore";
@@ -78,7 +77,7 @@ export default function SearchResult() {
       <S.JobContainer layout>
         {jobs.map((job, index) => (
           <>
-            <DetailJobCard
+            <S.StyledDetailJobCard
               key={job.id}
               thumbnail={job.thumbnail}
               companyName={job.company}

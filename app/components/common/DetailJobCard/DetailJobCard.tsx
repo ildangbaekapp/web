@@ -19,6 +19,8 @@ interface DetailJobCardProps {
   onClick?: () => void;
   onBookmarkClick?: () => void;
   details: Details;
+  className?: string;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export default function DetailJobCard({
@@ -28,6 +30,8 @@ export default function DetailJobCard({
   isBookmarked = false,
   onClick,
   details,
+  className,
+  ref,
 }: DetailJobCardProps) {
   const palette = usePalette("background");
 
@@ -37,7 +41,7 @@ export default function DetailJobCard({
   );
 
   return (
-    <S.JobCardWrapper palette={palette}>
+    <S.JobCardWrapper palette={palette} className={className} ref={ref}>
       <S.JobCard onClick={onClick}>
         <S.Top>
           <S.Thumbnail>

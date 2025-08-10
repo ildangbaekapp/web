@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import styled from "styled-components";
 
+import DetailJobCard from "~/components/common/DetailJobCard";
 import JobDetailPreview from "~/components/common/JobDetailPreview/JobDetailPreview";
 import Feedback from "~/components/ui/Feedback";
 
@@ -102,12 +103,19 @@ export const JobContainer = styled(motion.div)`
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: center;
+`;
+
+export const StyledDetailJobCard = styled(DetailJobCard)`
   border-radius: 24px;
-  overflow: hidden;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    border-radius: 0;
+  }
 `;
 
 export const Divider = styled.div`
-  width: 100%;
+  width: calc(100% - 48px);
   height: 1px;
   background: ${({ theme }) => theme.colors.background.light};
 `;
