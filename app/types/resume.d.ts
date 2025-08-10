@@ -14,8 +14,8 @@ declare module "@types" {
     name: string;
     lastUpdated: string;
     filters: {
-      type: JobType[];
-      career: Career;
+      type: JobType[] | null;
+      career: Career | null;
       weekday: Weekday[] | null;
       salary: SalaryRange | null;
       time: Time | "negotiable" | null;

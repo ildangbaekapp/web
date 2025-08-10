@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<{ $hasButton: boolean }>`
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  padding: 10px ${({ $hasButton }) => ($hasButton ? "10px" : "20px")};
 `;
 
 export const IconWrapper = styled.div`

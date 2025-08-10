@@ -6,7 +6,6 @@ import { useTheme } from "styled-components";
 import Button from "~/components/ui/Button";
 import IconButton from "~/components/ui/IconButton";
 import usePalette from "~/hooks/usePalette";
-import { initialFilter } from "~/store/searchStore";
 import getFilterValueText from "~/utils/getFilterValueText";
 
 import FilterEditView from "./FilterEditView";
@@ -15,19 +14,27 @@ import { filterLabels } from "./FilterModalView.constants";
 import * as S from "./FilterModalView.styles";
 
 interface FilterEditProps {
-  onBack: () => void;
+  title: string;
+  onBack?: () => void;
+  selectedFilter: keyof Filters;
+  setSelectedFilter: React.Dispatch<React.SetStateAction<keyof Filters>>;
   filter: Filters;
   setFilter: (filter: Partial<Filters>) => void;
+  originalFilter: Filters;
+  onApply?: () => void;
 }
 
 export default function FilterEdit({
+  title,
   onBack,
+  selectedFilter,
+  setSelectedFilter,
   filter,
   setFilter,
+  originalFilter,
+  onApply,
 }: FilterEditProps) {
   const theme = useTheme();
-
-  const [selectedFilter, setSelectedFilter] = useState<keyof Filters>("type");
   const [tempFilter, setTempFilter] = useState(filter);
 
   const palette = usePalette("background");
@@ -40,19 +47,19 @@ export default function FilterEdit({
   // 필터 적용 핸들러
   const handleApply = () => {
     setFilter(tempFilter);
-    onBack();
+    onApply?.();
   };
 
   // 전체 임시 필터 초기화 핸들러
   const handleResetAll = () => {
-    setTempFilter(initialFilter);
+    setTempFilter(originalFilter);
   };
 
   // 선택된 임시 필터 초기화 핸들러
   const handleResetCurrent = () => {
     setTempFilter((prev) => ({
       ...prev,
-      [selectedFilter]: initialFilter[selectedFilter],
+      [selectedFilter]: originalFilter[selectedFilter],
     }));
   };
 
@@ -66,13 +73,16 @@ export default function FilterEdit({
 
   return (
     <S.Wrapper>
-      <S.Header>
-        <IconButton onClick={onBack} palette={palette}>
-          <S.IconWrapper>
-            <MdArrowBack size={24} />
-          </S.IconWrapper>
-        </IconButton>
-        <S.Title>검색 필터</S.Title>
+      <S.Header $hasButton={onBack !== undefined}>
+        {/* 뒤로 가기 버튼 */}
+        {onBack && (
+          <IconButton onClick={onBack} palette={palette}>
+            <S.IconWrapper>
+              <MdArrowBack size={24} />
+            </S.IconWrapper>
+          </IconButton>
+        )}
+        <S.Title>{title}</S.Title>
       </S.Header>
 
       <S.Body>
@@ -85,6 +95,7 @@ export default function FilterEdit({
                 key={key}
                 label={filterLabels[key]}
                 value={getFilterValueText(key, tempFilter[key])}
+                isDefault={filter[key] === originalFilter[key]}
                 isModified={isModified(key)}
                 isSelected={selectedFilter === key}
                 onClick={() => setSelectedFilter(key)}

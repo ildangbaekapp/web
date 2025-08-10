@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { MdChevronRight } from "react-icons/md";
 
 import usePalette from "~/hooks/usePalette";
@@ -8,6 +7,7 @@ import * as S from "./FilterMenuItem.styles";
 interface FilterMenuItemProps {
   label: string;
   value: string;
+  isDefault: boolean;
   isModified: boolean;
   isSelected: boolean;
   onClick: () => void;
@@ -16,12 +16,11 @@ interface FilterMenuItemProps {
 export default function FilterMenuItem({
   label,
   value,
+  isDefault,
   isModified,
   isSelected,
   onClick,
 }: FilterMenuItemProps) {
-  const isDefault = useMemo(() => value === "설정 안 함", [value]);
-
   const [selectedPalette, normalPalette] = usePalette(["primaryBackground", "background"]);
 
   return (

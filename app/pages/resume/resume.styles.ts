@@ -27,12 +27,29 @@ export const Content = styled.div`
   width: 100%;
 `;
 
+export const FloatingButtonContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
+`;
+
 export const Overview = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 20px 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 `;
 
 export const Text = styled.div`
@@ -70,6 +87,10 @@ export const DetailContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   width: 100%;
   gap: 20px 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const DetailWrapper = styled.div`
@@ -86,9 +107,10 @@ export const DetailItemWrapper = styled(Feedback)`
   border: ${({ theme }) => `1px solid ${theme.colors.background.dark}`};
 `;
 
-export const DetailItem = styled.div`
+export const DetailItem = styled.a`
   display: flex;
   padding: 15px;
+  box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
